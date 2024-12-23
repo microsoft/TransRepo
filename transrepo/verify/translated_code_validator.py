@@ -14,14 +14,7 @@ class ParserError(Exception):
     pass
 
 def save_results(results, output_base_path):
-    """
-    Save test results to a JSON file
-    Args:
-        results: Test execution results
-        output_base_path: Base directory for output files
-    Returns:
-        str: Path to the saved results file
-    """
+    """Same as original implementation"""
     results_dir = os.path.join(output_base_path, 'test_results')
     os.makedirs(results_dir, exist_ok=True)
     
@@ -58,16 +51,6 @@ def handle_tree_sitter_error(error, file_path):
     }
 
 def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output_base_path):
-    """
-    Main function to copy skeleton code and execute tests
-    Args:
-        skeleton_path: Path to skeleton code
-        translated_path: Path to translated code
-        json_path: Path to test configuration JSON
-        output_base_path: Base directory for test outputs
-    Returns:
-        dict: Test execution results
-    """
     print("[DEBUG] Starting test execution process...")
     
     replacer = FunctionReplacer()
@@ -85,19 +68,151 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
     
     scorer = TestScoring()
     
-    # Rest of the function remains the same, just with English comments
-    # ... (Previous implementation)
+    with alive_bar(len(test_configs['tests']), spinner='stars', title='Running tests') as bar:
+        for test_case in test_configs['tests']:
+            test_info = test_case['test']
+            test_name = test_info['testname']
+            dependencies = test_case['dependencies']
+            
+            print(f"\n[DEBUG] Processing test: {test_name}")
+            
+            test_output_dir = os.path.join(output_base_path, f"test_{test_name}")
+            os.makedirs(test_output_dir, exist_ok=True)
+            
+            try:
+                # Copy skeleton structure
+                shutil.copytree(skeleton_path, test_output_dir, dirs_exist_ok=True)
+                
+                # Process dependencies with error handling
+                try:
+                    replacer.process_test_dependencies(
+                        translated_path,
+                        test_output_dir,
+                        dependencies
+                    )
+                except AttributeError as e:
+                    error_info = handle_tree_sitter_error(e, translated_path)
+                    results[test_name] = {
+                        'error': error_info,
+                        'build_score': 0,
+                        'test_score': 0,
+                        'total_score': 0
+                    }
+                    bar()
+                    continue
+                
+                build_result = subprocess.run(
+                    ['dotnet', 'build'],
+                    cwd=test_output_dir,
+                    capture_output=True,
+                    text=True
+                )
+                
+                if build_result.returncode == 0:
+                    test_result = subprocess.run(
+                        ['dotnet', 'test', '--filter', f"Category={test_name}"],
+                        cwd=test_output_dir,
+                        capture_output=True,
+                        text=True
+                    )
+                    
+                    test_status = 'success' if test_result.returncode == 0 else 'failed'
+                    
+                    test_data = {
+                        'build': 'success',
+                        'test': test_status,
+                        'test_output': test_result.stdout,
+                        'build_output': build_result.stdout,
+                        'test_error': test_result.stderr
+                    }
+                    
+                    score_results = scorer.calculate_final_score(test_data)
+                    results[test_name] = {**test_data, **score_results}
+                    print(f"Score for {test_name} is {score_results}")
+                    
+                else:
+                    results[test_name] = {
+                        'build': 'failed',
+                        'build_error': build_result.stderr,
+                        'build_output': build_result.stdout,
+                        'build_score': 0,
+                        'test_score': 0,
+                        'total_score': 0
+                    }
+                    
+            except Exception as e:
+                print(f"[ERROR] Exception in test {test_name}: {str(e)}")
+                print(f"[ERROR] Traceback: {traceback.format_exc()}")
+                results[test_name] = {
+                    'error': {
+                        'message': str(e),
+                        'traceback': traceback.format_exc()
+                    },
+                    'build_score': 0,
+                    'test_score': 0,
+                    'total_score': 0
+                }
+            
+            bar()
+    
+    total_score = 0
+    test_count = len(results)
+    successful_tests = 0
+    score_summary = {
+        'individual_scores': {},
+        'summary': {
+            'total_score': 0,
+            'average_score': 0,
+            'test_count': test_count,
+            'successful_tests': 0,
+            'success_rate': 0
+        }
+    }
+
+    # collect score for each test
+    for test_name, result in results.items():
+        test_score = result.get('total_score', 0)
+        total_score += test_score
+        score_summary['individual_scores'][test_name] = {
+            'total_score': test_score,
+            'build_score': result.get('build_score', 0),
+            'test_score': result.get('test_score', 0),
+            'build_status': result.get('build', 'failed'),
+            'test_status': result.get('test', 'failed')
+        }
+        
+        if result.get('build') == 'success' and result.get('test') == 'success':
+            successful_tests += 1
+
+    # calculate summary scores
+    score_summary['summary']['total_score'] = total_score
+    score_summary['summary']['average_score'] = total_score / test_count if test_count > 0 else 0
+    score_summary['summary']['successful_tests'] = successful_tests
+    score_summary['summary']['success_rate'] = (successful_tests / test_count * 100) if test_count > 0 else 0
+
+    # save detailed results
+    detailed_results_path = os.path.join(output_base_path, 'test_results_detailed.json')
+    with open(detailed_results_path, 'w', encoding='utf-8') as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+
+    # save score summary
+    score_summary_path = os.path.join(output_base_path, 'test_scores.json')
+    with open(score_summary_path, 'w', encoding='utf-8') as f:
+        json.dump(score_summary, f, indent=2, ensure_ascii=False)
+
+    print(f"\n[INFO] Test results saved to: {detailed_results_path}")
+    print(f"[INFO] Score summary saved to: {score_summary_path}")
+    
+    return results
 
 def main():
-    """Main entry point of the test execution framework"""
     print("[DEBUG] Initializing test execution framework...")
     
-    # Configure paths using relative paths
-    base_dir = Path(__file__).parent.parent  # Adjust according to your project structure
-    skeleton_path = base_dir / "output/skeleton/c_sharp/hutool_succ/hutool-script"
-    translated_path = base_dir / "output/java2csharp/baseline_one2one/hutool-script"
-    json_path = base_dir / "output/dependency/hutool-script/test_dependency.json"
-    output_base_path = base_dir / "output/java2csharp/validation/test-script"
+    # Configure paths
+    skeleton_path = "/home/v-jiahengwen/RepoTranslationAgent/output/skeleton/c_sharp/hutool_succ/hutool-script"
+    translated_path = "/home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/baseline_one2one/hutool-script"
+    json_path = "/home/v-jiahengwen/RepoTranslationAgent/output/dependency/hutool-script/test_dependency.json"
+    output_base_path = "/home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/validation/test-script"
     
     print("[DEBUG] Configuration:")
     print(f"[DEBUG] Skeleton Path: {skeleton_path}")
@@ -109,7 +224,7 @@ def main():
     os.makedirs(output_base_path, exist_ok=True)
     print("[DEBUG] Created output base directory")
     
-    # Configure progress bar settings
+    # Set progress bar style
     config_handler.set_global(
         length=40,
         spinner='stars',
@@ -119,18 +234,17 @@ def main():
     
     print("\n[INFO] Starting test execution...")
     
-    # Execute tests
+    # Run tests
     results = copy_skeleton_and_run_test(
-        str(skeleton_path),
-        str(translated_path),
-        str(json_path),
-        str(output_base_path)
+        skeleton_path,
+        translated_path,
+        json_path,
+        output_base_path
     )
     
-    # Save and display results
-    result_file = save_results(results, str(output_base_path))
+    # Save results to JSON file
+    result_file = save_results(results, output_base_path)
     
-    # Display test summary
     print("\n[INFO] Test Results Summary:")
     print("=" * 50)
     

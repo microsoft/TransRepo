@@ -11,43 +11,42 @@ from dependency_analyzer import DependencyAnalyzer
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from baseline.initial_translate import process_project
+from baseline.baseline_translate import process_project
 from baseline.java2csharp import translate_code, get_chat_completion, collect_java_files, save_csharp_files
 from verify.translated_code_validator import copy_skeleton_and_run_test
 
-"""
-Usage:
-This script optimizes Java to C# code translation using test feedback.
+class APIStats:
+    def __init__(self):
+        self.call_count = 0
+        self.total_prompt_tokens = 0
+        self.total_completion_tokens = 0
+        self.total_cost = 0
+    
+    def update_stats(self, response):
+        self.call_count += 1
+        # 假设response对象包含token统计信息
+        if hasattr(response, 'usage'):
+            self.total_prompt_tokens += response.usage.prompt_tokens
+            self.total_completion_tokens += response.usage.completion_tokens
+            # 可以根据不同模型设置不同的价格
+            prompt_cost = (response.usage.prompt_tokens / 1000) * 0.03  # GPT-4定价
+            completion_cost = (response.usage.completion_tokens / 1000) * 0.06
+            self.total_cost += prompt_cost + completion_cost
+    
+    def print_stats(self):
+        print(f"Total API calls: {self.call_count}")
+        print(f"Total prompt tokens: {self.total_prompt_tokens}")
+        print(f"Total completion tokens: {self.total_completion_tokens}")
+        print(f"Total cost: ${self.total_cost:.4f}")
 
-Key features:
-1. Performs initial Java to C# translation
-2. Runs tests on translated code
-3. Iteratively improves translation based on test results
-4. Handles JSON response parsing and error recovery
-5. Maintains optimization history
-
-Example command:
-python3 optimize_translation.py \
---input-path "/path/to/java/source" \
---skeleton-path "/path/to/csharp/skeleton" \
---output-path "/path/to/output" \
---test-config "/path/to/test/config.json"
-
-Required arguments:
---input-path: Path to Java source directory
---output-path: Path for C# output
---skeleton-path: Path to C# project skeleton  
---test-config: Path to test configuration JSON
---max-iterations: Maximum optimization iterations (default=3)
-"""
+api_stats = APIStats()
 
 def fix_json_escapes(json_str):
-    """Fix invalid escape sequences in JSON string"""
     return re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', json_str)
 
 def save_json_response(translation: Dict[str, str], output_path: str, filename: str = 'translation_result.json'):
     """Save translation results to JSON file"""
-    output_dir = os.path.dirname(output_path) 
+    output_dir = os.path.dirname(output_path)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
@@ -71,7 +70,6 @@ def save_error_info(failed_tests: Dict[str, str], output_path: str, iteration: i
             f.write("-" * 80 + "\n\n")
 
 def create_optimization_prompt(iteration_path: str, failed_tests: Dict[str, str]) -> List[Dict[str, str]]:
-    """Create prompt for optimization iteration using failed test info"""
     system_message = """You are a C# code specialist. You are debugging a C# repo which has compiling/functional errors.
     Please fix the C# codes based on the provided build/test errors.
     
@@ -84,7 +82,7 @@ def create_optimization_prompt(iteration_path: str, failed_tests: Dict[str, str]
     "File2.cs": "namespace Another { ... }"
     }"""
     
-    # Read all .cs files under src/main in current iteration folder
+    # 读取当前iteration文件夹中src/main下的所有.cs文件
     files_content = ""
     current_files = {}
     src_main_path = os.path.join(iteration_path, "src", "main")
@@ -134,13 +132,15 @@ def analyze_test_results(results: Dict) -> Dict[str, str]:
     
     return failed_tests
 
+from json.decoder import JSONDecodeError
+
 def extract_json_content(text: str) -> str:
     """Extract JSON content using regex pattern matching"""
-    # Match outermost curly braces and content
+    # 匹配最外层的花括号及其内容
     json_pattern = r'\{(?:[^{}]|(?R))*\}'
     matches = re.finditer(json_pattern, text, re.DOTALL)
     
-    # Get longest match
+    # 获取最长的匹配结果
     longest_match = ''
     for match in matches:
         if len(match.group()) > len(longest_match):
@@ -150,15 +150,15 @@ def extract_json_content(text: str) -> str:
 
 def clean_json_string(text: str) -> str:
     """Clean and normalize JSON string"""
-    # Remove common interfering characters
-    text = re.sub(r'```\w*\n?', '', text)  # Remove code block markers
-    text = re.sub(r'\n\s*\n', '\n', text)  # Remove extra blank lines
+    # 移除常见的干扰字符
+    text = re.sub(r'```\w*\n?', '', text)  # 移除代码块标记
+    text = re.sub(r'\n\s*\n', '\n', text)  # 移除多余空行
     text = text.strip()
     
-    # Fix common JSON format issues
-    text = text.replace('\\"', '"')  # Fix escaped quotes
-    text = text.replace('\\n', '\n')  # Fix newlines 
-    text = re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', text)  # Fix invalid escape chars
+    # 修正常见的JSON格式问题
+    text = text.replace('\\"', '"')  # 修正转义引号
+    text = text.replace('\\n', '\n')  # 修正换行符
+    text = re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', text)  # 修正无效的转义字符
     
     return text
 
@@ -178,36 +178,37 @@ def validate_json_structure(data: Dict[str, str]) -> bool:
 def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, str]:
     """Use optimized prompt to fix the code with improved error handling"""
     try:
-        # Get LLM response
+        # 获取LLM响应
         response = get_chat_completion(
             engine="gpt-4o-mini-20240718",
             messages=messages,
         )
+        api_stats.update_stats(response)
         print("Received response from LLM")
         
         if not response or not hasattr(response, 'choices') or not response.choices:
             raise ValueError("Invalid response format from LLM")
             
-        # Extract and clean response text
+        # 提取并清理响应文本
         response_text = response.choices[0].message.content.strip()
         response_text = response_text.replace('```json', '').replace('```', '')
 
-        # Extract JSON content
+        # 提取JSON内容
         start_idx = response_text.find('{')
         end_idx = response_text.rstrip().rfind('}') + 1
         
         if start_idx != -1 and end_idx != -1:
             response_text = response_text[start_idx:end_idx]
         
-        # Try parsing JSON
+        # 尝试解析JSON
         try:
             translated = json.loads(response_text)
         except json.JSONDecodeError:
-            # Try fixing JSON and parse again
+            # 尝试修复JSON并重新解析
             fixed_response = fix_json_escapes(response_text)
             translated = json.loads(fixed_response)
         
-        # Validate response structure
+        # 验证响应结构
         if not isinstance(translated, dict):
             raise ValueError("Response is not a dictionary")
         if not all(isinstance(k, str) and isinstance(v, str) for k, v in translated.items()):
@@ -218,13 +219,14 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
         
     except Exception as e:
         print(f"Error processing response: {str(e)}")
-        # Save failed response
+        # 保存失败的响应
         try:
             with open('failed_response.txt', 'w', encoding='utf-8') as f:
                 f.write(response_text)
         except Exception as write_error:
             print(f"Failed to save error response: {str(write_error)}")
         raise
+
 
 def optimize_translation(initial_translation: Dict[str, str],
                         skeleton_path: str,
@@ -248,13 +250,15 @@ def optimize_translation(initial_translation: Dict[str, str],
         
         if iteration == 0:
             initial_translation_path = os.path.join(output_base_path, "initial_translation")
-            # Delete all files in iteration_1 directory if exists
+            print(f"The path to initial translation files is {initial_translation_path}")
+            print(f"The path to iteration is {iteration_path}")
+            # 删除iteration_1目录中的所有文件（如果存在）
             if os.path.exists(iteration_path):
                 shutil.rmtree(iteration_path)
-            # Copy initial_translation directory to iteration_1
+            # 复制initial_translation目录到iteration_1
             shutil.copytree(initial_translation_path, iteration_path)
         else:
-            # Save current translation for other iterations
+            # 其他迭代正常保存当前翻译
             save_csharp_files(current_translation, iteration_path)
 
         # Run tests
@@ -309,82 +313,93 @@ def optimize_translation(initial_translation: Dict[str, str],
     return current_translation, optimization_history
 
 def main():
-    """Main function to run translation optimization process"""
     parser = argparse.ArgumentParser(description='Optimize Java to C# translation using test feedback')
-    parser.add_argument('--input-path', required=True, help='Path to Java source directory')
-    parser.add_argument('--output-path', required=True, help='Path for C# output')
-    parser.add_argument('--skeleton-path', required=True, help='Path to C# project skeleton')
-    parser.add_argument('--test-config', required=True, help='Path to test configuration JSON')
+    parser.add_argument('--input-path', required=True, help='Path to Java source directory containing multiple projects')
+    parser.add_argument('--output-path', required=True, help='Base path for C# output')
+    parser.add_argument('--skeleton-path', required=True, help='Base path to C# project skeletons')
+    parser.add_argument('--test-config', required=True, help='Path to test configuration JSON directory')
     parser.add_argument('--max-iterations', type=int, default=3, help='Maximum optimization iterations')
     
     args = parser.parse_args()
     
-    print("\n=== Starting Translation Optimization Process ===")
+    # Get all project folders under input directory
+    java_base_path = Path(args.input_path)
+    projects = [d.name for d in java_base_path.iterdir() if d.is_dir()]
     
-    # Create initial translation directory
-    initial_translation_path = Path(args.output_path) / "initial_translation"
-    initial_translation_path.mkdir(parents=True, exist_ok=True)
+    print(f"\n=== Found {len(projects)} projects to process: {', '.join(projects)} ===")
     
-    # Create dependency analysis directory
-    dependency_path = Path(args.output_path) / "dependencies"
-    dependency_path.mkdir(parents=True, exist_ok=True)
-    
-    # Perform initial translation
-    print("\nPerforming initial translation...")
-    java_root = Path(args.input_path)
-    cs_root = Path(args.skeleton_path)
-    
-    # Get project name (assume last part of input path is project name)
-    project_name = java_root.name
-    
-    # Use process_project for initial translation
-    # process_project(
-    #     java_root=java_root,
-    #     cs_root=cs_root,
-    #     output_root=initial_translation_path,
-    #     dependency_root=dependency_path,
-    #     project_name=project_name
-    # )
-    
-    # Collect translated files
-    initial_translation = {}
-    for cs_file in initial_translation_path.rglob('*.cs'):
-        relative_path = cs_file.relative_to(initial_translation_path)
-        with open(cs_file, 'r', encoding='utf-8') as f:
-            initial_translation[str(relative_path)] = f.read()
-    
-    print(f"\nInitial translation completed with {len(initial_translation)} files")
-    
-    # Create output directory
-    os.makedirs(args.output_path, exist_ok=True)
-    
-    # Optimize translation
-    final_translation, optimization_history = optimize_translation(
-        initial_translation=initial_translation,
-        skeleton_path=args.skeleton_path,
-        json_path=args.test_config,
-        output_base_path=args.output_path,
-        max_iterations=args.max_iterations
-    )
-    
-    # Save optimization history
-    history_path = os.path.join(args.output_path, 'optimization_history.json')
-    with open(history_path, 'w', encoding='utf-8') as f:
-        json.dump(optimization_history, f, indent=2)
-    
-    print(f"\n✓ Optimization complete. Results saved to: {args.output_path}")
-    print(f"✓ Optimization history saved to: {history_path}")
+    # Process each project
+    for project_name in projects:
+        print(f"\n=== Processing project: {project_name} ===")
+        
+        # Construct project-related paths
+        java_project_path = java_base_path / project_name
+        skeleton_project_path = Path(args.skeleton_path) / project_name
+        output_project_path = Path(args.output_path) / project_name
+        test_config_file = Path(args.test_config) / f"{project_name}.json"
+        
+        # Verify that required paths and files exist
+        if not all([java_project_path.exists(), skeleton_project_path.exists(), test_config_file.exists()]):
+            print(f"Skipping {project_name}: Missing required paths or config file")
+            continue
+        
+        # Create project output directory structure
+        initial_translation_path = output_project_path / "initial_translation"
+        dependency_path = output_project_path / "dependencies"
+        initial_translation_path.mkdir(parents=True, exist_ok=True)
+        dependency_path.mkdir(parents=True, exist_ok=True)
+        
+        # Perform initial translation
+        print(f"\nPerforming initial translation for {project_name}...")
+        
+        # Use process_project for initial translation
+        # process_project(
+        #     java_root=java_project_path,
+        #     cs_root=skeleton_project_path,
+        #     output_root=initial_translation_path,
+        #     dependency_root=dependency_path,
+        #     project_name=project_name
+        # )
+        
+        # Collect translated files
+        initial_translation = {}
+        for cs_file in initial_translation_path.rglob('*.cs'):
+            relative_path = cs_file.relative_to(initial_translation_path)
+            with open(cs_file, 'r', encoding='utf-8') as f:
+                initial_translation[str(relative_path)] = f.read()
+        
+        print(f"\nInitial translation completed with {len(initial_translation)} files")
+        
+        # Create project output directory
+        output_project_path.mkdir(parents=True, exist_ok=True)
+        
+        # Optimize translation
+        final_translation, optimization_history = optimize_translation(
+            initial_translation=initial_translation,
+            skeleton_path=str(skeleton_project_path),
+            json_path=str(test_config_file),
+            output_base_path=str(output_project_path),
+            max_iterations=args.max_iterations
+        )
+        
+        # Save optimization history
+        history_path = output_project_path / 'optimization_history.json'
+        with open(history_path, 'w', encoding='utf-8') as f:
+            json.dump(optimization_history, f, indent=2)
+        
+        print(f"\n✓ Optimization complete for {project_name}. Results saved to: {output_project_path}")
+        print(f"✓ Optimization history saved to: {history_path}")
+        api_stats.print_stats()
 
 if __name__ == "__main__":
     main()
 
-# Example command:
 # python3 optimize_translation.py \
-# --input-path "/home/v-jiahengwen/RepoTranslationAgent/data/java/hutool-test/hutool-script" \
-# --skeleton-path "/home/v-jiahengwen/RepoTranslationAgent/output/skeleton/c_sharp/hutool-test/hutool-script" \
-# --output-path "/home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/validation/test-script" \
-# --test-config "/home/v-jiahengwen/RepoTranslationAgent/output/dependency/hutool-script/test_dependency.json"
+# --input-path "/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin" \
+# --skeleton-path "/home/v-jiahengwen/RepoTranslationAgent/fixed_data/c_sharp_skeleton" \
+# --output-path "/home/v-jiahengwen/RepoTranslationAgent/fixed_data/validation" \
+# --test-config "/home/v-jiahengwen/RepoTranslationAgent/fixed_data/test_dependency"
 
-# File path examples:
+
 # /home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/validation/test-script/iteration_2/src/main/java/cn/hutool/script/Hutool.Script/ScriptUtil.cs
 # /home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/validation/test-script/iteration_2/java/cn/hutool/script/Hutool.Script/ScriptUtil.cs

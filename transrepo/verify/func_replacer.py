@@ -4,7 +4,7 @@ import os
 import shutil
 
 class FunctionReplacer:
-    def __init__(self, grammar_path='../baseline/build/my-languages.so'):
+    def __init__(self, grammar_path='/home/v-jiahengwen/RepoTranslationAgent/src/dependency/build/my-languages.so'):
         """
         Initialize FunctionReplacer
         Args:
@@ -48,6 +48,7 @@ class FunctionReplacer:
         """
         Replace multiple functions in a file based on function name and parameter types
         """
+        print("[Replacement DEBUG]: Entered replace_functions_in_file")
         try:
             with open(source_file, 'r', encoding='utf-8') as f:
                 source_code = f.read()
@@ -68,13 +69,13 @@ class FunctionReplacer:
                 if method_node.type == 'method_declaration':
                     method_name = method_node.child_by_field_name('name').text.decode('utf8')
                     param_types = self.get_parameter_types(method_node)
-                    
-                    # Find the end position of the method body
+                    # print(f"[Replacement DEBUG]: find the method {method_name}")
+                    # 查找方法体的结束位置
                     body = method_node.child_by_field_name('body')
                     if body:
-                        # Ensure including the last "}"
+                        # 确保包含最后的 "}"
                         end_byte = body.end_byte
-                        # Check characters after method body in source code to ensure complete brackets
+                        # 检查源代码中方法体后的字符，确保包含完整的大括号
                         while end_byte < len(source_code.encode('utf8')) and source_code.encode('utf8')[end_byte-1:end_byte] != b'}':
                             end_byte += 1
                         
@@ -97,7 +98,7 @@ class FunctionReplacer:
                 if method_node.type == 'method_declaration':
                     method_name = method_node.child_by_field_name('name').text.decode('utf8')
                     param_types = self.get_parameter_types(method_node)
-                    
+                    # print(f"[Replacement DEBUG]: find the method {method_name}")
                     # Check if this method should be replaced
                     for dep in dependencies:
                         if (dep['source_function'] == method_name and 
@@ -106,7 +107,6 @@ class FunctionReplacer:
                             # Find corresponding implementation in source file
                             source_method = source_methods.get((method_name, param_types))
                             if source_method:
-                                # Similarly ensure complete end position for target method
                                 body = method_node.child_by_field_name('body')
                                 if body:
                                     end_byte = body.end_byte
@@ -118,10 +118,12 @@ class FunctionReplacer:
                                         end_byte,
                                         source_method[2]
                                     ))
+                                    print("[Replacer]: Successfully add replacement")
                             break
 
             # Apply replacements in reverse order to maintain byte positions
             for start, end, new_content in sorted(replacements, reverse=True):
+                print("[Replacer]: Apply replacements")
                 modified_code = modified_code[:start] + new_content + modified_code[end:]
 
             return modified_code
@@ -148,8 +150,10 @@ class FunctionReplacer:
             source_file = os.path.join(source_path, file_path)
             output_file = os.path.join(output_path, file_path)
 
-            if not os.path.exists(source_file) or not os.path.exists(output_file):
-                print(f"[WARNING] Source or output file does not exist: {file_path}")
+            # if not os.path.exists(source_file) or not os.path.exists(output_file):
+            if not os.path.exists(source_file):
+                print(f"[WARNING] Source file does not exist: {file_path}")
+                print(f"[WARNING] Source file path:{source_file}")
                 continue
 
             print(f"[DEBUG] Processing file: {file_path}")
