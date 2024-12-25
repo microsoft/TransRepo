@@ -1,15 +1,19 @@
-import tree_sitter
-from tree_sitter import Language, Parser
+import json
 import os
 import shutil
+import tree_sitter
+from tree_sitter import Language, Parser
 
 class FunctionReplacer:
-    def __init__(self, grammar_path='/home/v-jiahengwen/RepoTranslationAgent/src/dependency/build/my-languages.so'):
+    def __init__(self, grammar_path='./my-language.so'):
         """
         Initialize FunctionReplacer
         Args:
             grammar_path: Path to the tree-sitter grammar library
         """
+        grammar_path = os.path.abspath(grammar_path)
+        print(f"[DEBUG] Resolved grammar_path: {grammar_path}")
+
         # Build grammar library if it doesn't exist
         if not os.path.exists(grammar_path):
             os.makedirs(os.path.dirname(grammar_path), exist_ok=True)
@@ -49,15 +53,15 @@ class FunctionReplacer:
         Replace multiple functions in a file based on function name and parameter types
         """
         print(f"[Replacement DEBUG] Total functions to replace: {len(dependencies)}")
-        # print("[Replacement DEBUG] Functions to find:", 
-        #     [(d['source_function'], d['parameter_types']) for d in dependencies])
-        
+
         functions_to_find = set((d['source_function'], d['parameter_types']) for d in dependencies)
         function_names_to_find = set(d['source_function'] for d in dependencies)
         
         found_in_source = set()
         found_in_output = set()
         found_complete_matches = set()
+
+        # 用来收集函数名匹配，但参数不匹配时的一些信息（如有需要也可拓展）
         name_only_matches_in_source = {}
         name_only_matches_in_output = {}
         
@@ -70,7 +74,7 @@ class FunctionReplacer:
             source_tree = self.java_parser.parse(bytes(source_code, 'utf8'))
             output_tree = self.java_parser.parse(bytes(output_code, 'utf8'))
 
-            # 修改查询以同时包含方法声明和构造函数
+            # 同时匹配方法声明 + 构造函数
             query = self.JAVA_LANGUAGE.query("""
                 (method_declaration
                     name: (identifier) @method_name) @method
@@ -79,27 +83,25 @@ class FunctionReplacer:
             """)
             
             source_methods = {}
-            # print("[Replacement DEBUG] Scanning source file for methods and constructors...")
             
+            # 遍历 source_file AST
             for node, capture_name in query.captures(source_tree.root_node):
                 if node.type in ['method_declaration', 'constructor_declaration']:
                     method_name = node.child_by_field_name('name').text.decode('utf8')
                     param_types = self.get_parameter_types(node)
                     signature = (method_name, param_types)
-                    
-                    # if node.type == 'constructor_declaration':
-                        # print(f"[Replacement DEBUG] Found constructor in source: {method_name} with params {param_types}")
-                    
-                    # 检查是否是我们要找的函数
+
+                    # 如果 signature 在我们的待匹配列表
                     if signature in functions_to_find:
                         found_in_source.add(signature)
                     
-                    # 记录函数名匹配的情况
+                    # 如果仅函数名在我们的待匹配列表
                     if method_name in function_names_to_find:
                         if method_name not in name_only_matches_in_source:
                             name_only_matches_in_source[method_name] = []
                         name_only_matches_in_source[method_name].append((param_types, signature))
-                    
+
+                    # 保存原函数（或构造函数）的代码片段
                     body = node.child_by_field_name('body')
                     if body:
                         end_byte = body.end_byte
@@ -112,10 +114,7 @@ class FunctionReplacer:
                             source_code[node.start_byte:end_byte]
                         )
             
-            # print(f"[Replacement DEBUG] Found {len(source_methods)} total methods/constructors in source file")
-            # print("[Replacement DEBUG] Methods/constructors found in source that we're looking for:", found_in_source)
-
-            # Find and replace matching methods in output file
+            # 遍历 output_file AST，用以找需要替换的位置
             modified_code = output_code
             replacements = []
             
@@ -125,18 +124,15 @@ class FunctionReplacer:
                     param_types = self.get_parameter_types(node)
                     signature = (method_name, param_types)
                     
-                    if node.type == 'constructor_declaration':
-                        print(f"[Replacement DEBUG] Found constructor in output: {method_name} with params {param_types}")
-                    
                     if signature in functions_to_find:
                         found_in_output.add(signature)
                     
-                    # 记录函数名匹配的情况
                     if method_name in function_names_to_find:
                         if method_name not in name_only_matches_in_output:
                             name_only_matches_in_output[method_name] = []
                         name_only_matches_in_output[method_name].append((param_types, signature))
                         
+                        # 如果源文件里存在该方法（signature 匹配到了），则进行替换
                         if signature in found_in_source:
                             source_method = source_methods.get(signature)
                             if source_method:
@@ -153,70 +149,102 @@ class FunctionReplacer:
                                     ))
                                     found_complete_matches.add(signature)
 
-            # 计算各种情况的函数
+            # 计算各种未找到的函数
             not_found_in_source = functions_to_find - found_in_source
             not_found_in_output = functions_to_find - found_in_output
-            found_but_no_match = (found_in_source & found_in_output) - found_complete_matches
 
-            # print("\n[Replacement DEBUG] Function Finding Status:")
-            # print(f"Functions not found in source file ({len(not_found_in_source)}):", not_found_in_source)
-            # print(f"Functions not found in output file ({len(not_found_in_output)}):", not_found_in_output)
-            # print(f"Functions found in both files but couldn't be matched ({len(found_but_no_match)}):", found_but_no_match)
-            # print(f"Successfully matched functions ({len(found_complete_matches)}):", found_complete_matches)
+            # 打印调试信息
+            print(f"\n[Replacement DEBUG] Functions not found in source ({len(not_found_in_source)}) => {not_found_in_source}")
+            print(f"[Replacement DEBUG] Functions not found in output ({len(not_found_in_output)}) => {not_found_in_output}")
+            print(f"[Replacement DEBUG] Successfully matched and replaced => {found_complete_matches}")
             
-            # print("\n[Replacement DEBUG] Name-only matches:")
-            # for func_name in function_names_to_find:
-            #     print(f"\nFunction name: {func_name}")
-            #     print("In source file:", 
-            #         name_only_matches_in_source.get(func_name, []))
-            #     print("In output file:", 
-            #         name_only_matches_in_output.get(func_name, []))
-                
             print(f"\nTotal replacements to make: {len(replacements)}")
 
-            # Apply replacements in reverse order to maintain byte positions
+            # 在 output_code 中替换相应函数体
             for start, end, new_content in sorted(replacements, reverse=True):
-                # print("[Replacement DEBUG] Applying replacement...")
                 modified_code = modified_code[:start] + new_content + modified_code[end:]
 
-            return modified_code
+            # 返回替换后的代码 以及 本次处理需要的缺失信息
+            return modified_code, not_found_in_source, not_found_in_output
 
         except Exception as e:
             print(f"[ERROR] Error processing file {source_file}: {str(e)}")
-            return None
+            # 出错时，无法完成替换，返回 None
+            return None, set(), set()
 
-    def process_test_dependencies(self, source_path, output_path, dependencies):
+    def process_test_dependencies(self, source_path, output_path, dependencies, json_log_path="~/missing_dependencies.json"):
         """
         Process test dependencies
         Args:
             source_path: Path to source code (containing the original implementations)
             output_path: Path for output (containing the files to be modified)
             dependencies: List of dependency information
+            json_log_path: File path for output JSON log of missing dependencies
         """
-        # Group dependencies by file
+        # 用于记录所有未找到的依赖（包括文件不存在、函数在源文件或输出文件里未找到）
+        missing_dependencies_log = []
+
+        # 按文件进行分组
         file_dependencies = {}
         for dep in dependencies:
             file_dependencies.setdefault(dep['file'], []).append(dep)
 
-        # Process each file
+        # 处理每个文件
         for file_path, deps in file_dependencies.items():
             source_file = os.path.join(source_path, file_path)
             output_file = os.path.join(output_path, file_path)
 
-            # if not os.path.exists(source_file) or not os.path.exists(output_file):
+            # 如果源文件不存在，则该文件下的所有依赖都标记为 file_not_found
             if not os.path.exists(source_file):
                 print(f"[WARNING] Source file does not exist: {file_path}")
-                print(f"[WARNING] Source file path:{source_file}")
-                continue
+                for dep in deps:
+                    missing_dependencies_log.append({
+                        "file": file_path,
+                        "function": dep['source_function'],
+                        "parameter_types": dep['parameter_types'],
+                        "reason": "file_not_found"
+                    })
+                continue  # 跳过后续替换
 
             print(f"[DEBUG] Processing file: {file_path}")
             
-            # Replace all matching functions in the file
-            print(f"[DEBUG]:")
-            modified_code = self.replace_functions_in_file(source_file, output_file, deps)
+            # 替换并获取没有找到的函数信息
+            modified_code, not_found_in_source, not_found_in_output = self.replace_functions_in_file(
+                source_file, output_file, deps
+            )
             
-            if modified_code:
-                print(f"[DEBUG] Writing modified file: {output_file}")
-                os.makedirs(os.path.dirname(output_file), exist_ok=True)
-                with open(output_file, 'w', encoding='utf-8') as f:
-                    f.write(modified_code)
+            # 如果替换出错，则跳过写入
+            if modified_code is None:
+                continue
+
+            # 记录“函数未在源文件找到”
+            for func_name, param_types in not_found_in_source:
+                missing_dependencies_log.append({
+                    "file": file_path,
+                    "function": func_name,
+                    "parameter_types": param_types,
+                    "reason": "function_not_found_in_source"
+                })
+
+            # 记录“函数未在输出文件找到”（即没有可以替换的位置）
+            for func_name, param_types in not_found_in_output:
+                missing_dependencies_log.append({
+                    "file": file_path,
+                    "function": func_name,
+                    "parameter_types": param_types,
+                    "reason": "function_not_found_in_output"
+                })
+
+            # 如果成功获取了替换后的内容，则写回 output_file
+            print(f"[DEBUG] Writing modified file: {output_file}")
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(modified_code)
+
+        # 最后，将所有未找到的依赖信息写入 JSON 文件
+        if missing_dependencies_log:
+            print(f"[INFO] Writing missing dependencies log to: {json_log_path}")
+            with open(json_log_path, 'w', encoding='utf-8') as jf:
+                json.dump({"missing_dependencies": missing_dependencies_log}, jf, indent=4)
+        else:
+            print("[INFO] All dependencies found. No missing dependencies to log.")
