@@ -50,9 +50,21 @@ def handle_tree_sitter_error(error, file_path):
         'details': error_msg
     }
 
-def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output_base_path):
-    print("[DEBUG] Starting test execution process...")
-    
+def copy_skeleton_and_run_test(
+    skeleton_path, 
+    translated_path, 
+    json_path, 
+    output_base_path
+):
+    """
+    处理单个库的复制、依赖替换、编译、测试流程
+    """
+    print(f"[DEBUG] Starting test execution process for:\n"
+          f"Skeleton Path: {skeleton_path}\n"
+          f"Translated Path: {translated_path}\n"
+          f"JSON Path: {json_path}\n"
+          f"Output Base Path: {output_base_path}")
+
     replacer = FunctionReplacer()
     results = {}
     
@@ -68,8 +80,17 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
     
     scorer = TestScoring()
     
-    with alive_bar(len(test_configs['tests']), spinner='stars', title='Running tests') as bar:
-        for test_case in test_configs['tests']:
+    # 拼出 missing_dependencies 的路径
+    missing_dependencies_path = os.path.join(output_base_path, "missing_dependencies.json")
+
+    # 取测试列表
+    tests = test_configs.get('tests', [])
+    if not tests:
+        print("[WARN] No tests found in JSON.")
+        return {}
+
+    with alive_bar(len(tests), spinner='stars', title='Running tests') as bar:
+        for test_case in tests:
             test_info = test_case['test']
             test_name = test_info['testname']
             dependencies = test_case['dependencies']
@@ -80,15 +101,16 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
             os.makedirs(test_output_dir, exist_ok=True)
             
             try:
-                # Copy skeleton structure
+                # 复制 skeleton 目录
                 shutil.copytree(skeleton_path, test_output_dir, dirs_exist_ok=True)
                 
-                # Process dependencies with error handling
+                # 处理依赖
                 try:
                     replacer.process_test_dependencies(
                         translated_path,
                         test_output_dir,
-                        dependencies
+                        dependencies,
+                        missing_dependencies_path  # 传入missing_dependencies
                     )
                 except AttributeError as e:
                     error_info = handle_tree_sitter_error(e, translated_path)
@@ -101,6 +123,7 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
                     bar()
                     continue
                 
+                # dotnet build
                 build_result = subprocess.run(
                     ['dotnet', 'build'],
                     cwd=test_output_dir,
@@ -109,6 +132,7 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
                 )
                 
                 if build_result.returncode == 0:
+                    # dotnet test
                     test_result = subprocess.run(
                         ['dotnet', 'test', '--filter', f"Category={test_name}"],
                         cwd=test_output_dir,
@@ -155,6 +179,8 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
             
             bar()
     
+    # ======= 生成总结分数 =======
+
     total_score = 0
     test_count = len(results)
     successful_tests = 0
@@ -169,7 +195,6 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
         }
     }
 
-    # collect score for each test
     for test_name, result in results.items():
         test_score = result.get('total_score', 0)
         total_score += test_score
@@ -184,57 +209,57 @@ def copy_skeleton_and_run_test(skeleton_path, translated_path, json_path, output
         if result.get('build') == 'success' and result.get('test') == 'success':
             successful_tests += 1
 
-    # calculate summary scores
     score_summary['summary']['total_score'] = total_score
     score_summary['summary']['average_score'] = total_score / test_count if test_count > 0 else 0
     score_summary['summary']['successful_tests'] = successful_tests
     score_summary['summary']['success_rate'] = (successful_tests / test_count * 100) if test_count > 0 else 0
 
-    # save detailed results
+    # 保存详细结果
     detailed_results_path = os.path.join(output_base_path, 'test_results_detailed.json')
     with open(detailed_results_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # save score summary
+    # 保存分数总结
     score_summary_path = os.path.join(output_base_path, 'test_scores.json')
     with open(score_summary_path, 'w', encoding='utf-8') as f:
         json.dump(score_summary, f, indent=2, ensure_ascii=False)
 
     print(f"\n[INFO] Test results saved to: {detailed_results_path}")
     print(f"[INFO] Score summary saved to: {score_summary_path}")
-    
+
+    # 返回本库的所有结果
     return results
 
-def main():
-    print("[DEBUG] Initializing test execution framework...")
+
+def run_tests_for_library(
+    library_name,
+    parent_skeleton_path,
+    parent_translated_path,
+    parent_json_path,
+    parent_output_path
+):
+    """
+    处理单个库的入口
+    """
+    skeleton_path = os.path.join(parent_skeleton_path, library_name)
+    translated_path = os.path.join(parent_translated_path, library_name)
+    # JSON 文件名称与库名对应
+    json_path = os.path.join(parent_json_path, f"{library_name}.json")
+    output_base_path = os.path.join(parent_output_path, library_name)
     
-    # Configure paths
-    skeleton_path = "/home/v-jiahengwen/RepoTranslationAgent/output/skeleton/c_sharp/hutool_succ/hutool-script"
-    translated_path = "/home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/baseline_one2one/hutool-script"
-    json_path = "/home/v-jiahengwen/RepoTranslationAgent/output/dependency/hutool-script/test_dependency.json"
-    output_base_path = "/home/v-jiahengwen/RepoTranslationAgent/output/java2csharp/validation/test-script"
+    print("\n" + "=" * 60)
+    print(f"[INFO] Now processing library: {library_name}")
+    print("=" * 60)
     
-    print("[DEBUG] Configuration:")
-    print(f"[DEBUG] Skeleton Path: {skeleton_path}")
-    print(f"[DEBUG] Translated Path: {translated_path}")
-    print(f"[DEBUG] JSON Path: {json_path}")
-    print(f"[DEBUG] Output Base Path: {output_base_path}")
-    
-    # Create output directory if it doesn't exist
+    # 创建库的 output 根目录
     os.makedirs(output_base_path, exist_ok=True)
-    print("[DEBUG] Created output base directory")
+
+    # 如果对应的 JSON 文件不存在，就跳过
+    if not os.path.isfile(json_path):
+        print(f"[WARN] No JSON file found for {library_name}, skipping...")
+        return {}
     
-    # Set progress bar style
-    config_handler.set_global(
-        length=40,
-        spinner='stars',
-        bar='circles'
-    )
-    print("[DEBUG] Progress bar configuration set")
-    
-    print("\n[INFO] Starting test execution...")
-    
-    # Run tests
+    # 调用处理逻辑
     results = copy_skeleton_and_run_test(
         skeleton_path,
         translated_path,
@@ -242,37 +267,77 @@ def main():
         output_base_path
     )
     
-    # Save results to JSON file
+    # 将结果另存
     result_file = save_results(results, output_base_path)
     
-    print("\n[INFO] Test Results Summary:")
+    print("\n[INFO] Test Results Summary for", library_name)
     print("=" * 50)
     
     total_score = 0
     test_count = 0
-    
-    for test_name, result in results.items():
-        print(f"\nTest: {test_name}")
-        if 'error' in result:
-            print(f"[ERROR] Error occurred: {result['error']}")
-            print(f"[SCORE] 0/100")
-        else:
-            print(f"[INFO] Build Status: {result['build']}")
-            print(f"[INFO] Build Score: {result['build_score']}/30")
-            
-            if result['build'] == 'success':
-                print(f"[INFO] Test Status: {result['test']}")
-                print(f"[INFO] Test Score: {result['test_score']}/70")
-            
-            print(f"[SCORE] Total Score: {result['total_score']}/100")
-            
-            total_score += result['total_score']
-            test_count += 1
-    
+
+    # 打印结果
+    if isinstance(results, dict):
+        for test_name, result in results.items():
+            print(f"\nTest: {test_name}")
+            if 'error' in result:
+                print(f"[ERROR] Error occurred: {result['error']}")
+                print(f"[SCORE] 0/100")
+            else:
+                print(f"[INFO] Build Status: {result['build']}")
+                print(f"[INFO] Build Score: {result['build_score']}/30")
+                if result['build'] == 'success':
+                    print(f"[INFO] Test Status: {result['test']}")
+                    print(f"[INFO] Test Score: {result['test_score']}/70")
+                
+                print(f"[SCORE] Total Score: {result['total_score']}/100")
+                
+                total_score += result['total_score']
+                test_count += 1
+
     if test_count > 0:
         average_score = total_score / test_count
         print(f"\n[FINAL] Average Score Across All Tests: {average_score:.2f}/100")
         print(f"[INFO] Detailed results saved to: {result_file}")
+
+    return results
+
+
+def main():
+    """
+    遍历 parent_skeleton_path 下所有子目录(库)，依次处理
+    """
+    print("[DEBUG] Initializing test execution framework...")
+
+    # 设置四个父路径
+    parent_skeleton_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
+    parent_translated_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
+    parent_json_path = "/home/v-zhangxing/TransRepo-Data/data/test_dependency/fixed"
+    parent_output_path = "/home/v-zhangxing/test_output"
+    
+    # 设置进度条风格（全局）
+    config_handler.set_global(
+        length=40,
+        spinner='stars',
+        bar='circles'
+    )
+
+    # 获取 parent_skeleton_path 下的所有子目录（即库名）
+    all_dirs = [
+        d for d in os.listdir(parent_skeleton_path)
+        if os.path.isdir(os.path.join(parent_skeleton_path, d))
+           and not d.startswith('.')  # 可选：排除隐藏文件夹
+    ]
+
+    # 遍历所有库目录
+    for library_name in all_dirs:
+        run_tests_for_library(
+            library_name,
+            parent_skeleton_path,
+            parent_translated_path,
+            parent_json_path,
+            parent_output_path
+        )
 
 if __name__ == "__main__":
     main()
