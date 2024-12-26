@@ -33,19 +33,29 @@ class FunctionReplacer:
 
         self.csharp_parser = Parser()
         self.csharp_parser.set_language(self.CSHARP_LANGUAGE)
-
+    
     def get_parameter_types(self, method_node):
         """
-        Extract parameter types from a method node
+        Extract parameter types from a method or constructor node
         """
         parameters = []
-        formal_parameters = method_node.child_by_field_name('parameters')
+        formal_parameters = method_node.child_by_field_name('parameters')  # Updated field name
+        
+        if not formal_parameters:
+            print(f"[DEBUG] No 'parameters' field found in node type: {method_node.type}")
+        
         if formal_parameters:
             for param in formal_parameters.children:
-                if param.type == 'formal_parameter':
+                # print(f"[DEBUG] Processing parameter node: {param.type}")
+                if param.type == 'parameter':
                     type_node = param.child_by_field_name('type')
                     if type_node:
-                        parameters.append(type_node.text.decode('utf8'))
+                        param_type = type_node.text.decode('utf8')
+                        # print(f"[DEBUG] Found parameter type: {param_type}")
+                        parameters.append(param_type)
+                    else:
+                        print("[DEBUG] No 'type' field found for parameter")
+        
         return ','.join(parameters) if parameters else 'None'
 
     def replace_functions_in_file(self, source_file, output_file, dependencies):
@@ -71,17 +81,22 @@ class FunctionReplacer:
             with open(output_file, 'r', encoding='utf-8') as f:
                 output_code = f.read()
             
-            source_tree = self.java_parser.parse(bytes(source_code, 'utf8'))
-            output_tree = self.java_parser.parse(bytes(output_code, 'utf8'))
+            source_tree = self.csharp_parser.parse(bytes(source_code, 'utf8'))
+            output_tree = self.csharp_parser.parse(bytes(output_code, 'utf8'))
 
-            # 同时匹配方法声明 + 构造函数
-            query = self.JAVA_LANGUAGE.query("""
+            # # 同时匹配方法声明 + 构造函数
+            query = self.CSHARP_LANGUAGE.query("""
                 (method_declaration
-                    name: (identifier) @method_name) @method
+                    name: (identifier) @method_name
+                    parameters: (parameter_list)? ) @method
                 (constructor_declaration
-                    name: (identifier) @constructor_name) @constructor
+                    name: (identifier) @constructor_name
+                    parameters: (parameter_list)?
+                    initializer: (constructor_initializer
+                                    (argument_list)? )? ) @constructor
             """)
-            
+
+
             source_methods = {}
             
             # 遍历 source_file AST
@@ -244,7 +259,7 @@ class FunctionReplacer:
         # 最后，将所有未找到的依赖信息写入 JSON 文件
         if missing_dependencies_log:
             print(f"[INFO] Writing missing dependencies log to: {json_log_path}")
-            with open(json_log_path, 'w', encoding='utf-8') as jf:
+            with open(json_log_path, 'a', encoding='utf-8') as jf:
                 json.dump({"missing_dependencies": missing_dependencies_log}, jf, indent=4)
         else:
             print("[INFO] All dependencies found. No missing dependencies to log.")

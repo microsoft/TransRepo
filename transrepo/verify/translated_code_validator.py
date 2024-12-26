@@ -312,7 +312,7 @@ def main():
     # 设置四个父路径
     parent_skeleton_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
     parent_translated_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
-    parent_json_path = "/home/v-zhangxing/TransRepo-Data/data/test_dependency/fixed"
+    parent_json_path = "/home/v-zhangxing/TransRepo-Data/data/test_dependency/fixed_v2"
     parent_output_path = "/home/v-zhangxing/test_output"
     
     # 设置进度条风格（全局）
