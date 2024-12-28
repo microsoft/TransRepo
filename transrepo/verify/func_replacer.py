@@ -5,7 +5,7 @@ import tree_sitter
 from tree_sitter import Language, Parser
 
 class FunctionReplacer:
-    def __init__(self, grammar_path='./my-language.so'):
+    def __init__(self, grammar_path='/home/v-jiahengwen/RepoTranslationAgent/src/dependency/build/my-languages.so'):
         """
         Initialize FunctionReplacer
         Args:
@@ -66,15 +66,16 @@ class FunctionReplacer:
         to avoid missing braces due to whitespace or new lines.
         """
         print(f"[Replacement DEBUG] Total functions to replace: {len(dependencies)}")
-        # print("[Replacement DEBUG] Functions to find:", 
-        #     [(d['source_function'], d['parameter_types']) for d in dependencies])
-        
+
+        # Method signatures to replace (method_name, [param_type, param_type, ...])
         functions_to_find = set((d['source_function'], d['parameter_types']) for d in dependencies)
         function_names_to_find = set(d['source_function'] for d in dependencies)
 
         found_in_source = set()
         found_in_output = set()
         found_complete_matches = set()
+
+        # Statistics for name-only matches with mismatched parameters
         name_only_matches_in_source = {}
         name_only_matches_in_output = {}
 
@@ -87,54 +88,77 @@ class FunctionReplacer:
             source_tree = self.csharp_parser.parse(bytes(source_code, 'utf8'))
             output_tree = self.csharp_parser.parse(bytes(output_code, 'utf8'))
 
-            # 修改查询以同时包含方法声明和构造函数
-            query = self.JAVA_LANGUAGE.query("""
+            # Match both method declarations and constructors
+            query = self.CSHARP_LANGUAGE.query(r"""
                 (method_declaration
-                    name: (identifier) @method_name) @method
+                    name: (identifier) @method_name
+                    parameters: (parameter_list)? ) @method
+
                 (constructor_declaration
                     name: (identifier) @constructor_name
                     parameters: (parameter_list)?
                     initializer: (constructor_initializer
                                     (argument_list)? )? ) @constructor
             """)
-            
+
+            # ---------------------------------------------------------------------
+            # 1) Extract the "text inside braces" from each target method or constructor body in source file
+            # ---------------------------------------------------------------------
             source_methods = {}
-            # print("[Replacement DEBUG] Scanning source file for methods and constructors...")
-            
             for node, capture_name in query.captures(source_tree.root_node):
                 if node.type in ['method_declaration', 'constructor_declaration']:
                     method_name = node.child_by_field_name('name').text.decode('utf8')
                     param_types = self.get_parameter_types(node)  # User-defined function
                     signature = (method_name, param_types)
-                    
-                    # if node.type == 'constructor_declaration':
-                        # print(f"[Replacement DEBUG] Found constructor in source: {method_name} with params {param_types}")
-                    
-                    # 检查是否是我们要找的函数
+
+                    # If this is a function to be replaced
                     if signature in functions_to_find:
                         found_in_source.add(signature)
-                    
-                    # 记录函数名匹配的情况
+
                     if method_name in function_names_to_find:
                         name_only_matches_in_source.setdefault(method_name, [])
                         name_only_matches_in_source[method_name].append((param_types, signature))
-                    
-                    body = node.child_by_field_name('body')
-                    if body:
-                        end_byte = body.end_byte
-                        while end_byte < len(source_code.encode('utf8')) and source_code.encode('utf8')[end_byte-1:end_byte] != b'}':
-                            end_byte += 1
-                        
-                        source_methods[(method_name, param_types)] = (
-                            node.start_byte,
-                            end_byte,
-                            source_code[node.start_byte:end_byte]
-                        )
-            
-            # print(f"[Replacement DEBUG] Found {len(source_methods)} total methods/constructors in source file")
-            # print("[Replacement DEBUG] Methods/constructors found in source that we're looking for:", found_in_source)
 
-            # Find and replace matching methods in output file
+                    body_node = node.child_by_field_name('body')
+                    if body_node is not None:
+                        body_start = body_node.start_byte
+                        body_end = body_node.end_byte
+
+                        # Basic check: must have {}
+                        if body_end > body_start + 2:
+                            # tree-sitter usually ensures body_start points to '{' and body_end-1 points to '}' or following whitespace
+                            # First take the middle region
+                            # Get original body from source file
+                            original_body_text = source_code[body_start : body_end]
+
+                            # Find '{' from left to right
+                            left_brace_index = 0
+                            while left_brace_index < len(original_body_text) and original_body_text[left_brace_index] not in ['{']:
+                                left_brace_index += 1
+
+                            # Find '}' from right to left
+                            right_brace_index = len(original_body_text) - 1
+                            while right_brace_index > 0 and original_body_text[right_brace_index] not in ['}']:
+                                right_brace_index -= 1
+
+                            # Inside is everything between { and }
+                            inside_start = left_brace_index + 1
+                            inside_end   = right_brace_index
+
+                            if inside_end < inside_start:
+                                # If braces not found, skip
+                                source_methods[signature] = ""
+                            else:
+                                body_inside = original_body_text[inside_start:inside_end]
+                                source_methods[signature] = body_inside
+                        else:
+                            # Empty function body
+                            source_methods[signature] = ""
+
+            # ---------------------------------------------------------------------
+            # 2) Traverse target file, search for matching methods or constructors, and "only replace inside braces";
+            #    preserve external signature and braces
+            # ---------------------------------------------------------------------
             modified_code = output_code
             replacements = []
 
@@ -143,18 +167,14 @@ class FunctionReplacer:
                     method_name = node.child_by_field_name('name').text.decode('utf8')
                     param_types = self.get_parameter_types(node)
                     signature = (method_name, param_types)
-                    
-                    if node.type == 'constructor_declaration':
-                        print(f"[Replacement DEBUG] Found constructor in output: {method_name} with params {param_types}")
-                    
+
                     if signature in functions_to_find:
                         found_in_output.add(signature)
-                    
-                    # 记录函数名匹配的情况
+
                     if method_name in function_names_to_find:
                         name_only_matches_in_output.setdefault(method_name, [])
                         name_only_matches_in_output[method_name].append((param_types, signature))
-                        
+
                         if signature in found_in_source:
                             source_body_inside = source_methods.get(signature, None)
                             if source_body_inside is None:
@@ -194,38 +214,45 @@ class FunctionReplacer:
                                         0 <= left_brace_index < right_brace_index < len(original_body_text)):
                                     replacements.append((out_inside_start, out_inside_end, source_body_inside))
                                     found_complete_matches.add(signature)
+                                else:
+                                # Avoid exceptional cases
+                                    if(not out_inside_start <= out_inside_end):
+                                        print("-------Fucking Rat is here-------")
+                                        print(f"out_inside_start: {out_inside_start}")
+                                        print(f"out_inside_end: {out_inside_end}")
+                                        print(f"left_brace_index: {left_brace_index}")
+                                        print(f"right_brace_index: {right_brace_index}")
+                                    else:
+                                        print(f"left_brace_index is {left_brace_index}\nright_brace_index is {right_brace_index}\nlen(original_body_text) is {len(original_body_text)} ")
+                                    pass
 
-            # 计算各种情况的函数
+            # ---------------------------------------------------------------------
+            # 3) Count functions not found
+            # ---------------------------------------------------------------------
             not_found_in_source = functions_to_find - found_in_source
             not_found_in_output = functions_to_find - found_in_output
-            found_but_no_match = (found_in_source & found_in_output) - found_complete_matches
 
-            # print("\n[Replacement DEBUG] Function Finding Status:")
-            # print(f"Functions not found in source file ({len(not_found_in_source)}):", not_found_in_source)
-            # print(f"Functions not found in output file ({len(not_found_in_output)}):", not_found_in_output)
-            # print(f"Functions found in both files but couldn't be matched ({len(found_but_no_match)}):", found_but_no_match)
-            # print(f"Successfully matched functions ({len(found_complete_matches)}):", found_complete_matches)
-            
-            # print("\n[Replacement DEBUG] Name-only matches:")
-            # for func_name in function_names_to_find:
-            #     print(f"\nFunction name: {func_name}")
-            #     print("In source file:", 
-            #         name_only_matches_in_source.get(func_name, []))
-            #     print("In output file:", 
-            #         name_only_matches_in_output.get(func_name, []))
-                
-            print(f"\nTotal replacements to make: {len(replacements)}")
+            print(f"[Replacement DEBUG] Functions not found in source ({len(not_found_in_source)}) => {not_found_in_source}")
+            print(f"[Replacement DEBUG] Functions not found in output ({len(not_found_in_output)}) => {not_found_in_output}")
+            print(f"[Replacement DEBUG] Successfully matched and replaced => {found_complete_matches}")
 
-            # Apply replacements in reverse order to maintain byte positions
-            for start, end, new_content in sorted(replacements, reverse=True):
-                # print("[Replacement DEBUG] Applying replacement...")
-                modified_code = modified_code[:start] + new_content + modified_code[end:]
+            print(f"[Replacement DEBUG] Total replacements to make: {len(replacements)}")
 
-            return modified_code
+            # ---------------------------------------------------------------------
+            # 4) Execute replacements (in reverse order to avoid index offset issues)
+            # ---------------------------------------------------------------------
+            for start_idx, end_idx, new_content in sorted(replacements, reverse=True):
+                modified_code = (
+                    modified_code[:start_idx] 
+                    + new_content 
+                    + modified_code[end_idx:]
+                )
+
+            return modified_code, not_found_in_source, not_found_in_output
 
         except Exception as e:
             print(f"[ERROR] Error processing file {source_file}: {str(e)}")
-            return None
+            return None, set(), set()
 
     def process_test_dependencies(self, source_path, output_path, dependencies, json_log_path="~/missing_dependencies.json"):
         """
@@ -236,30 +263,70 @@ class FunctionReplacer:
             dependencies: List of dependency information
             json_log_path: File path for output JSON log of missing dependencies
         """
-        # Group dependencies by file
+        # Track all missing dependencies (including non-existent files, functions not found in source or output)
+        missing_dependencies_log = []
+
+        # Group by file
         file_dependencies = {}
         for dep in dependencies:
             file_dependencies.setdefault(dep['file'], []).append(dep)
 
-        # 处理每个文件
+        # Process each file
         for file_path, deps in file_dependencies.items():
             source_file = os.path.join(source_path, file_path)
             output_file = os.path.join(output_path, file_path)
 
-            # if not os.path.exists(source_file) or not os.path.exists(output_file):
+            # If source file doesn't exist, mark all dependencies as file_not_found
             if not os.path.exists(source_file):
                 print(f"[WARNING] Source file does not exist: {file_path}")
-                print(f"[WARNING] Source file path:{source_file}")
-                continue
+                for dep in deps:
+                    missing_dependencies_log.append({
+                        "file": file_path,
+                        "function": dep['source_function'],
+                        "parameter_types": dep['parameter_types'],
+                        "reason": "file_not_found"
+                    })
+                continue  # Skip replacement
 
             print(f"[DEBUG] Processing file: {file_path}")
             
-            # Replace all matching functions in the file
-            print(f"[DEBUG]:")
-            modified_code = self.replace_functions_in_file(source_file, output_file, deps)
+            # Replace and get information about functions not found
+            modified_code, not_found_in_source, not_found_in_output = self.replace_functions_in_file(
+                source_file, output_file, deps
+            )
             
-            if modified_code:
-                print(f"[DEBUG] Writing modified file: {output_file}")
-                os.makedirs(os.path.dirname(output_file), exist_ok=True)
-                with open(output_file, 'w', encoding='utf-8') as f:
-                    f.write(modified_code)
+            # Skip writing if replacement failed
+            if modified_code is None:
+                continue
+
+            # Record "function not found in source file"
+            for func_name, param_types in not_found_in_source:
+                missing_dependencies_log.append({
+                    "file": file_path,
+                    "function": func_name,
+                    "parameter_types": param_types,
+                    "reason": "function_not_found_in_source"
+                })
+
+            # Record "function not found in output file" (no replacement location)
+            for func_name, param_types in not_found_in_output:
+                missing_dependencies_log.append({
+                    "file": file_path,
+                    "function": func_name,
+                    "parameter_types": param_types,
+                    "reason": "function_not_found_in_output"
+                })
+
+            # If replacement content was successfully obtained, write back to output_file
+            print(f"[DEBUG] Writing modified file: {output_file}")
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(modified_code)
+
+        # Finally, write all missing dependency information to JSON file
+        if missing_dependencies_log:
+            print(f"[INFO] Writing missing dependencies log to: {json_log_path}")
+            with open(json_log_path, 'a', encoding='utf-8') as jf:
+                json.dump({"missing_dependencies": missing_dependencies_log}, jf, indent=4)
+        else:
+            print("[INFO] All dependencies found. No missing dependencies to log.")
