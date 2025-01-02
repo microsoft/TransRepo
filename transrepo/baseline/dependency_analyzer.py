@@ -12,7 +12,7 @@ class DependencyAnalyzer:
         self.parser.set_language(self.java_language)
 
     def analyze_project(self, project_path: Path, output_path: Path):
-        """分析项目依赖关系并生成依赖文件"""
+        """analyze project's dependency relationship and generate dependency file"""
         project_dependencies, method_definitions, method_usage = self._analyze_project_structure(project_path)
         self._save_dependency_analysis(
             project_path,
