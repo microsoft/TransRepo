@@ -3,42 +3,18 @@ import json
 import sys
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 from tqdm import tqdm
 import argparse
 import shutil
-from openai import OpenAI
 from dependency_analyzer import DependencyAnalyzer
+from openai import OpenAI
 
 sys.path.append(str(Path(__file__).parent.parent))
 
 from baseline.baseline_translate import process_project
-from baseline.baseline_translate_all_in_one import translate_code, get_chat_completion, collect_java_files
+from baseline.java2csharp import translate_code, get_chat_completion, collect_java_files, save_csharp_files
 from verify.translated_code_validator import copy_skeleton_and_run_test
-
-def save_csharp_files(translated_code, output_path):
-    """save translated C# codes"""
-    print(f"Saving {len(translated_code)} C# files to {output_path}")
-    file_count = 0
-    
-    for file_path, content in translated_code.items():
-        # replace .java with .cs
-        cs_file_path = file_path.replace('.java', '.cs')
-        full_path = os.path.join(output_path, cs_file_path)
-        
-        # create corresponding path
-        os.makedirs(os.path.dirname(full_path), exist_ok=True)
-        
-        try:
-            # save file
-            with open(full_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            file_count += 1
-            print(f"Saved file {file_count}: {full_path}")
-        except Exception as e:
-            print(f"Error saving file {full_path}: {str(e)}")
-
-    print(f"Successfully saved {file_count} files")
 
 def fix_json_escapes(json_str):
     return re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', json_str)
@@ -168,23 +144,14 @@ def validate_json_structure(data: Dict[str, str]) -> bool:
             raise ValueError(f"Invalid value type for key '{key}': {type(value)}, must be string")
     
     return True
-
 def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, str]:
     """Use optimized prompt to fix the code with improved error handling"""
-    response_text = ""
     try:
-        client = OpenAI(
-            api_key="sk-DyNFnsXcgwk2UvvD1162F5D88a5a4b79Ba38Af92499e4e42",
-            base_url="https://api.ohmygpt.com/v1"
-        )
-        
-        response = client.chat.completions.create(
-            model="claude-3-5-sonnet-20240620",
-            temperature=0,
-            messages=messages
+        response = get_chat_completion(
+        engine="gpt-4o-mini-20240718",
+        messages=messages,
         )
         print("Received response from LLM")
-        
         if not response or not hasattr(response, 'choices') or not response.choices:
             raise ValueError("Invalid response format from LLM")
             
@@ -222,12 +189,19 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
 
 # def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, str]:
 #     """Use optimized prompt to fix the code with improved error handling"""
+#     response_text = ""
 #     try:
-#         response = get_chat_completion(
-#             engine="gpt-4o-20240513",
-#             messages=messages,
+#         client = OpenAI(
+#             api_key="sk-DyNFnsXcgwk2UvvD1162F5D88a5a4b79Ba38Af92499e4e42",
+#             base_url="https://api.ai-gaochao.cn/v1"
 #         )
-#         api_stats.update_stats(response)
+        
+#         # get LLM response
+#         response = client.chat.completions.create(
+#             model="claude-3-5-sonnet-20240620",
+#             temperature=0,
+#             messages=messages
+#         )
 #         print("Received response from LLM")
         
 #         if not response or not hasattr(response, 'choices') or not response.choices:
@@ -247,6 +221,7 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
 #         except json.JSONDecodeError:
 #             fixed_response = fix_json_escapes(response_text)
 #             translated = json.loads(fixed_response)
+        
 #         if not isinstance(translated, dict):
 #             raise ValueError("Response is not a dictionary")
 #         if not all(isinstance(k, str) and isinstance(v, str) for k, v in translated.items()):
@@ -264,38 +239,148 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
 #             print(f"Failed to save error response: {str(write_error)}")
 #         raise
 
+def find_related_errors(file_path: str, failed_tests: Dict[str, str]) -> List[str]:
+    """Find errors related to a specific file from test outputs"""
+    related_errors = []
+    file_name = os.path.basename(file_path)
+    
+    for test_name, error_content in failed_tests.items():
+        error_blocks = error_content.split('\n\n')
+        
+        for block in error_blocks:
+            lines = block.strip().split('\n')
+            is_related = False
+            
+            if lines and (file_path in lines[0] or file_name in lines[0]):
+                is_related = True
+            else:
+                for line in lines:
+                    if file_path in line or file_name in line:
+                        is_related = True
+                        break
+            
+            if is_related:
+                related_errors.append(f"{test_name}:\n{block}")
+    print(f"[RELATED ERROR DUBUGING]: The related error of {file_name} is {related_errors}")
+    return related_errors
+
+def extract_code_identifiers(file_content: str) -> Set[str]:
+    identifiers = set()
+    
+    class_pattern = r'class\s+(\w+)'
+    identifiers.update(re.findall(class_pattern, file_content))
+    
+    method_pattern = r'(?:public|private|protected|internal|\s)\s+\w+\s+(\w+)\s*\('
+    identifiers.update(re.findall(method_pattern, file_content))
+    
+    property_pattern = r'(?:public|private|protected|internal|\s)\s+\w+\s+(\w+)\s*{\s*get'
+    identifiers.update(re.findall(property_pattern, file_content))
+    
+    return identifiers
+
+def find_related_errors_improved(file_path: str, file_content: str, failed_tests: Dict[str, str]) -> List[str]:
+    related_errors = []
+    file_name = os.path.basename(file_path)
+    identifiers = extract_code_identifiers(file_content)
+    
+    for test_name, error_content in failed_tests.items():
+        error_blocks = error_content.split('\n\n')
+        
+        for block in error_blocks:
+            lines = block.strip().split('\n')
+            is_related = False
+            
+            for line in lines:
+                if file_path in line or file_name in line:
+                    is_related = True
+                    break
+                    
+                for identifier in identifiers:
+                    if identifier in line:
+                        is_related = True
+                        break
+                
+                if check_error_lib_not_found(line) or \
+                   check_error_class_not_found(line) or \
+                   check_error_no_definition(line):
+                    for identifier in identifiers:
+                        if identifier in line:
+                            is_related = True
+                            break
+            
+            if is_related:
+                related_errors.append(f"{test_name}:\n{block}")
+    
+    return related_errors
+
+def create_single_file_prompt(file_path: str, file_content: str, related_errors: List[str]) -> List[Dict[str, str]]:
+    """Create a prompt for optimizing a single file"""
+    system_message = """You are a C# code specialist. You are debugging a C# repo which has compiling/functional errors.
+    Please fix the specific C# file based on the provided build/test errors.
+    
+    CRITICAL: Return ONLY the corrected C# code, without any markdown formatting, explanations, or introductory text.
+    Do not use code blocks or any other formatting - just return the raw C# code."""
+    
+    user_message = f"""Fix the following C# file based on the related errors:
+
+    File: {file_path}
+    Current code:
+    {file_content}
+
+    Related Errors:
+    {chr(10).join(related_errors)}"""
+
+    return [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_message}
+    ]
+
+def optimize_file(file_path: str, 
+                 file_content: str, 
+                 related_errors: List[str]) -> Optional[str]:
+    """Optimize a single file using LLM"""
+    try:
+        prompt = create_single_file_prompt(file_path, file_content, related_errors)
+        response = get_chat_completion(
+            engine="gpt-4-visual-preview",
+            messages=prompt,
+        )
+        
+        if not response or not hasattr(response, 'choices') or not response.choices:
+            return None
+            
+        return response.choices[0].message.content.strip()
+            
+    except Exception as e:
+        print(f"Error optimizing file {file_path}: {str(e)}")
+        return None
 
 def optimize_translation(initial_translation: Dict[str, str],
                         skeleton_path: str,
                         json_path: str,
                         output_base_path: str,
                         max_iterations: int = 3) -> Tuple[Dict[str, str], List[Dict]]:
-    """Iteratively optimize the code translation"""
+    """Iteratively optimize the code translation file by file"""
     current_translation = initial_translation
     iteration = 0
     optimization_history = []
     
-    # Save initial translation
     save_json_response(initial_translation, output_base_path, 'translation_initial.json')
     
     while iteration < max_iterations:
         print(f"\n=== Starting optimization iteration {iteration + 1}/{max_iterations} ===")
         
-        # Create iteration directory
         iteration_path = os.path.join(output_base_path, f"iteration_{iteration + 1}")
         os.makedirs(iteration_path, exist_ok=True)
         
         if iteration == 0:
             initial_translation_path = os.path.join(output_base_path, "initial_translation")
-            print(f"The path to initial translation files is {initial_translation_path}")
-            print(f"The path to iteration is {iteration_path}")
             if os.path.exists(iteration_path):
                 shutil.rmtree(iteration_path)
             shutil.copytree(initial_translation_path, iteration_path)
         else:
             save_csharp_files(current_translation, iteration_path)
 
-        # Run tests
         test_results = copy_skeleton_and_run_test(
             skeleton_path=skeleton_path,
             translated_path=iteration_path,
@@ -303,17 +388,13 @@ def optimize_translation(initial_translation: Dict[str, str],
             output_base_path=os.path.join(output_base_path, f"test_iteration_{iteration + 1}")
         )  
         
-        # Record iteration results
         iteration_record = {
             'iteration': iteration + 1,
             'test_results': test_results
         }
         optimization_history.append(iteration_record)
         
-        # Analyze test results
         failed_tests = analyze_test_results(test_results)
-        
-        # Save error information
         save_error_info(failed_tests, output_base_path, iteration + 1)
         
         if not failed_tests:
@@ -321,25 +402,24 @@ def optimize_translation(initial_translation: Dict[str, str],
             save_json_response(current_translation, output_base_path, 'translation_final.json')
             return current_translation, optimization_history
             
-        print(f"\n✗ Found {len(failed_tests)} failed tests. Attempting to fix...")
+        print(f"\n✗ Found {len(failed_tests)} failed tests. Attempting to fix file by file...")
         
-        try:
-            # Create optimization prompt with current iteration path
-            optimization_prompt = create_optimization_prompt(
-                iteration_path=iteration_path,
-                failed_tests=failed_tests
-            )
+        # New optimization logic - process each file individually
+        new_translation = {}
+        for file_path, content in current_translation.items():
+            related_errors = find_related_errors(file_path, failed_tests)
             
-            # Attempt re-translation
-            current_translation = translate_code_with_feedback(optimization_prompt)
-            
-            iteration_record['optimization_performed'] = True
-            
-        except Exception as e:
-            print(f"\n❌ Error during optimization: {str(e)}")
-            iteration_record['error'] = str(e)
-            break
-            
+            if related_errors:
+                print(f"\nOptimizing {file_path} with {len(related_errors)} related errors")
+                optimized_content = optimize_file(file_path, content, related_errors)
+                if optimized_content:
+                    new_translation[file_path] = optimized_content
+                else:
+                    new_translation[file_path] = content  # Keep original if optimization fails
+            else:
+                new_translation[file_path] = content  # Keep files without errors unchanged
+        
+        current_translation = new_translation
         iteration += 1
     
     print("\n⚠ Reached maximum iterations or encountered error")
@@ -386,14 +466,14 @@ def main():
         # Perform initial translation
         print(f"\nPerforming initial translation for {project_name}...")
         
-        #Use process_project for initial translation
-        process_project(
-            java_root=java_project_path,
-            cs_root=skeleton_project_path,
-            output_root=initial_translation_path,
-            dependency_root=dependency_path,
-            project_name=project_name
-        )
+        # # Use process_project for initial translation
+        # process_project(
+        #     java_root=java_project_path,
+        #     cs_root=skeleton_project_path,
+        #     output_root=initial_translation_path,
+        #     dependency_root=dependency_path,
+        #     project_name=project_name
+        # )
         
         # Collect translated files
         initial_translation = {}
