@@ -57,7 +57,7 @@ def copy_skeleton_and_run_test(
     output_base_path
 ):
     """
-    处理单个库的复制、依赖替换、编译、测试流程
+    Handle the copy, dependency replacement, compilation and test execution process for a single library
     """
     print(f"[DEBUG] Starting test execution process for:\n"
           f"Skeleton Path: {skeleton_path}\n"
@@ -80,10 +80,10 @@ def copy_skeleton_and_run_test(
     
     scorer = TestScoring()
     
-    # 拼出 missing_dependencies 的路径
+    # Construct path for missing_dependencies
     missing_dependencies_path = os.path.join(output_base_path, "missing_dependencies.json")
 
-    # 取测试列表
+    # Get test list
     tests = test_configs.get('tests', [])
     if not tests:
         print("[WARN] No tests found in JSON.")
@@ -101,16 +101,16 @@ def copy_skeleton_and_run_test(
             os.makedirs(test_output_dir, exist_ok=True)
             
             try:
-                # 复制 skeleton 目录
+                # Copy skeleton directory
                 shutil.copytree(skeleton_path, test_output_dir, dirs_exist_ok=True)
                 
-                # 处理依赖
+                # Process dependencies
                 try:
                     replacer.process_test_dependencies(
                         translated_path,
                         test_output_dir,
                         dependencies,
-                        missing_dependencies_path  # 传入missing_dependencies
+                        missing_dependencies_path  # Pass missing_dependencies path
                     )
                 except AttributeError as e:
                     error_info = handle_tree_sitter_error(e, translated_path)
@@ -179,7 +179,7 @@ def copy_skeleton_and_run_test(
             
             bar()
     
-    # ======= 生成总结分数 =======
+    # ======= Generate Summary Scores =======
 
     total_score = 0
     test_count = len(results)
@@ -214,12 +214,12 @@ def copy_skeleton_and_run_test(
     score_summary['summary']['successful_tests'] = successful_tests
     score_summary['summary']['success_rate'] = (successful_tests / test_count * 100) if test_count > 0 else 0
 
-    # 保存详细结果
+    # Save detailed results
     detailed_results_path = os.path.join(output_base_path, 'test_results_detailed.json')
     with open(detailed_results_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # 保存分数总结
+    # Save score summary
     score_summary_path = os.path.join(output_base_path, 'test_scores.json')
     with open(score_summary_path, 'w', encoding='utf-8') as f:
         json.dump(score_summary, f, indent=2, ensure_ascii=False)
@@ -227,7 +227,7 @@ def copy_skeleton_and_run_test(
     print(f"\n[INFO] Test results saved to: {detailed_results_path}")
     print(f"[INFO] Score summary saved to: {score_summary_path}")
 
-    # 返回本库的所有结果
+    # Return all results for this library
     return results
 
 
@@ -239,11 +239,11 @@ def run_tests_for_library(
     parent_output_path
 ):
     """
-    处理单个库的入口
+    Entry point for processing a single library
     """
     skeleton_path = os.path.join(parent_skeleton_path, library_name)
     translated_path = os.path.join(parent_translated_path, library_name)
-    # JSON 文件名称与库名对应
+    # JSON filename corresponds to library name
     json_path = os.path.join(parent_json_path, f"{library_name}.json")
     output_base_path = os.path.join(parent_output_path, library_name)
     
@@ -251,15 +251,15 @@ def run_tests_for_library(
     print(f"[INFO] Now processing library: {library_name}")
     print("=" * 60)
     
-    # 创建库的 output 根目录
+    # Create library output root directory
     os.makedirs(output_base_path, exist_ok=True)
 
-    # 如果对应的 JSON 文件不存在，就跳过
+    # Skip if corresponding JSON file doesn't exist
     if not os.path.isfile(json_path):
         print(f"[WARN] No JSON file found for {library_name}, skipping...")
         return {}
     
-    # 调用处理逻辑
+    # Call processing logic
     results = copy_skeleton_and_run_test(
         skeleton_path,
         translated_path,
@@ -267,7 +267,7 @@ def run_tests_for_library(
         output_base_path
     )
     
-    # 将结果另存
+    # Save results separately
     result_file = save_results(results, output_base_path)
     
     print("\n[INFO] Test Results Summary for", library_name)
@@ -276,7 +276,7 @@ def run_tests_for_library(
     total_score = 0
     test_count = 0
 
-    # 打印结果
+    # Print results
     if isinstance(results, dict):
         for test_name, result in results.items():
             print(f"\nTest: {test_name}")
@@ -303,40 +303,58 @@ def run_tests_for_library(
     return results
 
 
+import argparse
+
 def main():
     """
-    遍历 parent_skeleton_path 下所有子目录(库)，依次处理
+    Iterate through all subdirectories (libraries) under parent_skeleton_path and process them sequentially
     """
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description='Test execution framework for libraries')
+    parser.add_argument('--skeleton-path', 
+                       required=True,
+                       help='Path to the skeleton code directory')
+    parser.add_argument('--translated-path', 
+                       required=True,
+                       help='Path to the translated code directory')
+    parser.add_argument('--json-path', 
+                       required=True,
+                       help='Path to the test dependency JSON files')
+    parser.add_argument('--output-path', 
+                       required=True,
+                       help='Path to store test outputs')
+    parser.add_argument('--progress-bar-length', 
+                       type=int,
+                       default=40,
+                       help='Length of the progress bar (default: 40)')
+    
+    # Parse arguments
+    args = parser.parse_args()
+    
     print("[DEBUG] Initializing test execution framework...")
 
-    # 设置四个父路径
-    parent_skeleton_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
-    parent_translated_path = "/home/v-zhangxing/TransRepo-Data/data/c_sharp_skeleton"
-    parent_json_path = "/home/v-zhangxing/TransRepo-Data/data/test_dependency/fixed_v2"
-    parent_output_path = "/home/v-zhangxing/test_output"
-    
-    # 设置进度条风格（全局）
+    # Set progress bar style (global)
     config_handler.set_global(
-        length=40,
+        length=args.progress_bar_length,
         spinner='stars',
         bar='circles'
     )
 
-    # 获取 parent_skeleton_path 下的所有子目录（即库名）
+    # Get all subdirectories (library names) under parent_skeleton_path
     all_dirs = [
-        d for d in os.listdir(parent_skeleton_path)
-        if os.path.isdir(os.path.join(parent_skeleton_path, d))
-           and not d.startswith('.')  # 可选：排除隐藏文件夹
+        d for d in os.listdir(args.skeleton_path)
+        if os.path.isdir(os.path.join(args.skeleton_path, d))
+           and not d.startswith('.')  # Optional: exclude hidden folders
     ]
 
-    # 遍历所有库目录
+    # Iterate through all library directories
     for library_name in all_dirs:
         run_tests_for_library(
             library_name,
-            parent_skeleton_path,
-            parent_translated_path,
-            parent_json_path,
-            parent_output_path
+            args.skeleton_path,
+            args.translated_path,
+            args.json_path,
+            args.output_path
         )
 
 if __name__ == "__main__":
