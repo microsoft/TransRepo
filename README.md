@@ -12,7 +12,7 @@ TransRepo presents a novel approach to repository-level code translation evaluat
 
 ## Dataset 📦
 
-The benchmark dataset is available at [TransRepo-Data](https://github.com/microsoft/TransRepo-Data), containing:
+The benchmark dataset is available at "/data", containing:
 - Original Java source files
 - Translated C# skeleton code
 - Translated C# test files
