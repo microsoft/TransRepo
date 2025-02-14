@@ -1,0 +1,177 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestTrollActions",
+        "testClass": "SimpleTrollTest",
+        "package": "com.iluwatar.decorator",
+        "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/SimpleTrollTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "GetAttackPower",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Attack",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Append",
+          "sourceClass": "SimpleTrollTest",
+          "package": "com.iluwatar.decorator",
+          "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/SimpleTrollTest.cs",
+          "parameter_types": "LoggingEvent"
+        },
+        {
+          "source_function": "GetLastMessage",
+          "sourceClass": "SimpleTrollTest",
+          "package": "com.iluwatar.decorator",
+          "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/SimpleTrollTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FleeBattle",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetLogSize",
+          "sourceClass": "SimpleTrollTest",
+          "package": "com.iluwatar.decorator",
+          "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/SimpleTrollTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "SimpleTrollTest",
+          "package": "com.iluwatar.decorator",
+          "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/SimpleTrollTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestClubbedTroll",
+        "testClass": "ClubbedTrollTest",
+        "package": "com.iluwatar.decorator",
+        "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/ClubbedTrollTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "GetAttackPower",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetAttackPower",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Attack",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Attack",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FleeBattle",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FleeBattle",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.decorator",
+        "file": "src/test/java/com/iluwatar/decorator/Decorator.Tests/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "Attack",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FleeBattle",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetAttackPower",
+          "sourceClass": "SimpleTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/SimpleTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Attack",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FleeBattle",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetAttackPower",
+          "sourceClass": "ClubbedTroll",
+          "package": "com.iluwatar.decorator",
+          "file": "src/main/java/com/iluwatar/decorator/Decorator/ClubbedTroll.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

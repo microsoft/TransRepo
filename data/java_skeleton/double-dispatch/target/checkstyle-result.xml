@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/FlamingAsteroid.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/Rectangle.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/GameObject.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/constants/AppConstants.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/SpaceStationMir.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/SpaceStationIss.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-dispatch/src/main/java/com/iluwatar/doubledispatch/Meteoroid.java">
+</file>
+</checkstyle>

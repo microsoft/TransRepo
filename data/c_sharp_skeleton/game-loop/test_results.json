@@ -1,0 +1,49 @@
+{
+  "timestamp": "2024-12-25T12:38:03.615612",
+  "test_results": {
+    "TestUpdateVariableStepGameLoop": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestMoveBullet": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestGetBulletPosition": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestRun": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestStop": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestStop"
+      ]
+    },
+    "TestIsGameRunning": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestUpdateFixedStepGameLoop": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestUpdateFrameBasedGameLoop": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestUpdate",
+        "TestUpdate",
+        "TestUpdate"
+      ]
+    },
+    "ShouldExecuteApplicationWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    }
+  }
+}

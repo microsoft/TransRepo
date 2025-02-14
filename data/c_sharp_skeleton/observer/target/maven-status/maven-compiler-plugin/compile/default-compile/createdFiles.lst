@@ -1,0 +1,12 @@
+com/iluwatar/observer/generic/GenOrcs.class
+com/iluwatar/observer/App.class
+com/iluwatar/observer/generic/Observable.class
+com/iluwatar/observer/Weather.class
+com/iluwatar/observer/WeatherType.class
+com/iluwatar/observer/generic/GenHobbits.class
+com/iluwatar/observer/Hobbits.class
+com/iluwatar/observer/WeatherObserver.class
+com/iluwatar/observer/Orcs.class
+com/iluwatar/observer/generic/Race.class
+com/iluwatar/observer/generic/GenWeather.class
+com/iluwatar/observer/generic/Observer.class

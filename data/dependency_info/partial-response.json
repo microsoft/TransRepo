@@ -1,0 +1,157 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "ShouldReturnJsonForSpecifiedFieldsInVideo",
+        "testClass": "FieldJsonMapperTest",
+        "package": "com.iluwatar.partialresponse",
+        "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/FieldJsonMapperTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ToJson",
+          "sourceClass": "FieldJsonMapper",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/main/java/com/iluwatar/partialresponse/Partial-Response/FieldJsonMapper.cs",
+          "parameter_types": "Video,string[]"
+        },
+        {
+          "source_function": "GetString",
+          "sourceClass": "FieldJsonMapper",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/main/java/com/iluwatar/partialresponse/Partial-Response/FieldJsonMapper.cs",
+          "parameter_types": "Video,FieldInfo"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "VideoResourceTest",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldGiveVideoDetailsById",
+        "testClass": "VideoResourceTest",
+        "package": "com.iluwatar.partialresponse",
+        "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "VideoResourceTest",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "VideoResource",
+          "sourceClass": "VideoResource",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/VideoResource.cs",
+          "parameter_types": "IFieldJsonMapper,IDictionary<int, Video>"
+        },
+        {
+          "source_function": "Video",
+          "sourceClass": "Video",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/Video.cs",
+          "parameter_types": "int,string,int,string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldGiveSpecifiedFieldsInformationOfVideo",
+        "testClass": "VideoResourceTest",
+        "package": "com.iluwatar.partialresponse",
+        "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "VideoResourceTest",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "VideoResource",
+          "sourceClass": "VideoResource",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/VideoResource.cs",
+          "parameter_types": "IFieldJsonMapper,IDictionary<int, Video>"
+        },
+        {
+          "source_function": "Video",
+          "sourceClass": "Video",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/Video.cs",
+          "parameter_types": "int,string,int,string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldAllSpecifiedFieldsInformationOfVideo",
+        "testClass": "VideoResourceTest",
+        "package": "com.iluwatar.partialresponse",
+        "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response.Tests/VideoResourceTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VideoResource",
+          "sourceClass": "VideoResource",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/VideoResource.cs",
+          "parameter_types": "IFieldJsonMapper,IDictionary<int, Video>"
+        },
+        {
+          "source_function": "Video",
+          "sourceClass": "Video",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/Video.cs",
+          "parameter_types": "int,string,int,string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.partialresponse",
+        "file": "src/test/java/com/iluwatar/partialresponse/Partial-Response/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/main/java/com/iluwatar/partialresponse/Partial-Response/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "ToJson",
+          "sourceClass": "FieldJsonMapper",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/main/java/com/iluwatar/partialresponse/Partial-Response/FieldJsonMapper.cs",
+          "parameter_types": "Video,string[]"
+        },
+        {
+          "source_function": "GetString",
+          "sourceClass": "FieldJsonMapper",
+          "package": "com.iluwatar.partialresponse",
+          "file": "src/main/java/com/iluwatar/partialresponse/Partial-Response/FieldJsonMapper.cs",
+          "parameter_types": "Video,FieldInfo"
+        }
+      ]
+    }
+  ]
+}

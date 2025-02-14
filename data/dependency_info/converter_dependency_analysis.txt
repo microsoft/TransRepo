@@ -1,0 +1,41 @@
+Project: converter
+File: Converter.java
+Calls: fromDto.apply (Defined in: Unknown)
+Calls: fromEntity.apply (Defined in: Unknown)
+Calls: entities.stream (Defined in: Unknown)
+Calls: dtos.stream (Defined in: Unknown)
+File: UserConverter.java
+Calls: dto.active (Defined in: Unknown)
+Calls: dto.firstName (Defined in: Unknown)
+Calls: user.lastName (Defined in: Unknown)
+Calls: user.userId (Defined in: Unknown)
+Calls: dto.lastName (Defined in: Unknown)
+Calls: user.active (Defined in: Unknown)
+Calls: dto.email (Defined in: Unknown)
+Calls: user.firstName (Defined in: Unknown)
+File: App.java
+Calls: users.stream (Defined in: Unknown)
+Calls: userConverter.convertFromDto (Defined in: Converter.java)
+Calls: userConverter.createFromEntities (Defined in: Converter.java)
+Calls: dtoEntities.stream (Defined in: Unknown)
+Calls: List.of (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: User.java
+File: UserDto.java
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: ConverterTest.java
+Calls: userDto.active (Defined in: Unknown)
+Calls: String.valueOf (Defined in: Unknown)
+Calls: userConverter.convertFromEntity (Defined in: Converter.java)
+Calls: user.lastName (Defined in: Unknown)
+Calls: userDto.lastName (Defined in: Unknown)
+Calls: userConverter.createFromEntities (Defined in: Converter.java)
+Calls: userDto.email (Defined in: Unknown)
+Calls: user.active (Defined in: Unknown)
+Calls: List.of (Defined in: Unknown)
+Calls: userConverter.createFromDtos (Defined in: Converter.java)
+Calls: user.firstName (Defined in: Unknown)
+Calls: userDto.firstName (Defined in: Unknown)
+Calls: converter.convertFromEntity (Defined in: Converter.java)
+Calls: userConverter.convertFromDto (Defined in: Converter.java)

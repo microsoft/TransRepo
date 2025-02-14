@@ -1,0 +1,34 @@
+Project: decorator
+File: App.java
+Calls: troll.getAttackPower (Defined in: Troll.java)
+Calls: clubbedTroll.getAttackPower (Defined in: Troll.java)
+Calls: clubbedTroll.attack (Defined in: Troll.java)
+Calls: troll.attack (Defined in: Troll.java)
+Calls: clubbedTroll.fleeBattle (Defined in: Troll.java)
+Calls: troll.fleeBattle (Defined in: Troll.java)
+Calls: LOGGER.info (Defined in: Unknown)
+File: SimpleTroll.java
+Calls: LOGGER.info (Defined in: Unknown)
+File: ClubbedTroll.java
+Calls: decorated.fleeBattle (Defined in: Troll.java)
+Calls: decorated.attack (Defined in: Troll.java)
+Calls: decorated.getAttackPower (Defined in: Troll.java)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Troll.java
+File: SimpleTrollTest.java
+Calls: troll.getAttackPower (Defined in: Troll.java)
+Calls: LoggerFactory.getLogger (Defined in: Unknown)
+Calls: appender.getLogSize (Defined in: SimpleTrollTest.java)
+Calls: log.size (Defined in: Unknown)
+Calls: log.get (Defined in: Unknown)
+Calls: troll.attack (Defined in: Troll.java)
+Calls: troll.fleeBattle (Defined in: Troll.java)
+Calls: appender.stop (Defined in: Unknown)
+Calls: log.add (Defined in: Unknown)
+Calls: appender.getLastMessage (Defined in: SimpleTrollTest.java)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: ClubbedTrollTest.java
+Calls: clubbed.getAttackPower (Defined in: Troll.java)
+Calls: clubbed.attack (Defined in: Troll.java)
+Calls: clubbed.fleeBattle (Defined in: Troll.java)

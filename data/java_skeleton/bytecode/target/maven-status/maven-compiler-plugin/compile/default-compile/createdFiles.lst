@@ -1,0 +1,5 @@
+com/iluwatar/bytecode/VirtualMachine.class
+com/iluwatar/bytecode/Wizard.class
+com/iluwatar/bytecode/App.class
+com/iluwatar/bytecode/Instruction.class
+com/iluwatar/bytecode/util/InstructionConverterUtil.class

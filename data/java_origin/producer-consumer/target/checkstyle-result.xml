@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Item.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/producer-consumer/src/main/java/com/iluwatar/producer/consumer/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Consumer.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/producer-consumer/src/main/java/com/iluwatar/producer/consumer/ItemQueue.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Producer.java">
+</file>
+</checkstyle>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/promise/src/main/java/com/iluwatar/promise/PromiseSupport.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/promise/src/main/java/com/iluwatar/promise/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/promise/src/main/java/com/iluwatar/promise/Promise.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/promise/src/main/java/com/iluwatar/promise/Utility.java">
+</file>
+</checkstyle>

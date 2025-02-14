@@ -1,0 +1,347 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestDrawScene",
+        "testClass": "SceneTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/SceneTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Scene",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Draw",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "List<Tuple<int, int>>"
+        },
+        {
+          "source_function": "Swap",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestGetBuffer",
+        "testClass": "SceneTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/SceneTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Scene",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Draw",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetIndex",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetBuffer",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestClear",
+        "testClass": "FrameBufferTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/FrameBufferTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetIndex",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetPixels",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestDrawFrameBuffer",
+        "testClass": "FrameBufferTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/FrameBufferTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Draw",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetIndex",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetPixels",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestGetPixels",
+        "testClass": "FrameBufferTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/FrameBufferTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetPixels",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestClearAll",
+        "testClass": "FrameBufferTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/FrameBufferTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetPixels",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.doublebuffer",
+        "file": "src/test/java/com/iluwatar/doublebuffer/Double-Buffer.Tests/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "Scene",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FrameBuffer",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ClearAll",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Draw",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "List<Tuple<int, int>>"
+        },
+        {
+          "source_function": "Draw",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetIndex",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Swap",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetBuffer",
+          "sourceClass": "Scene",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/Scene.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "PrintBlackPixelCoordinate",
+          "sourceClass": "App",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/App.cs",
+          "parameter_types": "Buffer"
+        },
+        {
+          "source_function": "GetPixels",
+          "sourceClass": "FrameBuffer",
+          "package": "com.iluwatar.doublebuffer",
+          "file": "src/main/java/com/iluwatar/doublebuffer/Double-Buffer/FrameBuffer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

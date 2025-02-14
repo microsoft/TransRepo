@@ -1,0 +1,70 @@
+{
+  "timestamp": "2024-12-25T12:38:11.404078",
+  "test_results": {
+    "TestLiteral": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestSetHealth": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestSetHealth"
+      ]
+    },
+    "TestSetAgility": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestSetAgility"
+      ]
+    },
+    "TestSetWisdom": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestSetWisdom"
+      ]
+    },
+    "TestGetHealth": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestPlaySound": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestPlaySound"
+      ]
+    },
+    "TestSpawnParticles": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestSpawnParticles"
+      ]
+    },
+    "TestInvalidInstruction": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestInvalidInstruction"
+      ]
+    },
+    "ShouldExecuteApplicationWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestEmptyInstruction": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestInstructions": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestInstructions"
+      ]
+    }
+  }
+}

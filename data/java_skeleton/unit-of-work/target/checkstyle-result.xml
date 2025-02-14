@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/UnitActions.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/ArmsDealer.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/WeaponDatabase.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/UnitOfWork.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/unit-of-work/src/main/java/com/iluwatar/unitofwork/Weapon.java">
+</file>
+</checkstyle>

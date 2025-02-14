@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-buffer/src/main/java/com/iluwatar/doublebuffer/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-buffer/src/main/java/com/iluwatar/doublebuffer/Pixel.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-buffer/src/main/java/com/iluwatar/doublebuffer/FrameBuffer.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-buffer/src/main/java/com/iluwatar/doublebuffer/Scene.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/double-buffer/src/main/java/com/iluwatar/doublebuffer/Buffer.java">
+</file>
+</checkstyle>

@@ -1,0 +1,134 @@
+{
+  "timestamp": "2024-12-25T12:37:43.620087",
+  "test_results": {
+    "TestConstructorMeteoroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestConstructorMeteoroid"
+      ]
+    },
+    "TestCollideFlamingAsteroidMeteoroid": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideMeteoroidMeteoroid": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestCollideSpaceStationIssMeteoroid": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideSpaceStationMirMeteoroid": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestConstructorSpaceStationIss": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestConstructorSpaceStationIss"
+      ]
+    },
+    "TestCollideFlamingAsteroidSpaceStationIss": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideMeteoroidSpaceStationIss": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestCollideSpaceStationIssSpaceStationIss": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideSpaceStationMirSpaceStationIss": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestConstructorSpaceStationMir": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestConstructorSpaceStationMir"
+      ]
+    },
+    "TestCollideFlamingAsteroidSpaceStationMir": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideMeteoroidSpaceStationMir": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "TestCollideSpaceStationIssSpaceStationMir": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestCollideSpaceStationMirSpaceStationMir": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestConstructorFlamingAsteroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestConstructorFlamingAsteroid"
+      ]
+    },
+    "TestCollideFlamingAsteroidFlamingAsteroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestCollideFlamingAsteroid",
+        "TestCollideFlamingAsteroid",
+        "TestCollideFlamingAsteroid",
+        "TestCollideFlamingAsteroid"
+      ]
+    },
+    "TestCollideMeteoroidFlamingAsteroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestCollideMeteoroid"
+      ]
+    },
+    "TestCollideSpaceStationIssFlamingAsteroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestCollideSpaceStationIss",
+        "TestCollideSpaceStationIss",
+        "TestCollideSpaceStationIss",
+        "TestCollideSpaceStationIss"
+      ]
+    },
+    "TestCollideSpaceStationMirFlamingAsteroid": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestCollideSpaceStationMir",
+        "TestCollideSpaceStationMir",
+        "TestCollideSpaceStationMir",
+        "TestCollideSpaceStationMir"
+      ]
+    },
+    "TestConstructorRectangle": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestToString": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestIntersection": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "ShouldExecuteApplicationWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameLoop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">game-loop</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.gameloop</a> &gt; <span class="el_source">GameLoop.java</span></div><h1>GameLoop.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.gameloop;
+
+import java.security.SecureRandom;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Abstract class for GameLoop implementation class.
+ */
+public abstract class GameLoop {
+
+<span class="fc" id="L36">  protected final Logger logger = LoggerFactory.getLogger(this.getClass());</span>
+
+  protected volatile GameStatus status;
+
+  protected final GameController controller;
+
+  /**
+   * Initialize game status to be stopped.
+   */
+<span class="fc" id="L45">  protected GameLoop() {</span>
+<span class="fc" id="L46">    controller = new GameController();</span>
+<span class="fc" id="L47">    status = GameStatus.STOPPED;</span>
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * Run game loop.
+   */
+  public void run() {
+<span class="fc" id="L54">    status = GameStatus.RUNNING;</span>
+<span class="fc" id="L55">    Thread gameThread = new Thread(this::processGameLoop);</span>
+<span class="fc" id="L56">    gameThread.start();</span>
+<span class="fc" id="L57">  }</span>
+
+  /**
+   * Stop game loop.
+   */
+  public void stop() {
+<span class="fc" id="L63">    status = GameStatus.STOPPED;</span>
+<span class="fc" id="L64">  }</span>
+
+  /**
+   * Check if game is running or not.
+   *
+   * @return {@code true} if the game is running.
+   */
+  public boolean isGameRunning() {
+<span class="fc bfc" id="L72" title="All 2 branches covered.">    return status == GameStatus.RUNNING;</span>
+  }
+
+  /**
+   * Handle any user input that has happened since the last call. In order to
+   * simulate the situation in real-life game, here we add a random time lag.
+   * The time lag ranges from 50 ms to 250 ms.
+   */
+  protected void processInput() {
+    try {
+<span class="fc" id="L82">      var lag = new SecureRandom().nextInt(200) + 50;</span>
+<span class="fc" id="L83">      Thread.sleep(lag);</span>
+<span class="nc" id="L84">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L85">      logger.error(e.getMessage());</span>
+      /* Clean up whatever needs to be handled before interrupting  */
+<span class="nc" id="L87">      Thread.currentThread().interrupt();</span>
+<span class="fc" id="L88">    }</span>
+<span class="fc" id="L89">  }</span>
+
+  /**
+   * Render game frames to screen. Here we print bullet position to simulate
+   * this process.
+   */
+  protected void render() {
+<span class="fc" id="L96">    var position = controller.getBulletPosition();</span>
+<span class="fc" id="L97">    logger.info(&quot;Current bullet position: {}&quot;, position);</span>
+<span class="fc" id="L98">  }</span>
+
+  /**
+   * execute game loop logic.
+   */
+  protected abstract void processGameLoop();
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,32 @@
+Project: unit-of-work
+File: UnitActions.java
+File: ArmsDealer.java
+Calls: context.get (Defined in: Unknown)
+Calls: context.isEmpty (Defined in: Unknown)
+Calls: weaponDatabase.modify (Defined in: WeaponDatabase.java)
+Calls: context.put (Defined in: Unknown)
+Calls: weaponDatabase.insert (Defined in: WeaponDatabase.java)
+Calls: weapon.getName (Defined in: Unknown)
+Calls: weaponsToOperate.add (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: weaponDatabase.delete (Defined in: WeaponDatabase.java)
+Calls: context.containsKey (Defined in: Unknown)
+File: App.java
+Calls: weaponRepository.commit (Defined in: UnitOfWork.java)
+Calls: weaponRepository.registerModified (Defined in: UnitOfWork.java)
+Calls: weaponRepository.registerDeleted (Defined in: UnitOfWork.java)
+Calls: weaponRepository.registerNew (Defined in: UnitOfWork.java)
+File: WeaponDatabase.java
+File: UnitOfWork.java
+File: Weapon.java
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: ArmsDealerTest.java
+Calls: context.get (Defined in: Unknown)
+Calls: List.of (Defined in: Unknown)
+Calls: context.put (Defined in: Unknown)
+Calls: armsDealer.registerModified (Defined in: UnitOfWork.java)
+Calls: armsDealer.commit (Defined in: UnitOfWork.java)
+Calls: armsDealer.registerDeleted (Defined in: UnitOfWork.java)
+Calls: armsDealer.registerNew (Defined in: UnitOfWork.java)
+Calls: weaponRepository.commit (Defined in: UnitOfWork.java)

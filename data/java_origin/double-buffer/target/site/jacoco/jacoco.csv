@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+double-buffer,com.iluwatar.doublebuffer,App,3,110,0,4,1,25,1,5,1,3
+double-buffer,com.iluwatar.doublebuffer,Scene,0,119,0,0,0,27,0,6,0,6
+double-buffer,com.iluwatar.doublebuffer,FrameBuffer,0,41,0,0,0,12,0,6,0,6
+double-buffer,com.iluwatar.doublebuffer,Pixel,0,15,0,0,0,3,0,1,0,1

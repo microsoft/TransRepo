@@ -1,0 +1,565 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestUpdateFrameBasedGameLoop",
+        "testClass": "FrameBasedGameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/FrameBasedGameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Update",
+          "sourceClass": "FrameBasedGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FrameBasedGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "MoveBullet",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "float"
+        },
+        {
+          "source_function": "GetBulletPosition",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "FrameBasedGameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/FrameBasedGameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "GameControllerTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestGetBulletPosition",
+        "testClass": "GameControllerTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "GetBulletPosition",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "GameControllerTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "GameControllerTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestMoveBullet",
+        "testClass": "GameControllerTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "MoveBullet",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "float"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "GameControllerTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameControllerTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "VariableStepGameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/VariableStepGameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestUpdateVariableStepGameLoop",
+        "testClass": "VariableStepGameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/VariableStepGameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Update",
+          "sourceClass": "VariableStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/VariableStepGameLoop.cs",
+          "parameter_types": "long"
+        },
+        {
+          "source_function": "MoveBullet",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "float"
+        },
+        {
+          "source_function": "GetBulletPosition",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "VariableStepGameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/VariableStepGameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "FixedStepGameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/FixedStepGameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestUpdateFixedStepGameLoop",
+        "testClass": "FixedStepGameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/FixedStepGameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Update",
+          "sourceClass": "FixedStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FixedStepGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "MoveBullet",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "float"
+        },
+        {
+          "source_function": "GetBulletPosition",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "FixedStepGameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/FixedStepGameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestRun",
+        "testClass": "GameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Run",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ProcessGameLoop",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Teardown",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestStop",
+        "testClass": "GameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Stop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Teardown",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Setup",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestIsGameRunning",
+        "testClass": "GameLoopTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "IsGameRunning",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Teardown",
+          "sourceClass": "GameLoopTest",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/GameLoopTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.gameloop",
+        "file": "src/test/java/com/iluwatar/gameloop/Game-loop.Tests/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "GameLoop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GameController",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Bullet",
+          "sourceClass": "Bullet",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/Bullet.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ProcessGameLoop",
+          "sourceClass": "FrameBasedGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FrameBasedGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "IsGameRunning",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ProcessInput",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Update",
+          "sourceClass": "FrameBasedGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FrameBasedGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "MoveBullet",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "float"
+        },
+        {
+          "source_function": "Render",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetBulletPosition",
+          "sourceClass": "GameController",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameController.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Stop",
+          "sourceClass": "GameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/GameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ProcessGameLoop",
+          "sourceClass": "VariableStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/VariableStepGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Update",
+          "sourceClass": "VariableStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/VariableStepGameLoop.cs",
+          "parameter_types": "long"
+        },
+        {
+          "source_function": "ProcessGameLoop",
+          "sourceClass": "FixedStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FixedStepGameLoop.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Update",
+          "sourceClass": "FixedStepGameLoop",
+          "package": "com.iluwatar.gameloop",
+          "file": "src/main/java/com/iluwatar/gameloop/Game-loop/FixedStepGameLoop.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+Project: producer-consumer
+File: Item.java
+File: App.java
+Calls: executorService.shutdown (Defined in: Unknown)
+Calls: executorService.awaitTermination (Defined in: Unknown)
+Calls: consumer.consume (Defined in: Consumer.java)
+Calls: executorService.submit (Defined in: Unknown)
+Calls: producer.produce (Defined in: Producer.java)
+Calls: Executors.newFixedThreadPool (Defined in: Unknown)
+Calls: LOGGER.error (Defined in: Unknown)
+Calls: executorService.shutdownNow (Defined in: Unknown)
+File: Consumer.java
+Calls: item.producer (Defined in: Unknown)
+Calls: queue.take (Defined in: ItemQueue.java)
+Calls: item.id (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: ItemQueue.java
+Calls: queue.take (Defined in: ItemQueue.java)
+Calls: queue.put (Defined in: ItemQueue.java)
+File: Producer.java
+Calls: RANDOM.nextInt (Defined in: Unknown)
+Calls: Thread.sleep (Defined in: Unknown)
+Calls: queue.put (Defined in: ItemQueue.java)
+File: ConsumerTest.java
+Calls: queue.put (Defined in: ItemQueue.java)
+Calls: consumer.consume (Defined in: Consumer.java)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: ProducerTest.java
+Calls: producer.produce (Defined in: Producer.java)

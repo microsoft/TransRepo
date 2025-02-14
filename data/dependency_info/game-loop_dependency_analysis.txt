@@ -1,0 +1,51 @@
+Project: game-loop
+File: App.java
+Calls: frameBasedGameLoop.run (Defined in: GameLoop.java)
+Calls: variableStepGameLoop.run (Defined in: GameLoop.java)
+Calls: Thread.sleep (Defined in: Unknown)
+Calls: fixedStepGameLoop.run (Defined in: GameLoop.java)
+Calls: fixedStepGameLoop.stop (Defined in: GameLoop.java)
+Calls: e.getMessage (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: frameBasedGameLoop.stop (Defined in: GameLoop.java)
+Calls: variableStepGameLoop.stop (Defined in: GameLoop.java)
+Calls: LOGGER.error (Defined in: Unknown)
+File: FixedStepGameLoop.java
+Calls: controller.moveBullet (Defined in: GameController.java)
+Calls: System.currentTimeMillis (Defined in: Unknown)
+File: VariableStepGameLoop.java
+Calls: controller.moveBullet (Defined in: GameController.java)
+Calls: System.currentTimeMillis (Defined in: Unknown)
+File: Bullet.java
+File: GameStatus.java
+File: GameLoop.java
+Calls: Thread.sleep (Defined in: Unknown)
+Calls: gameThread.start (Defined in: Unknown)
+Calls: logger.info (Defined in: Unknown)
+Calls: e.getMessage (Defined in: Unknown)
+Calls: logger.error (Defined in: Unknown)
+Calls: Thread.currentThread (Defined in: Unknown)
+Calls: LoggerFactory.getLogger (Defined in: Unknown)
+Calls: controller.getBulletPosition (Defined in: GameController.java)
+File: GameController.java
+Calls: bullet.getPosition (Defined in: Unknown)
+Calls: bullet.setPosition (Defined in: Unknown)
+File: FrameBasedGameLoop.java
+Calls: controller.moveBullet (Defined in: GameController.java)
+File: FixedStepGameLoopTest.java
+Calls: gameLoop.update (Defined in: FrameBasedGameLoop.java)
+File: VariableStepGameLoopTest.java
+Calls: gameLoop.update (Defined in: FrameBasedGameLoop.java)
+Calls: Assertions.assertEquals (Defined in: Unknown)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: GameLoopTest.java
+Calls: gameLoop.stop (Defined in: GameLoop.java)
+Calls: gameLoop.run (Defined in: GameLoop.java)
+Calls: gameLoop.isGameRunning (Defined in: GameLoop.java)
+Calls: Assertions.assertEquals (Defined in: Unknown)
+File: FrameBasedGameLoopTest.java
+Calls: gameLoop.update (Defined in: FrameBasedGameLoop.java)
+File: GameControllerTest.java
+Calls: controller.getBulletPosition (Defined in: GameController.java)
+Calls: controller.moveBullet (Defined in: GameController.java)

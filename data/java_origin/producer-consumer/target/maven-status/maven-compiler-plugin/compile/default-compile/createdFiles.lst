@@ -1,0 +1,5 @@
+com/iluwatar/producer/consumer/App.class
+com/iluwatar/producer/consumer/Item.class
+com/iluwatar/producer/consumer/Producer.class
+com/iluwatar/producer/consumer/ItemQueue.class
+com/iluwatar/producer/consumer/Consumer.class

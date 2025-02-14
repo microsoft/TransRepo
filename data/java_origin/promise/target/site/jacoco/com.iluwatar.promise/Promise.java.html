@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Promise.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">promise</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.promise</a> &gt; <span class="el_source">Promise.java</span></div><h1>Promise.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.promise;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+/**
+ * A Promise represents a proxy for a value not necessarily known when the promise is created. It
+ * allows you to associate dependent promises to an asynchronous action's eventual success value or
+ * failure reason. This lets asynchronous methods return values like synchronous methods: instead of
+ * the final value, the asynchronous method returns a promise of having a value at some point in the
+ * future.
+ *
+ * @param &lt;T&gt; type of result.
+ */
+public class Promise&lt;T&gt; extends PromiseSupport&lt;T&gt; {
+
+  private Runnable fulfillmentAction;
+  private Consumer&lt;? super Throwable&gt; exceptionHandler;
+
+  /**
+   * Creates a promise that will be fulfilled in the future.
+   */
+<span class="fc" id="L50">  public Promise() {</span>
+    // Empty constructor
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * Fulfills the promise with the provided value.
+   *
+   * @param value the fulfilled value that can be accessed using {@link #get()}.
+   */
+  @Override
+  public void fulfill(T value) {
+<span class="fc" id="L61">    super.fulfill(value);</span>
+<span class="fc" id="L62">    postFulfillment();</span>
+<span class="fc" id="L63">  }</span>
+
+  /**
+   * Fulfills the promise with exception due to error in execution.
+   *
+   * @param exception the exception will be wrapped in {@link ExecutionException} when accessing the
+   *                  value using {@link #get()}.
+   */
+  @Override
+  public void fulfillExceptionally(Exception exception) {
+<span class="fc" id="L73">    super.fulfillExceptionally(exception);</span>
+<span class="fc" id="L74">    handleException(exception);</span>
+<span class="fc" id="L75">    postFulfillment();</span>
+<span class="fc" id="L76">  }</span>
+
+  private void handleException(Exception exception) {
+<span class="fc bfc" id="L79" title="All 2 branches covered.">    if (exceptionHandler == null) {</span>
+<span class="fc" id="L80">      return;</span>
+    }
+<span class="fc" id="L82">    exceptionHandler.accept(exception);</span>
+<span class="fc" id="L83">  }</span>
+
+  private void postFulfillment() {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">    if (fulfillmentAction == null) {</span>
+<span class="fc" id="L87">      return;</span>
+    }
+<span class="fc" id="L89">    fulfillmentAction.run();</span>
+<span class="fc" id="L90">  }</span>
+
+  /**
+   * Executes the task using the executor in other thread and fulfills the promise returned once the
+   * task completes either successfully or with an exception.
+   *
+   * @param task     the task that will provide the value to fulfill the promise.
+   * @param executor the executor in which the task should be run.
+   * @return a promise that represents the result of running the task provided.
+   */
+  public Promise&lt;T&gt; fulfillInAsync(final Callable&lt;T&gt; task, Executor executor) {
+<span class="fc" id="L101">    executor.execute(() -&gt; {</span>
+      try {
+<span class="fc" id="L103">        fulfill(task.call());</span>
+<span class="fc" id="L104">      } catch (Exception ex) {</span>
+<span class="fc" id="L105">        fulfillExceptionally(ex);</span>
+<span class="fc" id="L106">      }</span>
+<span class="fc" id="L107">    });</span>
+<span class="fc" id="L108">    return this;</span>
+  }
+
+  /**
+   * Returns a new promise that, when this promise is fulfilled normally, is fulfilled with result
+   * of this promise as argument to the action provided.
+   *
+   * @param action action to be executed.
+   * @return a new promise.
+   */
+  public Promise&lt;Void&gt; thenAccept(Consumer&lt;? super T&gt; action) {
+<span class="fc" id="L119">    var dest = new Promise&lt;Void&gt;();</span>
+<span class="fc" id="L120">    fulfillmentAction = new ConsumeAction(this, dest, action);</span>
+<span class="fc" id="L121">    return dest;</span>
+  }
+
+  /**
+   * Set the exception handler on this promise.
+   *
+   * @param exceptionHandler a consumer that will handle the exception occurred while fulfilling the
+   *                         promise.
+   * @return this
+   */
+  public Promise&lt;T&gt; onError(Consumer&lt;? super Throwable&gt; exceptionHandler) {
+<span class="fc" id="L132">    this.exceptionHandler = exceptionHandler;</span>
+<span class="fc" id="L133">    return this;</span>
+  }
+
+  /**
+   * Returns a new promise that, when this promise is fulfilled normally, is fulfilled with result
+   * of this promise as argument to the function provided.
+   *
+   * @param func function to be executed.
+   * @return a new promise.
+   */
+  public &lt;V&gt; Promise&lt;V&gt; thenApply(Function&lt;? super T, V&gt; func) {
+<span class="fc" id="L144">    Promise&lt;V&gt; dest = new Promise&lt;&gt;();</span>
+<span class="fc" id="L145">    fulfillmentAction = new TransformAction&lt;&gt;(this, dest, func);</span>
+<span class="fc" id="L146">    return dest;</span>
+  }
+
+  /**
+   * Accesses the value from source promise and calls the consumer, then fulfills the destination
+   * promise.
+   */
+  private class ConsumeAction implements Runnable {
+
+    private final Promise&lt;T&gt; src;
+    private final Promise&lt;Void&gt; dest;
+    private final Consumer&lt;? super T&gt; action;
+
+<span class="fc" id="L159">    private ConsumeAction(Promise&lt;T&gt; src, Promise&lt;Void&gt; dest, Consumer&lt;? super T&gt; action) {</span>
+<span class="fc" id="L160">      this.src = src;</span>
+<span class="fc" id="L161">      this.dest = dest;</span>
+<span class="fc" id="L162">      this.action = action;</span>
+<span class="fc" id="L163">    }</span>
+
+    @Override
+    public void run() {
+      try {
+<span class="fc" id="L168">        action.accept(src.get());</span>
+<span class="fc" id="L169">        dest.fulfill(null);</span>
+<span class="fc" id="L170">      } catch (Throwable throwable) {</span>
+<span class="fc" id="L171">        dest.fulfillExceptionally((Exception) throwable.getCause());</span>
+<span class="fc" id="L172">      }</span>
+<span class="fc" id="L173">    }</span>
+  }
+
+  /**
+   * Accesses the value from source promise, then fulfills the destination promise using the
+   * transformed value. The source value is transformed using the transformation function.
+   */
+  private class TransformAction&lt;V&gt; implements Runnable {
+
+    private final Promise&lt;T&gt; src;
+    private final Promise&lt;V&gt; dest;
+    private final Function&lt;? super T, V&gt; func;
+
+<span class="fc" id="L186">    private TransformAction(Promise&lt;T&gt; src, Promise&lt;V&gt; dest, Function&lt;? super T, V&gt; func) {</span>
+<span class="fc" id="L187">      this.src = src;</span>
+<span class="fc" id="L188">      this.dest = dest;</span>
+<span class="fc" id="L189">      this.func = func;</span>
+<span class="fc" id="L190">    }</span>
+
+    @Override
+    public void run() {
+      try {
+<span class="fc" id="L195">        dest.fulfill(func.apply(src.get()));</span>
+<span class="fc" id="L196">      } catch (Throwable throwable) {</span>
+<span class="fc" id="L197">        dest.fulfillExceptionally((Exception) throwable.getCause());</span>
+<span class="fc" id="L198">      }</span>
+<span class="fc" id="L199">    }</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,262 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestCustomConverter",
+        "testClass": "ConverterTest",
+        "package": "com.iluwatar.converter",
+        "file": "src/test/java/com/iluwatar/converter/Converter.Tests/ConverterTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConvertFromEntity",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "U"
+        },
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestCollectionConversion",
+        "testClass": "ConverterTest",
+        "package": "com.iluwatar.converter",
+        "file": "src/test/java/com/iluwatar/converter/Converter.Tests/ConverterTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CreateFromEntities",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "ICollection<U>"
+        },
+        {
+          "source_function": "ConvertFromEntity",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "U"
+        },
+        {
+          "source_function": "ConvertToDto",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "CreateFromDtos",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "ICollection<T>"
+        },
+        {
+          "source_function": "ConvertFromDto",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "ConvertToEntity",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "UserDto"
+        },
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestConversionsStartingFromDto",
+        "testClass": "ConverterTest",
+        "package": "com.iluwatar.converter",
+        "file": "src/test/java/com/iluwatar/converter/Converter.Tests/ConverterTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConvertFromDto",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "ConvertToEntity",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "UserDto"
+        },
+        {
+          "source_function": "ConvertFromEntity",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "U"
+        },
+        {
+          "source_function": "ConvertToDto",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestConversionsStartingFromDomain",
+        "testClass": "ConverterTest",
+        "package": "com.iluwatar.converter",
+        "file": "src/test/java/com/iluwatar/converter/Converter.Tests/ConverterTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConvertFromEntity",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "U"
+        },
+        {
+          "source_function": "ConvertToDto",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "ConvertFromDto",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "ConvertToEntity",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "UserDto"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.converter",
+        "file": "src/test/java/com/iluwatar/converter/Converter.Tests/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "UserConverter",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConvertFromDto",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "ConvertToEntity",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "UserDto"
+        },
+        {
+          "source_function": "CreateFromEntities",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "ICollection<U>"
+        },
+        {
+          "source_function": "ConvertFromEntity",
+          "sourceClass": "Converter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/Converter.cs",
+          "parameter_types": "U"
+        },
+        {
+          "source_function": "ConvertToDto",
+          "sourceClass": "UserConverter",
+          "package": "com.iluwatar.converter",
+          "file": "src/main/java/com/iluwatar/converter/Converter/UserConverter.cs",
+          "parameter_types": "User"
+        }
+      ]
+    }
+  ]
+}

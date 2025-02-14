@@ -1,0 +1,408 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "RegisterShouldSucceed",
+        "testClass": "UserTableModuleTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CreateConnection",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UserTableModule",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "RegisterUser",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "RegisterShouldFail",
+        "testClass": "UserTableModuleTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CreateConnection",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UserTableModule",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "RegisterUser",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "LoginShouldSucceed",
+        "testClass": "UserTableModuleTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CreateConnection",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UserTableModule",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "RegisterUser",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "Login",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "string,string"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "LoginShouldFail",
+        "testClass": "UserTableModuleTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CreateConnection",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UserTableModule",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "Login",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "string,string"
+        },
+        {
+          "source_function": "TearDown",
+          "sourceClass": "UserTableModuleTest",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/test/java/com/iluwatar/tablemodule/Table-Module.Tests/UserTableModuleTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestEquals1",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals2",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals3",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals4",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals5",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals6",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals7",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals8",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestEquals9",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestSetPassword",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestSetId",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestTostring",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestHashCode1",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestHashCode2",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestHashCode3",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "TestSetUsername",
+        "testClass": "UserTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/UserTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": []
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.tablemodule",
+        "file": "src/test/java/com/iluwatar/tablemodule/Table-Module/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "CreateDataSource",
+          "sourceClass": "App",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CreateSchema",
+          "sourceClass": "App",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/App.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "UserTableModule",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "IDbConnection"
+        },
+        {
+          "source_function": "RegisterUser",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "User"
+        },
+        {
+          "source_function": "Login",
+          "sourceClass": "UserTableModule",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/UserTableModule.cs",
+          "parameter_types": "string,string"
+        },
+        {
+          "source_function": "DeleteSchema",
+          "sourceClass": "App",
+          "package": "com.iluwatar.tablemodule",
+          "file": "src/main/java/com/iluwatar/tablemodule/Table-Module/App.cs",
+          "parameter_types": "IDbConnection"
+        }
+      ]
+    }
+  ]
+}

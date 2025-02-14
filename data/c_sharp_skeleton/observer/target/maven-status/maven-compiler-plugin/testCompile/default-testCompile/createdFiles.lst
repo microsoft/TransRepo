@@ -1,0 +1,10 @@
+com/iluwatar/observer/generic/ObserverTest.class
+com/iluwatar/observer/HobbitsTest.class
+com/iluwatar/observer/OrcsTest.class
+com/iluwatar/observer/utils/InMemoryAppender.class
+com/iluwatar/observer/AppTest.class
+com/iluwatar/observer/WeatherTest.class
+com/iluwatar/observer/generic/GHobbitsTest.class
+com/iluwatar/observer/WeatherObserverTest.class
+com/iluwatar/observer/generic/GWeatherTest.class
+com/iluwatar/observer/generic/OrcsTest.class

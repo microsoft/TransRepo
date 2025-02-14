@@ -1,0 +1,79 @@
+Project: observer
+File: App.java
+Calls: genericWeather.addObserver (Defined in: Observable.java)
+Calls: weather.timePasses (Defined in: GenWeather.java)
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: genericWeather.timePasses (Defined in: GenWeather.java)
+Calls: weather.addObserver (Defined in: Observable.java)
+File: WeatherType.java
+File: WeatherObserver.java
+File: Weather.java
+Calls: currentWeather.ordinal (Defined in: Unknown)
+Calls: observers.add (Defined in: Unknown)
+Calls: WeatherType.values (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: observers.remove (Defined in: Unknown)
+Calls: obs.update (Defined in: Observer.java)
+File: Orcs.java
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: currentWeather.getDescription (Defined in: Unknown)
+File: Hobbits.java
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: currentWeather.getDescription (Defined in: Unknown)
+File: Observable.java
+Calls: observer.update (Defined in: Observer.java)
+File: Race.java
+File: GenOrcs.java
+Calls: weatherType.getDescription (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: GenHobbits.java
+Calls: weatherType.getDescription (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Observer.java
+File: GenWeather.java
+Calls: currentWeather.ordinal (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+Calls: WeatherType.values (Defined in: Unknown)
+File: WeatherTest.java
+Calls: appender.stop (Defined in: Unknown)
+Calls: inOrder.verify (Defined in: Unknown)
+Calls: WeatherType.values (Defined in: Unknown)
+Calls: weather.timePasses (Defined in: GenWeather.java)
+Calls: weather.addObserver (Defined in: Observable.java)
+Calls: appender.getLastMessage (Defined in: InMemoryAppender.java)
+Calls: weather.removeObserver (Defined in: Observable.java)
+Calls: appender.getLogSize (Defined in: InMemoryAppender.java)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: HobbitsTest.java
+Calls: List.of (Defined in: Unknown)
+File: OrcsTest.java
+Calls: List.of (Defined in: Unknown)
+File: WeatherObserverTest.java
+Calls: appender.getLastMessage (Defined in: InMemoryAppender.java)
+Calls: observer.update (Defined in: Observer.java)
+Calls: appender.getLogSize (Defined in: InMemoryAppender.java)
+Calls: appender.stop (Defined in: Unknown)
+File: GWeatherTest.java
+Calls: appender.stop (Defined in: Unknown)
+Calls: inOrder.verify (Defined in: Unknown)
+Calls: WeatherType.values (Defined in: Unknown)
+Calls: weather.timePasses (Defined in: GenWeather.java)
+Calls: weather.addObserver (Defined in: Observable.java)
+Calls: appender.getLastMessage (Defined in: InMemoryAppender.java)
+Calls: weather.removeObserver (Defined in: Observable.java)
+Calls: appender.getLogSize (Defined in: InMemoryAppender.java)
+File: ObserverTest.java
+Calls: appender.getLastMessage (Defined in: InMemoryAppender.java)
+Calls: observer.update (Defined in: Observer.java)
+Calls: appender.getLogSize (Defined in: InMemoryAppender.java)
+Calls: appender.stop (Defined in: Unknown)
+File: GHobbitsTest.java
+Calls: List.of (Defined in: Unknown)
+File: OrcsTest.java
+Calls: List.of (Defined in: Unknown)
+File: InMemoryAppender.java
+Calls: log.get (Defined in: Unknown)
+Calls: LoggerFactory.getLogger (Defined in: Unknown)
+Calls: log.size (Defined in: Unknown)
+Calls: log.add (Defined in: Unknown)

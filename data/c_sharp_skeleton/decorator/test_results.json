@@ -1,0 +1,20 @@
+{
+  "timestamp": "2024-12-25T12:37:35.658934",
+  "test_results": {
+    "TestClubbedTroll": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestClubbedTroll"
+      ]
+    },
+    "TestTrollActions": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "ShouldExecuteApplicationWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    }
+  }
+}

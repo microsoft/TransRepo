@@ -1,0 +1,409 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "AssignRandomCandyTypesTest",
+        "testClass": "CellPoolTest",
+        "package": "com.iluwatar.typeobject",
+        "file": "src/test/java/com/iluwatar/typeobject/Type-Object/CellPoolTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CellPool",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "AssignRandomCandytypes",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "JsonParser",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Parse",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Candy",
+          "sourceClass": "Candy",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Candy.cs",
+          "parameter_types": "string,string,CandyType,int"
+        },
+        {
+          "source_function": "SetParentAndPoints",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ContinueRoundTest",
+        "testClass": "CandyGameTest",
+        "package": "com.iluwatar.typeobject",
+        "file": "src/test/java/com/iluwatar/typeobject/Type-Object/CandyGameTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Candy",
+          "sourceClass": "Candy",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Candy.cs",
+          "parameter_types": "string,string,CandyType,int"
+        },
+        {
+          "source_function": "CellPool",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "AssignRandomCandytypes",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "JsonParser",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Parse",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetParentAndPoints",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CandyGame",
+          "sourceClass": "CandyGame",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CandyGame.cs",
+          "parameter_types": "int,CellPool"
+        },
+        {
+          "source_function": "GetNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ContinueRound",
+          "sourceClass": "CandyGame",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CandyGame.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Crush",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "AddNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "Cell"
+        },
+        {
+          "source_function": "FillThisSpace",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "AdjacentCells",
+          "sourceClass": "CandyGame",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CandyGame.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "AdjacentCellsTest",
+        "testClass": "CandyGameTest",
+        "package": "com.iluwatar.typeobject",
+        "file": "src/test/java/com/iluwatar/typeobject/Type-Object/CandyGameTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "CellPool",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "AssignRandomCandytypes",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "JsonParser",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Parse",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Candy",
+          "sourceClass": "Candy",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Candy.cs",
+          "parameter_types": "string,string,CandyType,int"
+        },
+        {
+          "source_function": "SetParentAndPoints",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CandyGame",
+          "sourceClass": "CandyGame",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CandyGame.cs",
+          "parameter_types": "int,CellPool"
+        },
+        {
+          "source_function": "GetNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "AdjacentCells",
+          "sourceClass": "CandyGame",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CandyGame.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "CrushTest",
+        "testClass": "CellTest",
+        "package": "com.iluwatar.typeobject",
+        "file": "src/test/java/com/iluwatar/typeobject/Type-Object/CellTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Candy",
+          "sourceClass": "Candy",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Candy.cs",
+          "parameter_types": "string,string,CandyType,int"
+        },
+        {
+          "source_function": "CellPool",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "AssignRandomCandytypes",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "JsonParser",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Parse",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetParentAndPoints",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Crush",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "AddNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "Cell"
+        },
+        {
+          "source_function": "FillThisSpace",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "GetNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "InteractTest",
+        "testClass": "CellTest",
+        "package": "com.iluwatar.typeobject",
+        "file": "src/test/java/com/iluwatar/typeobject/Type-Object/CellTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Candy",
+          "sourceClass": "Candy",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Candy.cs",
+          "parameter_types": "string,string,CandyType,int"
+        },
+        {
+          "source_function": "CellPool",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "AssignRandomCandytypes",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "JsonParser",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Parse",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetParentAndPoints",
+          "sourceClass": "JsonParser",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/JsonParser.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Interact",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "Cell,CellPool,Cell[,]"
+        },
+        {
+          "source_function": "HandleCrush",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "Cell,CellPool,Cell[,]"
+        },
+        {
+          "source_function": "Crush",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "AddNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "Cell"
+        },
+        {
+          "source_function": "FillThisSpace",
+          "sourceClass": "Cell",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/Cell.cs",
+          "parameter_types": "CellPool,Cell[,]"
+        },
+        {
+          "source_function": "GetNewCell",
+          "sourceClass": "CellPool",
+          "package": "com.iluwatar.typeobject",
+          "file": "src/main/java/com/iluwatar/typeobject/Type-Object/CellPool.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

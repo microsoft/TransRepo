@@ -1,0 +1,38 @@
+Project: double-buffer
+File: App.java
+Calls: scene.draw (Defined in: Buffer.java)
+Calls: log.toString (Defined in: Unknown)
+Calls: buffer.getPixels (Defined in: Buffer.java)
+Calls: log.append (Defined in: Unknown)
+Calls: List.of (Defined in: Unknown)
+Calls: scene.getBuffer (Defined in: Scene.java)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Pixel.java
+File: FrameBuffer.java
+Calls: Arrays.fill (Defined in: Unknown)
+File: Scene.java
+Calls: coordinateList.forEach (Defined in: Unknown)
+Calls: coordinate.getValue (Defined in: Unknown)
+Calls: coordinate.getKey (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Buffer.java
+File: FrameBufferTest.java
+Calls: Arrays.fill (Defined in: Unknown)
+Calls: frameBuffer.draw (Defined in: Buffer.java)
+Calls: field.set (Defined in: Unknown)
+Calls: frameBuffer.clearAll (Defined in: Buffer.java)
+Calls: frameBuffer.getPixels (Defined in: Buffer.java)
+Calls: field.setAccessible (Defined in: Unknown)
+Calls: frameBuffer.clear (Defined in: Buffer.java)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: SceneTest.java
+Calls: field1.get (Defined in: Unknown)
+Calls: scene.draw (Defined in: Buffer.java)
+Calls: field2.set (Defined in: Unknown)
+Calls: frameBuffer.draw (Defined in: Buffer.java)
+Calls: field2.setAccessible (Defined in: Unknown)
+Calls: field1.setAccessible (Defined in: Unknown)
+Calls: field1.set (Defined in: Unknown)
+Calls: field2.get (Defined in: Unknown)
+Calls: scene.getBuffer (Defined in: Scene.java)

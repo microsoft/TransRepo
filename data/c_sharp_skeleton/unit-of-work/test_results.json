@@ -1,0 +1,66 @@
+{
+  "timestamp": "2024-12-25T12:37:59.567817",
+  "test_results": {
+    "ShouldSaveNewStudentWithoutWritingToDb": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldSaveNewStudentWithoutWritingToDb"
+      ]
+    },
+    "ShouldSaveDeletedStudentWithoutWritingToDb": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldSaveDeletedStudentWithoutWritingToDb"
+      ]
+    },
+    "ShouldSaveModifiedStudentWithoutWritingToDb": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldSaveModifiedStudentWithoutWritingToDb"
+      ]
+    },
+    "ShouldSaveAllLocalChangesToDb": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldSaveAllLocalChangesToDb"
+      ]
+    },
+    "ShouldNotWriteToDbIfContextIsNull": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "ShouldNotWriteToDbIfNothingToCommit": {
+      "passed": true,
+      "outcome": "Passed"
+    },
+    "ShouldNotInsertToDbIfNoRegisteredStudentsToBeCommitted": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldNotInsertToDbIfNoRegisteredStudentsToBeCommitted"
+      ]
+    },
+    "ShouldNotModifyToDbIfNotRegisteredStudentsToBeCommitted": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldNotModifyToDbIfNotRegisteredStudentsToBeCommitted"
+      ]
+    },
+    "ShouldNotDeleteFromDbIfNotRegisteredStudentsToBeCommitted": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldNotDeleteFromDbIfNotRegisteredStudentsToBeCommitted"
+      ]
+    },
+    "ShouldExecuteWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    }
+  }
+}

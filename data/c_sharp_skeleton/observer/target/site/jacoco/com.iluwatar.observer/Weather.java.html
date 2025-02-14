@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Weather.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">observer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.observer</a> &gt; <span class="el_source">Weather.java</span></div><h1>Weather.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.observer;
+
+import java.util.ArrayList;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Weather can be observed by implementing {@link WeatherObserver} interface and registering as
+ * listener.
+ */
+<span class="fc" id="L35">@Slf4j</span>
+public class Weather {
+
+  private WeatherType currentWeather;
+  private final List&lt;WeatherObserver&gt; observers;
+
+<span class="fc" id="L41">  public Weather() {</span>
+<span class="fc" id="L42">    observers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L43">    currentWeather = WeatherType.SUNNY;</span>
+<span class="fc" id="L44">  }</span>
+
+  public void addObserver(WeatherObserver obs) {
+<span class="fc" id="L47">    observers.add(obs);</span>
+<span class="fc" id="L48">  }</span>
+
+  public void removeObserver(WeatherObserver obs) {
+<span class="fc" id="L51">    observers.remove(obs);</span>
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * Makes time pass for weather.
+   */
+  public void timePasses() {
+<span class="fc" id="L58">    var enumValues = WeatherType.values();</span>
+<span class="fc" id="L59">    currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];</span>
+<span class="fc" id="L60">    LOGGER.info(&quot;The weather changed to {}.&quot;, currentWeather);</span>
+<span class="fc" id="L61">    notifyObservers();</span>
+<span class="fc" id="L62">  }</span>
+
+  private void notifyObservers() {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    for (var obs : observers) {</span>
+<span class="fc" id="L66">      obs.update(currentWeather);</span>
+<span class="fc" id="L67">    }</span>
+<span class="fc" id="L68">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
