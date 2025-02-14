@@ -1,0 +1,12 @@
+#Mon Dec 09 09:41:51 CST 2024
+configuration*?=DCC1CCD18CD784FBC374D4E479BA3BA7FE564DBF
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/FrameBasedGameLoop.java=1733467156302
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/App.java=1733467156302
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/VariableStepGameLoop.java=1733467156302
+module-resource*?\:checkstyle-xpath-suppressions.xml=EED656822A0AC88BDF55FC520A31BC8C77B7EE
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameController.java=1733467156302
+module-resource*?\:checkstyle-suppressions.xml=A0727B93B3506B70F9DD897C9787CB6DE6F3B7A5
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/Bullet.java=1733467156302
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameLoop.java=1733467156302
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameStatus.java=1733467156302
+/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/FixedStepGameLoop.java=1733467156302

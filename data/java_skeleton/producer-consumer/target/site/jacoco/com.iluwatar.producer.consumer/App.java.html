@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">producer-consumer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.producer.consumer</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.producer.consumer;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Producer Consumer Design pattern is a classic concurrency or threading pattern which reduces
+ * coupling between Producer and Consumer by separating Identification of work with Execution of
+ * Work.
+ *
+ * &lt;p&gt;In producer consumer design pattern a shared queue is used to control the flow and this
+ * separation allows you to code producer and consumer separately. It also addresses the issue of
+ * different timing require to produce item or consuming item. by using producer consumer pattern
+ * both Producer and Consumer Thread can work with different speed.
+ */
+<span class="fc" id="L41">@Slf4j</span>
+<span class="nc" id="L42">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+
+<span class="fc" id="L51">    var queue = new ItemQueue();</span>
+
+<span class="fc" id="L53">    var executorService = Executors.newFixedThreadPool(5);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    for (var i = 0; i &lt; 2; i++) {</span>
+
+<span class="fc" id="L56">      final var producer = new Producer(&quot;Producer_&quot; + i, queue);</span>
+<span class="fc" id="L57">      executorService.submit(() -&gt; {</span>
+        while (true) {
+<span class="fc" id="L59">          producer.produce();</span>
+        }
+      });
+    }
+
+<span class="fc bfc" id="L64" title="All 2 branches covered.">    for (var i = 0; i &lt; 3; i++) {</span>
+<span class="fc" id="L65">      final var consumer = new Consumer(&quot;Consumer_&quot; + i, queue);</span>
+<span class="fc" id="L66">      executorService.submit(() -&gt; {</span>
+        while (true) {
+<span class="fc" id="L68">          consumer.consume();</span>
+        }
+      });
+    }
+
+<span class="fc" id="L73">    executorService.shutdown();</span>
+    try {
+<span class="fc" id="L75">      executorService.awaitTermination(10, TimeUnit.SECONDS);</span>
+<span class="fc" id="L76">      executorService.shutdownNow();</span>
+<span class="nc" id="L77">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L78">      LOGGER.error(&quot;Error waiting for ExecutorService shutdown&quot;);</span>
+<span class="fc" id="L79">    }</span>
+<span class="fc" id="L80">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

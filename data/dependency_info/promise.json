@@ -1,0 +1,901 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "DependentPromiseIsFulfilledWithAnExceptionIfTheFunctionThrowsException",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Call",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ThenApply",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Func<T, V>"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TransformAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<V>,Func<T, V>"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "HandleException",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "DependentPromiseIsFulfilledAfterTheConsumerConsumesTheResultOfThisPromise",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Call",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ThenAccept",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Action<T>"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConsumeAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<Unit>,Action<T>"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "DependentPromiseIsFulfilledWithAnExceptionIfConsumerThrowsAnException",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Call",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ThenAccept",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Action<T>"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ConsumeAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<Unit>,Action<T>"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "HandleException",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "DependentPromiseIsFulfilledAfterTheFunctionTransformsTheResultOfThisPromise",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Call",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ThenApply",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Func<T, V>"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TransformAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<V>,Func<T, V>"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "PromiseIsFulfilledWithAnExceptionIfTaskThrowsAnException",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "TestWaitingForeverForPromiseToBeFulfilled",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "HandleException",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "TestWaitingSomeTimeForPromiseToBeFulfilled",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ExceptionHandlerIsCalledWhenPromiseIsFulfilledExceptionally",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "OnError",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Action<Exception>"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "FulfillExceptionally",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "HandleException",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Exception"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "FetchingAnAlreadyFulfilledPromiseReturnsTheFulfilledValueImmediately",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "TimeSpan"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "PromiseIsFulfilledWithTheResultantValueOfExecutingTheTask",
+        "testClass": "PromiseTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Call",
+          "sourceClass": "PromiseTest",
+          "package": "com.iluwatar.promise",
+          "file": "src/test/java/com/iluwatar/promise/Promise.Tests/PromiseTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.promise",
+        "file": "src/test/java/com/iluwatar/promise/Promise/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "PromiseUsage",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CalculateLineCount",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CountLines",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Download",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "PromiseSupport",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Promise",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "FulfillInAsync",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Task<T>,TaskFactory"
+        },
+        {
+          "source_function": "OnError",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Action<Exception>"
+        },
+        {
+          "source_function": "ThenApply",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Func<T, V>"
+        },
+        {
+          "source_function": "DownloadFile",
+          "sourceClass": "Utility",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Utility.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "TransformAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<V>,Func<T, V>"
+        },
+        {
+          "source_function": "ThenAccept",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Action<T>"
+        },
+        {
+          "source_function": "ConsumeAction",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "Promise<T>,Promise<Unit>,Action<T>"
+        },
+        {
+          "source_function": "CalculateLowestFrequencyChar",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "LowestFrequencyChar",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CharacterFrequency",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Stop",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "Fulfill",
+          "sourceClass": "PromiseSupport",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/PromiseSupport.cs",
+          "parameter_types": "T"
+        },
+        {
+          "source_function": "PostFulfillment",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Run",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "Promise",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Promise.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CharacterFrequency",
+          "sourceClass": "Utility",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Utility.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "CountLines",
+          "sourceClass": "Utility",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Utility.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "LowestFrequencyChar",
+          "sourceClass": "Utility",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/Utility.cs",
+          "parameter_types": "Dictionary<char, long>"
+        },
+        {
+          "source_function": "TaskCompleted",
+          "sourceClass": "App",
+          "package": "com.iluwatar.promise",
+          "file": "src/main/java/com/iluwatar/promise/Promise/App.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserTableModule.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">table-module</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.tablemodule</a> &gt; <span class="el_source">UserTableModule.java</span></div><h1>UserTableModule.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.tablemodule;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.sql.DataSource;
+import lombok.extern.slf4j.Slf4j;
+
+
+/**
+ * This class organizes domain logic with the user table in the
+ * database. A single instance of this class contains the various
+ * procedures that will act on the data.
+ */
+<span class="fc" id="L38">@Slf4j</span>
+public class UserTableModule {
+  /**
+   * Public element for creating schema.
+   */
+  public static final String CREATE_SCHEMA_SQL =
+          &quot;CREATE TABLE IF NOT EXISTS USERS (ID NUMBER, USERNAME VARCHAR(30) &quot;
+                  + &quot;UNIQUE,PASSWORD VARCHAR(30))&quot;;
+  /**
+   * Public element for deleting schema.
+   */
+  public static final String DELETE_SCHEMA_SQL = &quot;DROP TABLE USERS IF EXISTS&quot;;
+  private final DataSource dataSource;
+
+
+  /**
+   * Public constructor.
+   *
+   * @param userDataSource the data source in the database
+   */
+<span class="fc" id="L58">  public UserTableModule(final DataSource userDataSource) {</span>
+<span class="fc" id="L59">    this.dataSource = userDataSource;</span>
+<span class="fc" id="L60">  }</span>
+
+
+  /**
+   * Login using username and password.
+   *
+   * @param username the username of a user
+   * @param password the password of a user
+   * @return the execution result of the method
+   * @throws SQLException if any error
+   */
+  public int login(final String username, final String password)
+          throws SQLException {
+<span class="fc" id="L73">    var sql = &quot;select count(*) from USERS where username=? and password=?&quot;;</span>
+<span class="fc" id="L74">    ResultSet resultSet = null;</span>
+<span class="fc" id="L75">    try (var connection = dataSource.getConnection();</span>
+<span class="fc" id="L76">         var preparedStatement =</span>
+<span class="fc" id="L77">                 connection.prepareStatement(sql)</span>
+    ) {
+<span class="fc" id="L79">      var result = 0;</span>
+<span class="fc" id="L80">      preparedStatement.setString(1, username);</span>
+<span class="fc" id="L81">      preparedStatement.setString(2, password);</span>
+<span class="fc" id="L82">      resultSet = preparedStatement.executeQuery();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">      while (resultSet.next()) {</span>
+<span class="fc" id="L84">        result = resultSet.getInt(1);</span>
+      }
+<span class="fc bfc" id="L86" title="All 2 branches covered.">      if (result == 1) {</span>
+<span class="fc" id="L87">        LOGGER.info(&quot;Login successfully!&quot;);</span>
+      } else {
+<span class="fc" id="L89">        LOGGER.info(&quot;Fail to login!&quot;);</span>
+      }
+<span class="fc" id="L91">      return result;</span>
+    } finally {
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">      if (resultSet != null) {</span>
+<span class="fc" id="L94">        resultSet.close();</span>
+      }
+    }
+  }
+
+  /**
+   * Register a new user.
+   *
+   * @param user a user instance
+   * @return the execution result of the method
+   * @throws SQLException if any error
+   */
+  public int registerUser(final User user) throws SQLException {
+<span class="fc" id="L107">    var sql = &quot;insert into USERS (username, password) values (?,?)&quot;;</span>
+<span class="fc" id="L108">    try (var connection = dataSource.getConnection();</span>
+<span class="fc" id="L109">         var preparedStatement =</span>
+<span class="fc" id="L110">                 connection.prepareStatement(sql)</span>
+    ) {
+<span class="fc" id="L112">      preparedStatement.setString(1, user.getUsername());</span>
+<span class="fc" id="L113">      preparedStatement.setString(2, user.getPassword());</span>
+<span class="fc" id="L114">      var result = preparedStatement.executeUpdate();</span>
+<span class="fc" id="L115">      LOGGER.info(&quot;Register successfully!&quot;);</span>
+<span class="fc" id="L116">      return result;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

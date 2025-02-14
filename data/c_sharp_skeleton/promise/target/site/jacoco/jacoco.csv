@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+promise,com.iluwatar.promise,Promise.TransformAction,0,33,0,0,0,10,0,2,0,2
+promise,com.iluwatar.promise,App,7,103,0,0,3,34,1,15,1,15
+promise,com.iluwatar.promise,Promise,0,87,0,4,0,32,0,12,0,10
+promise,com.iluwatar.promise,PromiseSupport,11,121,1,9,4,34,2,12,1,8
+promise,com.iluwatar.promise,Promise.ConsumeAction,0,34,0,0,0,11,0,2,0,2
+promise,com.iluwatar.promise,Utility,18,106,0,2,7,24,1,7,1,6

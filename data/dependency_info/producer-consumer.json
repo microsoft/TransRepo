@@ -1,0 +1,142 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestProduce",
+        "testClass": "ProducerTest",
+        "package": "com.iluwatar.producer.consumer",
+        "file": "src/test/java/com/iluwatar/producer/consumer/Producer-Consumer/ProducerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Producer",
+          "sourceClass": "Producer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Producer.cs",
+          "parameter_types": "string,ItemQueue"
+        },
+        {
+          "source_function": "Produce",
+          "sourceClass": "Producer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Producer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestConsume",
+        "testClass": "ConsumerTest",
+        "package": "com.iluwatar.producer.consumer",
+        "file": "src/test/java/com/iluwatar/producer/consumer/Producer-Consumer/ConsumerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ItemQueue",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Put",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "Item"
+        },
+        {
+          "source_function": "Consumer",
+          "sourceClass": "Consumer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Consumer.cs",
+          "parameter_types": "string,ItemQueue"
+        },
+        {
+          "source_function": "Consume",
+          "sourceClass": "Consumer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Consumer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Take",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.producer.consumer",
+        "file": "src/test/java/com/iluwatar/producer/consumer/Producer-Consumer/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "ItemQueue",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Producer",
+          "sourceClass": "Producer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Producer.cs",
+          "parameter_types": "string,ItemQueue"
+        },
+        {
+          "source_function": "Produce",
+          "sourceClass": "Producer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Producer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Put",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "Item"
+        },
+        {
+          "source_function": "Consumer",
+          "sourceClass": "Consumer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Consumer.cs",
+          "parameter_types": "string,ItemQueue"
+        },
+        {
+          "source_function": "Consume",
+          "sourceClass": "Consumer",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/Consumer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Take",
+          "sourceClass": "ItemQueue",
+          "package": "com.iluwatar.producer.consumer",
+          "file": "src/main/java/com/iluwatar/producer/consumer/Producer-Consumer/ItemQueue.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

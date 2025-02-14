@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Converter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">converter</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.converter</a> &gt; <span class="el_source">Converter.java</span></div><h1>Converter.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.converter;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Function;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * Generic converter, thanks to Java8 features not only provides a way of generic bidirectional
+ * conversion between corresponding types, but also a common way of converting a collection of
+ * objects of the same type, reducing boilerplate code to the absolute minimum.
+ *
+ * @param &lt;T&gt; DTO representation's type
+ * @param &lt;U&gt; Domain representation's type
+ */
+@RequiredArgsConstructor
+public class Converter&lt;T, U&gt; {
+
+  private final Function&lt;T, U&gt; fromDto;
+  private final Function&lt;U, T&gt; fromEntity;
+
+  /**
+   * Converts DTO to Entity.
+   *
+   * @param dto DTO entity
+   * @return The domain representation - the result of the converting function application on dto
+   *     entity.
+   */
+  public final U convertFromDto(final T dto) {
+<span class="fc" id="L54">    return fromDto.apply(dto);</span>
+  }
+
+  /**
+   * Converts Entity to DTO.
+   *
+   * @param entity domain entity
+   * @return The DTO representation - the result of the converting function application on domain
+   *     entity.
+   */
+  public final T convertFromEntity(final U entity) {
+<span class="fc" id="L65">    return fromEntity.apply(entity);</span>
+  }
+
+  /**
+   * Converts list of DTOs to list of Entities.
+   *
+   * @param dtos collection of DTO entities
+   * @return List of domain representation of provided entities retrieved by mapping each of them
+   *     with the conversion function
+   */
+  public final List&lt;U&gt; createFromDtos(final Collection&lt;T&gt; dtos) {
+<span class="fc" id="L76">    return dtos.stream().map(this::convertFromDto).toList();</span>
+  }
+
+  /**
+   * Converts list of Entities to list of DTOs.
+   *
+   * @param entities collection of domain entities
+   * @return List of domain representation of provided entities retrieved by mapping each of them
+   *     with the conversion function
+   */
+  public final List&lt;T&gt; createFromEntities(final Collection&lt;U&gt; entities) {
+<span class="fc" id="L87">    return entities.stream().map(this::convertFromEntity).toList();</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

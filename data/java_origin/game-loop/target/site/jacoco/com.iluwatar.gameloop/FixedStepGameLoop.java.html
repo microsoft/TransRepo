@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FixedStepGameLoop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">game-loop</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.gameloop</a> &gt; <span class="el_source">FixedStepGameLoop.java</span></div><h1>FixedStepGameLoop.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.gameloop;
+
+/**
+ * For fixed-step game loop, a certain amount of real time has elapsed since the
+ * last turn of the game loop. This is how much game time need to be simulated for
+ * the game’s “now” to catch up with the player’s.
+ */
+<span class="fc" id="L32">public class FixedStepGameLoop extends GameLoop {</span>
+
+  /**
+   * 20 ms per frame = 50 FPS.
+   */
+  private static final long MS_PER_FRAME = 20;
+
+  @Override
+  protected void processGameLoop() {
+<span class="fc" id="L41">    var previousTime = System.currentTimeMillis();</span>
+<span class="fc" id="L42">    var lag = 0L;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    while (isGameRunning()) {</span>
+<span class="fc" id="L44">      var currentTime = System.currentTimeMillis();</span>
+<span class="fc" id="L45">      var elapsedTime = currentTime - previousTime;</span>
+<span class="fc" id="L46">      previousTime = currentTime;</span>
+<span class="fc" id="L47">      lag += elapsedTime;</span>
+
+<span class="fc" id="L49">      processInput();</span>
+
+<span class="fc bfc" id="L51" title="All 2 branches covered.">      while (lag &gt;= MS_PER_FRAME) {</span>
+<span class="fc" id="L52">        update();</span>
+<span class="fc" id="L53">        lag -= MS_PER_FRAME;</span>
+      }
+
+<span class="fc" id="L56">      render();</span>
+<span class="fc" id="L57">    }</span>
+<span class="fc" id="L58">  }</span>
+
+  protected void update() {
+<span class="fc" id="L61">    controller.moveBullet(0.5f * MS_PER_FRAME / 1000);</span>
+<span class="fc" id="L62">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

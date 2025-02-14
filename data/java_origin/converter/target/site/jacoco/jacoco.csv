@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+converter,com.iluwatar.converter,App,3,79,0,0,1,12,1,2,1,2
+converter,com.iluwatar.converter,UserDto,0,27,0,0,0,1,0,5,0,5
+converter,com.iluwatar.converter,User,0,27,0,0,0,1,0,5,0,5
+converter,com.iluwatar.converter,UserConverter,0,29,0,0,0,4,0,3,0,3
+converter,com.iluwatar.converter,Converter,0,24,0,0,0,4,0,4,0,4

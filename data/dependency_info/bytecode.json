@@ -1,0 +1,440 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "TestSpawnParticles",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "SpawnParticles",
+          "sourceClass": "Wizard",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/Wizard.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestPlaySound",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "PlaySound",
+          "sourceClass": "Wizard",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/Wizard.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestLiteral",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestSetHealth",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "SetHealth",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestGetHealth",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "SetHealth",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "GetHealth",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestSetAgility",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "SetAgility",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestSetWisdom",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "SetWisdom",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestInvalidInstruction",
+        "testClass": "VirtualMachineTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/VirtualMachineTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "RandomInt",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestEmptyInstruction",
+        "testClass": "InstructionConverterUtilTest",
+        "package": "com.iluwatar.bytecode.util",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/util/InstructionConverterUtilTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ConvertToByteCode",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestInstructions",
+        "testClass": "InstructionConverterUtilTest",
+        "package": "com.iluwatar.bytecode.util",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/util/InstructionConverterUtilTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ConvertToByteCode",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "IsValidInstruction",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "IsValidInt",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.bytecode",
+        "file": "src/test/java/com/iluwatar/bytecode/Bytecode.Tests/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "VirtualMachine",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "Wizard,Wizard"
+        },
+        {
+          "source_function": "ConvertToByteCode",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "IsValidInstruction",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "IsValidInt",
+          "sourceClass": "InstructionConverterUtil",
+          "package": "com.iluwatar.bytecode.util",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/util/InstructionConverterUtil.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Execute",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int[]"
+        },
+        {
+          "source_function": "GetHealth",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "GetAgility",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "GetWisdom",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "SetHealth",
+          "sourceClass": "VirtualMachine",
+          "package": "com.iluwatar.bytecode",
+          "file": "src/main/java/com/iluwatar/bytecode/Bytecode/VirtualMachine.cs",
+          "parameter_types": "int,int"
+        }
+      ]
+    }
+  ]
+}

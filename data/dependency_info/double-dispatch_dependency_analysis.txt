@@ -1,0 +1,80 @@
+Project: double-dispatch
+File: FlamingAsteroid.java
+Calls: gameObject.collisionResolve (Defined in: Meteoroid.java)
+File: App.java
+Calls: objects.forEach (Defined in: Unknown)
+Calls: o1.intersectsWith (Defined in: Rectangle.java)
+Calls: o1.collision (Defined in: Meteoroid.java)
+Calls: o.toString (Defined in: GameObject.java)
+Calls: List.of (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Rectangle.java
+Calls: r.getTop (Defined in: Unknown)
+Calls: String.format (Defined in: Unknown)
+Calls: r.getBottom (Defined in: Unknown)
+Calls: r.getRight (Defined in: Unknown)
+Calls: r.getLeft (Defined in: Unknown)
+File: GameObject.java
+Calls: String.format (Defined in: Unknown)
+File: SpaceStationMir.java
+Calls: gameObject.collisionResolve (Defined in: Meteoroid.java)
+Calls: gameObject.getClass (Defined in: Unknown)
+Calls: asteroid.getClass (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: SpaceStationIss.java
+Calls: gameObject.collisionResolve (Defined in: Meteoroid.java)
+File: Meteoroid.java
+Calls: iss.getClass (Defined in: Unknown)
+Calls: meteoroid.getClass (Defined in: Unknown)
+Calls: gameObject.collisionResolve (Defined in: Meteoroid.java)
+Calls: mir.getClass (Defined in: Unknown)
+Calls: asteroid.getClass (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: AppConstants.java
+File: MeteoroidTest.java
+Calls: meteoroid.getRight (Defined in: Unknown)
+Calls: meteoroid.getLeft (Defined in: Unknown)
+Calls: meteoroid.getTop (Defined in: Unknown)
+Calls: meteoroid.isDamaged (Defined in: Unknown)
+Calls: meteoroid.toString (Defined in: GameObject.java)
+Calls: meteoroid.isOnFire (Defined in: Unknown)
+Calls: meteoroid.getBottom (Defined in: Unknown)
+File: AppTest.java
+Calls: App.main (Defined in: App.java)
+File: RectangleTest.java
+Calls: rectangle.toString (Defined in: GameObject.java)
+Calls: rectangle.getRight (Defined in: Unknown)
+Calls: rectangle.getBottom (Defined in: Unknown)
+Calls: rectangle.getLeft (Defined in: Unknown)
+Calls: rectangle.getTop (Defined in: Unknown)
+File: SpaceStationMirTest.java
+Calls: mir.getBottom (Defined in: Unknown)
+Calls: mir.getRight (Defined in: Unknown)
+Calls: mir.getLeft (Defined in: Unknown)
+Calls: mir.getTop (Defined in: Unknown)
+Calls: mir.isOnFire (Defined in: Unknown)
+Calls: mir.isDamaged (Defined in: Unknown)
+Calls: mir.toString (Defined in: GameObject.java)
+File: CollisionTest.java
+Calls: other.getClass (Defined in: Unknown)
+Calls: Objects.requireNonNull (Defined in: Unknown)
+Calls: target.isOnFire (Defined in: Unknown)
+Calls: target.getClass (Defined in: Unknown)
+Calls: tested.collision (Defined in: Meteoroid.java)
+Calls: target.isDamaged (Defined in: Unknown)
+File: SpaceStationIssTest.java
+Calls: iss.isOnFire (Defined in: Unknown)
+Calls: iss.getBottom (Defined in: Unknown)
+Calls: iss.isDamaged (Defined in: Unknown)
+Calls: iss.getTop (Defined in: Unknown)
+Calls: iss.getLeft (Defined in: Unknown)
+Calls: iss.toString (Defined in: GameObject.java)
+Calls: iss.getRight (Defined in: Unknown)
+File: FlamingAsteroidTest.java
+Calls: asteroid.toString (Defined in: GameObject.java)
+Calls: asteroid.getBottom (Defined in: Unknown)
+Calls: asteroid.getRight (Defined in: Unknown)
+Calls: asteroid.getTop (Defined in: Unknown)
+Calls: asteroid.getLeft (Defined in: Unknown)
+Calls: asteroid.isOnFire (Defined in: Unknown)
+Calls: asteroid.isDamaged (Defined in: Unknown)

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">partial-response</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.partialresponse</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.partialresponse;
+
+import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The Partial response pattern is a design pattern in which client specifies fields to fetch to
+ * serve. Here {@link App} is playing as client for {@link VideoResource} server. Client ask for
+ * specific fields information in video to server.
+ *
+ * &lt;p&gt;{@link VideoResource} act as server to serve video information.
+ */
+
+<span class="fc" id="L38">@Slf4j</span>
+<span class="nc" id="L39">public class App {</span>
+
+  /**
+   * Method as act client and request to server for video details.
+   *
+   * @param args program argument.
+   */
+  public static void main(String[] args) throws Exception {
+<span class="fc" id="L47">    var videos = Map.of(</span>
+<span class="fc" id="L48">        1, new Video(1, &quot;Avatar&quot;, 178, &quot;epic science fiction film&quot;,</span>
+            &quot;James Cameron&quot;, &quot;English&quot;),
+<span class="fc" id="L50">        2, new Video(2, &quot;Godzilla Resurgence&quot;, 120, &quot;Action &amp; drama movie|&quot;,</span>
+            &quot;Hideaki Anno&quot;, &quot;Japanese&quot;),
+<span class="fc" id="L52">        3, new Video(3, &quot;Interstellar&quot;, 169, &quot;Adventure &amp; Sci-Fi&quot;,</span>
+            &quot;Christopher Nolan&quot;, &quot;English&quot;)
+    );
+<span class="fc" id="L55">    var videoResource = new VideoResource(new FieldJsonMapper(), videos);</span>
+
+
+<span class="fc" id="L58">    LOGGER.info(&quot;Retrieving full response from server:-&quot;);</span>
+<span class="fc" id="L59">    LOGGER.info(&quot;Get all video information:&quot;);</span>
+<span class="fc" id="L60">    var videoDetails = videoResource.getDetails(1);</span>
+<span class="fc" id="L61">    LOGGER.info(videoDetails);</span>
+
+<span class="fc" id="L63">    LOGGER.info(&quot;----------------------------------------------------------&quot;);</span>
+
+<span class="fc" id="L65">    LOGGER.info(&quot;Retrieving partial response from server:-&quot;);</span>
+<span class="fc" id="L66">    LOGGER.info(&quot;Get video @id, @title, @director:&quot;);</span>
+<span class="fc" id="L67">    var specificFieldsDetails = videoResource.getDetails(3, &quot;id&quot;, &quot;title&quot;, &quot;director&quot;);</span>
+<span class="fc" id="L68">    LOGGER.info(specificFieldsDetails);</span>
+
+<span class="fc" id="L70">    LOGGER.info(&quot;Get video @id, @length:&quot;);</span>
+<span class="fc" id="L71">    var videoLength = videoResource.getDetails(3, &quot;id&quot;, &quot;length&quot;);</span>
+<span class="fc" id="L72">    LOGGER.info(videoLength);</span>
+<span class="fc" id="L73">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

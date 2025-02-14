@@ -1,0 +1,122 @@
+{
+  "timestamp": "2024-12-25T12:51:53.032710",
+  "test_results": {
+    "TestEquals1": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals2": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestEquals2"
+      ]
+    },
+    "TestEquals3": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals4": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals5": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals6": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals7": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestEquals8": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestEquals8"
+      ]
+    },
+    "TestEquals9": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestEquals9"
+      ]
+    },
+    "TestHashCode1": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestHashCode1"
+      ]
+    },
+    "TestHashCode2": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestHashCode2"
+      ]
+    },
+    "TestHashCode3": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestHashCode3"
+      ]
+    },
+    "TestSetId": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestSetPassword": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestSetUsername": {
+      "passed": false,
+      "outcome": "Failed"
+    },
+    "TestToString": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestToString"
+      ]
+    },
+    "LoginShouldFail": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "LoginShouldFail"
+      ]
+    },
+    "LoginShouldSucceed": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "LoginShouldSucceed"
+      ]
+    },
+    "RegisterShouldFail": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "RegisterShouldFail"
+      ]
+    },
+    "RegisterShouldSucceed": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "RegisterShouldSucceed"
+      ]
+    },
+    "ShouldExecuteWithoutException": {
+      "passed": true,
+      "outcome": "Passed"
+    }
+  }
+}

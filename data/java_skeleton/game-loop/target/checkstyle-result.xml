@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/FixedStepGameLoop.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/VariableStepGameLoop.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/Bullet.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameStatus.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameLoop.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/GameController.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/data/java/java-design-patterns/game-loop/src/main/java/com/iluwatar/gameloop/FrameBasedGameLoop.java">
+</file>
+</checkstyle>

@@ -1,0 +1,408 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "ShouldSaveNewStudentWithoutWritingToDb",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "RegisterNew",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "Register",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldSaveAllLocalChangesToDb",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitInsert",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitModify",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitDelete",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldSaveDeletedStudentWithoutWritingToDb",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "RegisterDeleted",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "Register",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldNotWriteToDbIfContextIsNull",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldNotModifyToDbIfNotRegisteredStudentsToBeCommitted",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitInsert",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitDelete",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldNotDeleteFromDbIfNotRegisteredStudentsToBeCommitted",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitInsert",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitModify",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldNotInsertToDbIfNoRegisteredStudentsToBeCommitted",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitModify",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitDelete",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldSaveModifiedStudentWithoutWritingToDb",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "RegisterModified",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "Register",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldNotWriteToDbIfNothingToCommit",
+        "testClass": "ArmsDealerTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealerTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "ArmsDealer",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "IDictionary<string, List<Weapon>>,WeaponDatabase"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.unitofwork",
+        "file": "src/test/java/com/iluwatar/unitofwork/Unit-Of-Work/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "RegisterNew",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "Register",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon,string"
+        },
+        {
+          "source_function": "RegisterModified",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "RegisterDeleted",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "Commit",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "CommitInsert",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Insert",
+          "sourceClass": "WeaponDatabase",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/WeaponDatabase.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "CommitModify",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Modify",
+          "sourceClass": "WeaponDatabase",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/WeaponDatabase.cs",
+          "parameter_types": "Weapon"
+        },
+        {
+          "source_function": "CommitDelete",
+          "sourceClass": "ArmsDealer",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/ArmsDealer.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Delete",
+          "sourceClass": "WeaponDatabase",
+          "package": "com.iluwatar.unitofwork",
+          "file": "src/main/java/com/iluwatar/unitofwork/Unit-Of-Work/WeaponDatabase.cs",
+          "parameter_types": "Weapon"
+        }
+      ]
+    }
+  ]
+}

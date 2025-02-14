@@ -1,0 +1,75 @@
+{
+  "timestamp": "2024-12-26T13:27:40.502343",
+  "test_results": {
+    "TestReadAndWriteThroughStrategy": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestReadAndWriteThroughStrategy"
+      ]
+    },
+    "TestReadThroughAndWriteAroundStrategy": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestReadThroughAndWriteAroundStrategy"
+      ]
+    },
+    "TestReadThroughAndWriteBehindStrategy": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestReadThroughAndWriteBehindStrategy"
+      ]
+    },
+    "TestCacheAsideStrategy": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "TestCacheAsideStrategy"
+      ]
+    },
+    "ShouldExecuteApplicationWithoutException": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ShouldExecuteApplicationWithoutException"
+      ]
+    },
+    "Connect_DoesNotThrow": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "Connect_DoesNotThrow"
+      ]
+    },
+    "ReadFromDb_ReturnsCorrectUserAccount": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "ReadFromDb_ReturnsCorrectUserAccount"
+      ]
+    },
+    "WriteToDb_DoesNotThrow": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "WriteToDb_DoesNotThrow"
+      ]
+    },
+    "UpdateDb_DoesNotThrow": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "UpdateDb_DoesNotThrow"
+      ]
+    },
+    "UpsertDb_DoesNotThrow": {
+      "passed": false,
+      "outcome": "Failed",
+      "failed_tests": [
+        "UpsertDb_DoesNotThrow"
+      ]
+    }
+  }
+}

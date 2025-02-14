@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+double-dispatch,com.iluwatar.doubledispatch.constants,AppConstants,3,0,0,0,1,0,1,0,1,0
+double-dispatch,com.iluwatar.doubledispatch,Meteoroid,0,55,0,0,0,15,0,7,0,7
+double-dispatch,com.iluwatar.doubledispatch,SpaceStationMir,0,100,0,0,0,24,0,8,0,8
+double-dispatch,com.iluwatar.doubledispatch,GameObject,0,35,0,0,0,4,0,2,0,2
+double-dispatch,com.iluwatar.doubledispatch,SpaceStationIss,0,11,0,0,0,4,0,2,0,2
+double-dispatch,com.iluwatar.doubledispatch,Rectangle,0,53,2,6,0,3,2,4,0,2
+double-dispatch,com.iluwatar.doubledispatch,FlamingAsteroid,0,14,0,0,0,5,0,2,0,2
+double-dispatch,com.iluwatar.doubledispatch,App,3,80,0,4,1,12,1,8,1,6

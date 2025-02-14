@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+game-loop,com.iluwatar.gameloop,Bullet,0,6,0,0,0,3,0,1,0,1
+game-loop,com.iluwatar.gameloop,GameStatus,0,15,0,0,0,2,0,1,0,1
+game-loop,com.iluwatar.gameloop,FixedStepGameLoop,0,44,0,4,0,17,0,5,0,3
+game-loop,com.iluwatar.gameloop,App,8,54,0,0,3,21,1,2,1,2
+game-loop,com.iluwatar.gameloop,GameLoop,8,64,0,2,3,19,0,7,0,6
+game-loop,com.iluwatar.gameloop,FrameBasedGameLoop,0,19,0,2,0,8,0,4,0,3
+game-loop,com.iluwatar.gameloop,VariableStepGameLoop,0,37,0,2,0,13,0,4,0,3
+game-loop,com.iluwatar.gameloop,GameController,0,23,0,0,0,7,0,3,0,3

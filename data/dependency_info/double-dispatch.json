@@ -1,0 +1,1611 @@
+{
+  "tests": [
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationIssSpaceStationIss",
+              "testClass": "SpaceStationIssTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationIssTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "SpaceStationIss"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationMirSpaceStationIss",
+              "testClass": "SpaceStationIssTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationIssTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "SpaceStationIss"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideMeteoroidSpaceStationIss",
+              "testClass": "SpaceStationIssTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationIssTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "SpaceStationIss"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideFlamingAsteroidSpaceStationIss",
+              "testClass": "SpaceStationIssTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationIssTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "SpaceStationIss"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestConstructorSpaceStationIss",
+              "testClass": "SpaceStationIssTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationIssTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationIssMeteoroid",
+              "testClass": "MeteoroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "MeteoroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "Meteoroid"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationMirMeteoroid",
+              "testClass": "MeteoroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "MeteoroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "Meteoroid"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideMeteoroidMeteoroid",
+              "testClass": "MeteoroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "MeteoroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "Meteoroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideFlamingAsteroidMeteoroid",
+              "testClass": "MeteoroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "MeteoroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "Meteoroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestConstructorMeteoroid",
+              "testClass": "MeteoroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/MeteoroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationIssFlamingAsteroid",
+              "testClass": "FlamingAsteroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "FlamingAsteroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "FlamingAsteroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationMirFlamingAsteroid",
+              "testClass": "FlamingAsteroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "FlamingAsteroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "FlamingAsteroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideMeteoroidFlamingAsteroid",
+              "testClass": "FlamingAsteroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "FlamingAsteroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "FlamingAsteroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideFlamingAsteroidFlamingAsteroid",
+              "testClass": "FlamingAsteroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "FlamingAsteroidTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "FlamingAsteroid"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestConstructorFlamingAsteroid",
+              "testClass": "FlamingAsteroidTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/FlamingAsteroidTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationIssSpaceStationMir",
+              "testClass": "SpaceStationMirTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationMirTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "SpaceStationMir"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideSpaceStationMirSpaceStationMir",
+              "testClass": "SpaceStationMirTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationMirTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "SpaceStationMir"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideMeteoroidSpaceStationMir",
+              "testClass": "SpaceStationMirTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationMirTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "SpaceStationMir"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestCollideFlamingAsteroidSpaceStationMir",
+              "testClass": "SpaceStationMirTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "TestCollision",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,bool,bool,bool,bool"
+              },
+              {
+                  "source_function": "GetTestedObject",
+                  "sourceClass": "SpaceStationMirTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "SpaceStationMir"
+              },
+              {
+                  "source_function": "TestOnFire",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              },
+              {
+                  "source_function": "TestDamaged",
+                  "sourceClass": "CollisionTest",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/CollisionTest.cs",
+                  "parameter_types": "GameObject,GameObject,bool"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestConstructorSpaceStationMir",
+              "testClass": "SpaceStationMirTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/SpaceStationMirTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestToString",
+              "testClass": "RectangleTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/RectangleTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestIntersection",
+              "testClass": "RectangleTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/RectangleTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "IntersectsWith",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "Rectangle"
+              }
+          ]
+      },
+      {
+          "test": {
+              "testname": "TestConstructorRectangle",
+              "testClass": "RectangleTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/RectangleTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": []
+      },
+      {
+          "test": {
+              "testname": "ShouldExecuteApplicationWithoutException",
+              "testClass": "AppTest",
+              "package": "com.iluwatar.doubledispatch",
+              "file": "src/test/java/com/iluwatar/doubledispatch/Double-Dispatch.Tests/AppTest.cs",
+              "parameter_types": "None"
+          },
+          "dependencies": [
+              {
+                  "source_function": "Main",
+                  "sourceClass": "App",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/App.cs",
+                  "parameter_types": "string[]"
+              },
+              {
+                  "source_function": "GameObject",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "Meteoroid",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "FlamingAsteroid",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationMir",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "SpaceStationIss",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "int,int,int,int"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "GameObject",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/GameObject.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "ToString",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "None"
+              },
+              {
+                  "source_function": "IntersectsWith",
+                  "sourceClass": "Rectangle",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Rectangle.cs",
+                  "parameter_types": "Rectangle"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "FlamingAsteroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/FlamingAsteroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "FlamingAsteroid"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "CollisionResolve",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "SpaceStationMir"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "Meteoroid",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/Meteoroid.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "LogHits",
+                  "sourceClass": "SpaceStationMir",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationMir.cs",
+                  "parameter_types": "GameObject"
+              },
+              {
+                  "source_function": "Collision",
+                  "sourceClass": "SpaceStationIss",
+                  "package": "com.iluwatar.doubledispatch",
+                  "file": "src/main/java/com/iluwatar/doubledispatch/Double-Dispatch/SpaceStationIss.cs",
+                  "parameter_types": "GameObject"
+              }
+          ]
+      }
+  ]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/Observable.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/Race.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/GenOrcs.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/GenHobbits.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/Observer.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/generic/GenWeather.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/App.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/WeatherType.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/WeatherObserver.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/Weather.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/Orcs.java">
+</file>
+<file name="/home/v-jiahengwen/RepoTranslationAgent/fixed_data/java_origin/observer/src/main/java/com/iluwatar/observer/Hobbits.java">
+</file>
+</checkstyle>

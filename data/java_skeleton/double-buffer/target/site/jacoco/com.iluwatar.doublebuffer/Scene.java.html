@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scene.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">double-buffer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.doublebuffer</a> &gt; <span class="el_source">Scene.java</span></div><h1>Scene.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.doublebuffer;
+
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.tuple.Pair;
+
+/**
+ * Scene class. Render the output frame.
+ */
+<span class="fc" id="L34">@Slf4j</span>
+public class Scene {
+
+  private final Buffer[] frameBuffers;
+
+  private int current;
+
+  private int next;
+
+  /**
+   * Constructor of Scene.
+   */
+<span class="fc" id="L46">  public Scene() {</span>
+<span class="fc" id="L47">    frameBuffers = new FrameBuffer[2];</span>
+<span class="fc" id="L48">    frameBuffers[0] = new FrameBuffer();</span>
+<span class="fc" id="L49">    frameBuffers[1] = new FrameBuffer();</span>
+<span class="fc" id="L50">    current = 0;</span>
+<span class="fc" id="L51">    next = 1;</span>
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * Draw the next frame.
+   *
+   * @param coordinateList list of pixels of which the color should be black
+   */
+  public void draw(List&lt;? extends Pair&lt;Integer, Integer&gt;&gt; coordinateList) {
+<span class="fc" id="L60">    LOGGER.info(&quot;Start drawing next frame&quot;);</span>
+<span class="fc" id="L61">    LOGGER.info(&quot;Current buffer: &quot; + current + &quot; Next buffer: &quot; + next);</span>
+<span class="fc" id="L62">    frameBuffers[next].clearAll();</span>
+<span class="fc" id="L63">    coordinateList.forEach(coordinate -&gt; {</span>
+<span class="fc" id="L64">      var x = coordinate.getKey();</span>
+<span class="fc" id="L65">      var y = coordinate.getValue();</span>
+<span class="fc" id="L66">      frameBuffers[next].draw(x, y);</span>
+<span class="fc" id="L67">    });</span>
+<span class="fc" id="L68">    LOGGER.info(&quot;Swap current and next buffer&quot;);</span>
+<span class="fc" id="L69">    swap();</span>
+<span class="fc" id="L70">    LOGGER.info(&quot;Finish swapping&quot;);</span>
+<span class="fc" id="L71">    LOGGER.info(&quot;Current buffer: &quot; + current + &quot; Next buffer: &quot; + next);</span>
+<span class="fc" id="L72">  }</span>
+
+  public Buffer getBuffer() {
+<span class="fc" id="L75">    LOGGER.info(&quot;Get current buffer: &quot; + current);</span>
+<span class="fc" id="L76">    return frameBuffers[current];</span>
+  }
+
+  private void swap() {
+<span class="fc" id="L80">    current = current ^ next;</span>
+<span class="fc" id="L81">    next = current ^ next;</span>
+<span class="fc" id="L82">    current = current ^ next;</span>
+<span class="fc" id="L83">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,1431 @@
+{
+  "tests": [
+    {
+      "test": {
+        "testname": "WriteToDb_DoesNotThrow",
+        "testClass": "MongoDbTest",
+        "package": "com.iluwatar.caching.database",
+        "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "MongoDbTest",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "SetDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "IMongoDatabase"
+        },
+        {
+          "source_function": "UserAccount",
+          "sourceClass": "UserAccount",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/UserAccount.cs",
+          "parameter_types": "string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ReadFromDb_ReturnsCorrectUserAccount",
+        "testClass": "MongoDbTest",
+        "package": "com.iluwatar.caching.database",
+        "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "MongoDbTest",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ReadFromDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "SetDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "IMongoDatabase"
+        },
+        {
+          "source_function": "UserAccount",
+          "sourceClass": "UserAccount",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/UserAccount.cs",
+          "parameter_types": "string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "Connect_DoesNotThrow",
+        "testClass": "MongoDbTest",
+        "package": "com.iluwatar.caching.database",
+        "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+
+        {
+          "source_function": "SetUp",
+          "sourceClass": "MongoDbTest",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "IMongoDatabase"
+        },
+        {
+          "source_function": "UserAccount",
+          "sourceClass": "UserAccount",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/UserAccount.cs",
+          "parameter_types": "string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "UpdateDb_DoesNotThrow",
+        "testClass": "MongoDbTest",
+        "package": "com.iluwatar.caching.database",
+        "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "MongoDbTest",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UpdateDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "SetDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "IMongoDatabase"
+        },
+        {
+          "source_function": "UserAccount",
+          "sourceClass": "UserAccount",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/UserAccount.cs",
+          "parameter_types": "string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "UpsertDb_DoesNotThrow",
+        "testClass": "MongoDbTest",
+        "package": "com.iluwatar.caching.database",
+        "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "SetUp",
+          "sourceClass": "MongoDbTest",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/database/MongoDbTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UpsertDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "CachingTest",
+          "package": "com.iluwatar.caching",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/CachingTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "DbManagerFactory",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/DbManagerFactory.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "AppManager",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "CacheStore",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "InitCapacity",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "LruCache",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SetDb",
+          "sourceClass": "MongoDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/MongoDb.cs",
+          "parameter_types": "IMongoDatabase"
+        },
+        {
+          "source_function": "UserAccount",
+          "sourceClass": "UserAccount",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/UserAccount.cs",
+          "parameter_types": "string,string,string"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestReadThroughAndWriteBehindStrategy",
+        "testClass": "CachingTest",
+        "package": "com.iluwatar.caching",
+        "file": "src/test/java/com/iluwatar/caching/Caching/CachingTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UseReadThroughAndWriteBehindStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "InitCachingPolicy",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "CachingPolicy"
+        },
+        {
+          "source_function": "ClearCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Save",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteBehind",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "IsFull",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Node",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "SetHead",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "PrintCacheContent",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Print",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetCacheDataInListForm",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Find",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadThroughWithWriteBackPolicy",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Contains",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Remove",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "GetLruData",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UpsertDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "UpdateDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "ReadFromDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "CachingTest",
+          "package": "com.iluwatar.caching",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/CachingTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "DbManagerFactory",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/DbManagerFactory.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "AppManager",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "CacheStore",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "InitCapacity",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "LruCache",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestReadAndWriteThroughStrategy",
+        "testClass": "CachingTest",
+        "package": "com.iluwatar.caching",
+        "file": "src/test/java/com/iluwatar/caching/Caching/CachingTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UseReadAndWriteThroughStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "InitCachingPolicy",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "CachingPolicy"
+        },
+        {
+          "source_function": "ClearCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Save",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteThrough",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Contains",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Node",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "SetHead",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "PrintCacheContent",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Print",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetCacheDataInListForm",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Find",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadThrough",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Remove",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "CachingTest",
+          "package": "com.iluwatar.caching",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/CachingTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "DbManagerFactory",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/DbManagerFactory.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "AppManager",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "CacheStore",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "InitCapacity",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "LruCache",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestReadThroughAndWriteAroundStrategy",
+        "testClass": "CachingTest",
+        "package": "com.iluwatar.caching",
+        "file": "src/test/java/com/iluwatar/caching/Caching/CachingTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UseReadThroughAndWriteAroundStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "InitCachingPolicy",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "CachingPolicy"
+        },
+        {
+          "source_function": "ClearCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Save",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteAround",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Contains",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "PrintCacheContent",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Print",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetCacheDataInListForm",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Find",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadThrough",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadFromDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Node",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "SetHead",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Remove",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "UpdateDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Invalidate",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "SetUp",
+          "sourceClass": "CachingTest",
+          "package": "com.iluwatar.caching",
+          "file": "src/test/java/com/iluwatar/caching/Caching.Tests/CachingTest.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "DbManagerFactory",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/DbManagerFactory.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "AppManager",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "CacheStore",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "InitCapacity",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "LruCache",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "TestCacheAsideStrategy",
+        "testClass": "CachingTest",
+        "package": "com.iluwatar.caching",
+        "file": "src/test/java/com/iluwatar/caching/Caching/CachingTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "UseCacheAsideStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "InitCachingPolicy",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "CachingPolicy"
+        },
+        {
+          "source_function": "ClearCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "PrintCacheContent",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Print",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetCacheDataInListForm",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Save",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "SaveAside",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "UpdateDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Invalidate",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Invalidate",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Find",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "FindAside",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadFromDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Node",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "SetHead",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        }
+      ]
+    },
+    {
+      "test": {
+        "testname": "ShouldExecuteApplicationWithoutException",
+        "testClass": "AppTest",
+        "package": "com.iluwatar.caching",
+        "file": "src/test/java/com/iluwatar/caching/Caching/AppTest.cs",
+        "parameter_types": "None"
+      },
+      "dependencies": [
+        {
+          "source_function": "Main",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "IsDbMongo",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "string[]"
+        },
+        {
+          "source_function": "App",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "DbManagerFactory",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/DbManagerFactory.cs",
+          "parameter_types": "bool"
+        },
+        {
+          "source_function": "AppManager",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "CacheStore",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "DbManager"
+        },
+        {
+          "source_function": "InitCapacity",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "LruCache",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "int"
+        },
+        {
+          "source_function": "InitDb",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Connect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UseReadAndWriteThroughStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "InitCachingPolicy",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "CachingPolicy"
+        },
+        {
+          "source_function": "ClearCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Clear",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Save",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "WriteThrough",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Contains",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "WriteToDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "Node",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "SetHead",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "PrintCacheContent",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Print",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "GetCacheDataInListForm",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Find",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "ReadThrough",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Remove",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "Node"
+        },
+        {
+          "source_function": "UseReadThroughAndWriteAroundStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "WriteAround",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "ReadFromDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "UpdateDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Invalidate",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "UseReadThroughAndWriteBehindStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "WriteBehind",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "IsFull",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "ReadThroughWithWriteBackPolicy",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "GetLruData",
+          "sourceClass": "LruCache",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/LruCache.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "UpsertDb",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "UseCacheAsideStrategy",
+          "sourceClass": "App",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/App.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "SaveAside",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "UserAccount"
+        },
+        {
+          "source_function": "Invalidate",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "FindAside",
+          "sourceClass": "AppManager",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/AppManager.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Get",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string"
+        },
+        {
+          "source_function": "Set",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "string,UserAccount"
+        },
+        {
+          "source_function": "FlushCache",
+          "sourceClass": "CacheStore",
+          "package": "com.iluwatar.caching",
+          "file": "src/main/java/com/iluwatar/caching/Caching/CacheStore.cs",
+          "parameter_types": "None"
+        },
+        {
+          "source_function": "Disconnect",
+          "sourceClass": "VirtualDb",
+          "package": "com.iluwatar.caching.database",
+          "file": "src/main/java/com/iluwatar/caching/Caching/database/VirtualDb.cs",
+          "parameter_types": "None"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">observer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.observer</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.observer;
+
+import com.iluwatar.observer.generic.GenHobbits;
+import com.iluwatar.observer.generic.GenOrcs;
+import com.iluwatar.observer.generic.GenWeather;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The Observer pattern is a software design pattern in which an object, called the subject,
+ * maintains a list of its dependents, called observers, and notifies them automatically of any
+ * state changes, usually by calling one of their methods. It is mainly used to implement
+ * distributed event handling systems. The Observer pattern is also a key part in the familiar
+ * model–view–controller (MVC) architectural pattern. The Observer pattern is implemented in
+ * numerous programming libraries and systems, including almost all GUI toolkits.
+ *
+ * &lt;p&gt;In this example {@link Weather} has a state that can be observed. The {@link Orcs} and {@link
+ * Hobbits} register as observers and receive notifications when the {@link Weather} changes.
+ */
+<span class="fc" id="L43">@Slf4j</span>
+<span class="nc" id="L44">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+
+<span class="fc" id="L53">    var weather = new Weather();</span>
+<span class="fc" id="L54">    weather.addObserver(new Orcs());</span>
+<span class="fc" id="L55">    weather.addObserver(new Hobbits());</span>
+
+<span class="fc" id="L57">    weather.timePasses();</span>
+<span class="fc" id="L58">    weather.timePasses();</span>
+<span class="fc" id="L59">    weather.timePasses();</span>
+<span class="fc" id="L60">    weather.timePasses();</span>
+
+    // Generic observer inspired by Java Generics and Collections by Naftalin &amp; Wadler
+<span class="fc" id="L63">    LOGGER.info(&quot;--Running generic version--&quot;);</span>
+<span class="fc" id="L64">    var genericWeather = new GenWeather();</span>
+<span class="fc" id="L65">    genericWeather.addObserver(new GenOrcs());</span>
+<span class="fc" id="L66">    genericWeather.addObserver(new GenHobbits());</span>
+
+<span class="fc" id="L68">    genericWeather.timePasses();</span>
+<span class="fc" id="L69">    genericWeather.timePasses();</span>
+<span class="fc" id="L70">    genericWeather.timePasses();</span>
+<span class="fc" id="L71">    genericWeather.timePasses();</span>
+<span class="fc" id="L72">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

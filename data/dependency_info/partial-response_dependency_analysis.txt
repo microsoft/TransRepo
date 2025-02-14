@@ -1,0 +1,28 @@
+Project: partial-response
+File: FieldJsonMapper.java
+Calls: declaredField.setAccessible (Defined in: Unknown)
+Calls: declaredField.getName (Defined in: Unknown)
+Calls: declaredField.get (Defined in: Unknown)
+Calls: json.toString (Defined in: Video.java)
+Calls: json.add (Defined in: Unknown)
+Calls: value.toString (Defined in: Video.java)
+File: App.java
+Calls: videoResource.getDetails (Defined in: VideoResource.java)
+Calls: Map.of (Defined in: Unknown)
+Calls: LOGGER.info (Defined in: Unknown)
+File: Video.java
+File: VideoResource.java
+Calls: fieldJsonMapper.toJson (Defined in: FieldJsonMapper.java)
+Calls: videos.get (Defined in: Unknown)
+File: FieldJsonMapperTest.java
+Calls: Assertions.assertEquals (Defined in: Unknown)
+Calls: mapper.toJson (Defined in: FieldJsonMapper.java)
+File: AppTest.java
+Calls: Assertions.assertDoesNotThrow (Defined in: Unknown)
+Calls: App.main (Defined in: App.java)
+File: VideoResourceTest.java
+Calls: resource.getDetails (Defined in: VideoResource.java)
+Calls: Assertions.assertEquals (Defined in: Unknown)
+Calls: Mockito.when (Defined in: Unknown)
+Calls: Map.of (Defined in: Unknown)
+Calls: fieldJsonMapper.toJson (Defined in: FieldJsonMapper.java)

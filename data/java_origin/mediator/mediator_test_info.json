@@ -1,0 +1,7 @@
+{
+    "test_files": [
+      "src/test/java/com/iluwatar/mediator/AppTest.java",
+      "src/test/java/com/iluwatar/mediator/PartyImplTest.java",
+      "src/test/java/com/iluwatar/mediator/PartyMemberTest.java"
+    ]
+  }

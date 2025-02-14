@@ -1,0 +1,7 @@
+{
+    "test_files": [
+      "src/test/java/com/iluwatar/typeobject/CellPoolTest.java",
+      "src/test/java/com/iluwatar/typeobject/CellTest.java",
+      "src/test/java/com/iluwatar/typeobject/CandyGameTest.java"
+    ]
+  }

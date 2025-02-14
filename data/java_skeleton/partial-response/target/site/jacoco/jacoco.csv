@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+partial-response,com.iluwatar.partialresponse,Video,18,35,0,0,0,2,6,2,6,2
+partial-response,com.iluwatar.partialresponse,FieldJsonMapper,0,57,0,4,0,13,0,5,0,3
+partial-response,com.iluwatar.partialresponse,VideoResource,6,29,0,2,0,4,2,3,2,2
+partial-response,com.iluwatar.partialresponse,App,3,122,0,0,1,19,1,2,1,2

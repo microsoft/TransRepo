@@ -1,0 +1,216 @@
+App.java:
+package com.iluwatar.unitofwork;
+
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * {@link App} Application demonstrating unit of work pattern.
+ */
+public class App {
+  /**
+   * Program entry point.
+   *
+   * @param args no argument sent
+   */
+
+  public static void main(String[] args) {
+    // create some weapons
+    var enchantedHammer = new Weapon(1, "enchanted hammer");
+    var brokenGreatSword = new Weapon(2, "broken great sword");
+    var silverTrident = new Weapon(3, "silver trident");
+
+    // create repository
+    var weaponRepository = new ArmsDealer(new HashMap<>(),
+            new WeaponDatabase());
+
+    // perform operations on the weapons
+    weaponRepository.registerNew(enchantedHammer);
+    weaponRepository.registerModified(silverTrident);
+    weaponRepository.registerDeleted(brokenGreatSword);
+    weaponRepository.commit();
+  }
+}
+
+ArmsDealer.java:
+package com.iluwatar.unitofwork;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * {@link ArmsDealer} Weapon repository that supports unit of work for weapons.
+ */
+@Slf4j
+@RequiredArgsConstructor
+public class ArmsDealer implements UnitOfWork<Weapon> {
+
+  private final Map<String, List<Weapon>> context;
+  private final WeaponDatabase weaponDatabase;
+
+  @Override
+  public void registerNew(Weapon weapon) {
+    LOGGER.info("Registering {} for insert in context.", weapon.getName());
+    register(weapon, UnitActions.INSERT.getActionValue());
+  }
+
+  @Override
+  public void registerModified(Weapon weapon) {
+    LOGGER.info("Registering {} for modify in context.", weapon.getName());
+    register(weapon, UnitActions.MODIFY.getActionValue());
+
+  }
+
+  @Override
+  public void registerDeleted(Weapon weapon) {
+    LOGGER.info("Registering {} for delete in context.", weapon.getName());
+    register(weapon, UnitActions.DELETE.getActionValue());
+  }
+
+  private void register(Weapon weapon, String operation) {
+    var weaponsToOperate = context.get(operation);
+    if (weaponsToOperate == null) {
+      weaponsToOperate = new ArrayList<>();
+    }
+    weaponsToOperate.add(weapon);
+    context.put(operation, weaponsToOperate);
+  }
+
+  /**
+   * All UnitOfWork operations are batched and executed together on commit only.
+   */
+  @Override
+  public void commit() {
+    if (context == null || context.isEmpty()) {
+      return;
+    }
+    LOGGER.info("Commit started");
+    if (context.containsKey(UnitActions.INSERT.getActionValue())) {
+      commitInsert();
+    }
+
+    if (context.containsKey(UnitActions.MODIFY.getActionValue())) {
+      commitModify();
+    }
+    if (context.containsKey(UnitActions.DELETE.getActionValue())) {
+      commitDelete();
+    }
+    LOGGER.info("Commit finished.");
+  }
+
+  private void commitInsert() {
+    var weaponsToBeInserted = context.get(UnitActions.INSERT.getActionValue());
+    for (var weapon : weaponsToBeInserted) {
+      LOGGER.info("Inserting a new weapon {} to sales rack.", weapon.getName());
+      weaponDatabase.insert(weapon);
+    }
+  }
+
+  private void commitModify() {
+    var modifiedWeapons = context.get(UnitActions.MODIFY.getActionValue());
+    for (var weapon : modifiedWeapons) {
+      LOGGER.info("Scheduling {} for modification work.", weapon.getName());
+      weaponDatabase.modify(weapon);
+    }
+  }
+
+  private void commitDelete() {
+    var deletedWeapons = context.get(UnitActions.DELETE.getActionValue());
+    for (var weapon : deletedWeapons) {
+      LOGGER.info("Scrapping {}.", weapon.getName());
+      weaponDatabase.delete(weapon);
+    }
+  }
+}
+
+UnitActions.java:
+package com.iluwatar.unitofwork;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * Enum representing unit actions.
+ */
+@Getter
+@RequiredArgsConstructor
+public enum UnitActions {
+  INSERT("INSERT"),
+  DELETE("DELETE"),
+  MODIFY("MODIFY");
+
+  private final String actionValue;
+}
+
+UnitOfWork.java:
+package com.iluwatar.unitofwork;
+
+/**
+ * UnitOfWork interface.
+ *
+ * @param <T> Any generic entity
+ */
+public interface UnitOfWork<T> {
+
+  /**
+   * Any register new operation occurring on UnitOfWork is only going to be performed on commit.
+   */
+  void registerNew(T entity);
+
+  /**
+   * Any register modify operation occurring on UnitOfWork is only going to be performed on commit.
+   */
+  void registerModified(T entity);
+
+  /**
+   * Any register delete operation occurring on UnitOfWork is only going to be performed on commit.
+   */
+  void registerDeleted(T entity);
+
+  /**
+   * All UnitOfWork operations batched together executed in commit only.
+   */
+  void commit();
+
+}
+
+Weapon.java:
+package com.iluwatar.unitofwork;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * {@link Weapon} is an entity.
+ */
+@Getter
+@RequiredArgsConstructor
+public class Weapon {
+
+  private final Integer id;
+  private final String name;
+}
+
+WeaponDatabase.java:
+package com.iluwatar.unitofwork;
+
+/**
+ * Act as database for weapon records.
+ */
+public class WeaponDatabase {
+
+  public void insert(Weapon weapon) {
+    //Some insert logic to DB
+  }
+
+  public void modify(Weapon weapon) {
+    //Some modify logic to DB
+  }
+
+  public void delete(Weapon weapon) {
+    //Some delete logic to DB
+  }
+}
