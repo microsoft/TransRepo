@@ -42,9 +42,9 @@ def save_csharp_files(translated_code, output_path):
     print(f"Successfully saved {file_count} files")
 
 def fix_json_escapes(json_str):
-    # 转义不合法的反斜杠
+    # Escape invalid backslashes
     json_str = re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', json_str)
-    # 转义控制字符（ASCII 0x00-0x1F，除 \n、\r、\t 外）
+    # Escape control characters (ASCII 0x00-0x1F, except \n, \r, \t)
     json_str = re.sub(r'[\x00-\x1F\x7F]', '', json_str)
     return json_str
 
@@ -89,7 +89,6 @@ def create_optimization_prompt(iteration_path: str, failed_tests: Dict[str, str]
     "File2.cs": "namespace Another { ... }"
     }"""
     
-    # 读取当前iteration文件夹中src/main下的所有.cs文件
     files_content = ""
     current_files = {}
     src_main_path = os.path.join(iteration_path, "src", "main")
@@ -143,11 +142,11 @@ from json.decoder import JSONDecodeError
 
 def extract_json_content(text: str) -> str:
     """Extract JSON content using regex pattern matching"""
-    # 匹配最外层的花括号及其内容
+    # Match outermost curly braces and their content
     json_pattern = r'\{(?:[^{}]|(?R))*\}'
     matches = re.finditer(json_pattern, text, re.DOTALL)
     
-    # 获取最长的匹配结果
+    # Get the longest matching result
     longest_match = ''
     for match in matches:
         if len(match.group()) > len(longest_match):
@@ -157,15 +156,15 @@ def extract_json_content(text: str) -> str:
 
 def clean_json_string(text: str) -> str:
     """Clean and normalize JSON string"""
-    # 移除常见的干扰字符
-    text = re.sub(r'```\w*\n?', '', text)  # 移除代码块标记
-    text = re.sub(r'\n\s*\n', '\n', text)  # 移除多余空行
+    # Remove common interference characters
+    text = re.sub(r'```\w*\n?', '', text)  # Remove code block markers
+    text = re.sub(r'\n\s*\n', '\n', text)  # Remove extra blank lines
     text = text.strip()
     
-    # 修正常见的JSON格式问题
-    text = text.replace('\\"', '"')  # 修正转义引号
-    text = text.replace('\\n', '\n')  # 修正换行符
-    text = re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', text)  # 修正无效的转义字符
+    # Fix common JSON format issues
+    text = text.replace('\\"', '"')  # Fix escaped quotes
+    text = text.replace('\\n', '\n')  # Fix newlines
+    text = re.sub(r'(?<!\\)\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})', r'\\\\', text)  # Fix invalid escape characters
     
     return text
 
@@ -195,26 +194,23 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
         if not response or not hasattr(response, 'choices') or not response.choices:
             raise ValueError("Invalid response format from LLM")
             
-        # 提取并清理响应文本
+        # clean response text
         response_text = response.choices[0].message.content.strip()
         response_text = response_text.replace('```json', '').replace('```', '')
 
-        # 提取JSON内容
+        # extract json contents
         start_idx = response_text.find('{')
         end_idx = response_text.rstrip().rfind('}') + 1
         
         if start_idx != -1 and end_idx != -1:
             response_text = response_text[start_idx:end_idx]
         
-        # 尝试解析JSON
         try:
             translated = json.loads(response_text)
         except json.JSONDecodeError:
-            # 尝试修复JSON并重新解析
             fixed_response = fix_json_escapes(response_text)
             translated = json.loads(fixed_response)
         
-        # 验证响应结构
         if not isinstance(translated, dict):
             raise ValueError("Response is not a dictionary")
         if not all(isinstance(k, str) and isinstance(v, str) for k, v in translated.items()):
@@ -225,7 +221,7 @@ def translate_code_with_feedback(messages: List[Dict[str, str]]) -> Dict[str, st
         
     except Exception as e:
         print(f"Error processing response: {str(e)}")
-        # 保存失败的响应
+        # save failure
         try:
             with open('failed_response.txt', 'w', encoding='utf-8') as f:
                 f.write(response_text)
