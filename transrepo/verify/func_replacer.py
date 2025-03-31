@@ -5,7 +5,7 @@ import tree_sitter
 from tree_sitter import Language, Parser
 
 class FunctionReplacer:
-    def __init__(self, grammar_path='/home/v-jiahengwen/RepoTranslationAgent/src/dependency/build/my-languages.so'):
+    def __init__(self, grammar_path='../my-languages.so'):
         """
         Initialize FunctionReplacer
         Args:
