@@ -4,7 +4,7 @@ from datetime import datetime
 from collections import defaultdict
 
 def load_original_test_results(project_path):
-    """加载原始测试结果"""
+    """Load original test results"""
     result_path = os.path.join(project_path, "test_results.json")
     try:
         with open(result_path, 'r', encoding='utf-8') as f:
@@ -14,7 +14,7 @@ def load_original_test_results(project_path):
         return None
 
 def load_iteration_results(project_path, iteration):
-    """加载iteration的测试结果"""
+    """Load iteration test results"""
     result_path = os.path.join(project_path, f"test_iteration_{iteration}", "test_scores.json")
     try:
         with open(result_path, 'r', encoding='utf-8') as f:
@@ -24,24 +24,24 @@ def load_iteration_results(project_path, iteration):
         return None
 
 def analyze_project_results(original_results, iteration_results):
-    """分析单个项目的测试结果对比"""
+    """Analyze test result comparison for a single project"""
     if not original_results or not iteration_results:
         return None
 
     analysis = {
-        "passed_to_failed": [],  # 原本通过现在失败的测试
-        "failed_to_passed": [],  # 原本失败现在通过的测试
+        "passed_to_failed": [],  # Tests that previously passed but now fail
+        "failed_to_passed": [],  # Tests that previously failed but now pass
         "total_tests": 0,
         "passed_tests": 0
     }
 
     individual_scores = iteration_results.get("individual_scores", {})
     
-    # 对每个测试用例进行分析
+    # Analyze each test case
     for category, original_result in original_results.items():
         original_passed = original_result.get("passed", False)
         
-        # 在iteration结果中查找对应的测试
+        # Find corresponding test in iteration results
         iteration_result = individual_scores.get(category)
         if iteration_result:
             iteration_passed = (iteration_result.get("test_status") == "success" and 
@@ -59,14 +59,14 @@ def analyze_project_results(original_results, iteration_results):
     return analysis
 
 def analyze_all_projects(base_path_original, base_path_iterations):
-    """分析所有项目的测试结果"""
+    """Analyze test results for all projects"""
     iteration_results = {
         1: defaultdict(lambda: {"total_tests": 0, "passed_tests": 0, "passed_to_failed": [], "failed_to_passed": []}),
         2: defaultdict(lambda: {"total_tests": 0, "passed_tests": 0, "passed_to_failed": [], "failed_to_passed": []}),
         3: defaultdict(lambda: {"total_tests": 0, "passed_tests": 0, "passed_to_failed": [], "failed_to_passed": []})
     }
 
-    # 遍历原始项目目录
+    # Iterate through original project directories
     for project in os.listdir(base_path_original):
         original_project_path = os.path.join(base_path_original, project)
         iteration_project_path = os.path.join(base_path_iterations, project)
@@ -74,18 +74,18 @@ def analyze_all_projects(base_path_original, base_path_iterations):
         if not os.path.isdir(original_project_path):
             continue
 
-        # 加载原始测试结果
+        # Load original test results
         original_results = load_original_test_results(original_project_path)
         if not original_results:
             continue
 
-        # 分析每个iteration的结果
+        # Analyze results for each iteration
         for iteration in range(1, 4):
             iteration_result = load_iteration_results(iteration_project_path, iteration)
             if iteration_result:
                 analysis = analyze_project_results(original_results, iteration_result)
                 if analysis:
-                    # 更新统计数据
+                    # Update statistics
                     iteration_results[iteration]["total"]["total_tests"] += analysis["total_tests"]
                     iteration_results[iteration]["total"]["passed_tests"] += analysis["passed_tests"]
                     iteration_results[iteration]["total"]["passed_to_failed"].extend(
@@ -93,7 +93,7 @@ def analyze_all_projects(base_path_original, base_path_iterations):
                     iteration_results[iteration]["total"]["failed_to_passed"].extend(
                         [f"{project}:{test}" for test in analysis["failed_to_passed"]])
                     
-                    # 保存单个项目的分析结果
+                    # Save analysis results for individual project
                     iteration_results[iteration][project] = {
                         "total_tests": analysis["total_tests"],
                         "passed_tests": analysis["passed_tests"],
@@ -104,7 +104,7 @@ def analyze_all_projects(base_path_original, base_path_iterations):
     return iteration_results
 
 def save_analysis_results(results, base_path_iterations):
-    """保存分析结果"""
+    """Save analysis results"""
     output_data = {
         "timestamp": datetime.now().isoformat(),
         "iterations": {}

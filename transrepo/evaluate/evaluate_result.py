@@ -22,13 +22,13 @@ def analyze_test_results(base_path, output_filename="test_analysis_results.json"
                     data = json.load(f)
                     summary = data.get("summary", {})
                     
-                    # 累加统计数据
+                    # Accumulate statistics
                     stats[iteration_folder]["total_test_count"] += summary.get("test_count", 0)
                     stats[iteration_folder]["total_successful_tests"] += summary.get("successful_tests", 0)
             except (json.JSONDecodeError, FileNotFoundError) as e:
                 print(f"Error reading {scores_path}: {e}")
     
-    # 计算成功率并格式化输出数据
+    # Calculate success rate and format output data
     output_data = {
         "analysis_timestamp": datetime.now().isoformat(),
         "results": {}
@@ -45,14 +45,14 @@ def analyze_test_results(base_path, output_filename="test_analysis_results.json"
             "success_rate": round(success_rate, 2)
         }
     
-    # 保存结果到JSON文件
+    # Save results to JSON file
     output_path = os.path.join(base_path, output_filename)
     try:
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2)
         print(f"\nResults have been saved to: {output_path}")
         
-        # 打印统计结果
+        # Print statistical results
         print("\n=== Test Results Analysis ===")
         for iteration, data in output_data["results"].items():
             print(f"\n{iteration}:")
