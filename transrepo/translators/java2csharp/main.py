@@ -111,11 +111,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args)
-"""
-python3 main.py --java_input_dir /home/v-jiahengwen/RepoTranslationAgent/data/java/simple_repo \
---java_skeleton_dir /home/v-jiahengwen/RepoTranslationAgent/output/skeleton/java/mini_repo2 \
---csharp_output_dir /home/v-jiahengwen/RepoTranslationAgent/output/skeleton/c_sharp/mini_repo2 \
---csharp_final_dir /home/v-jiahengwen/RepoTranslationAgent/output/skeleton/c_sharp/mini_repo2_final \
---ci_input_jsonl /home/v-jiahengwen/RepoTranslationAgent/data/java/simple_repo/test_ci.jsonl \
---log_id test03
-"""
