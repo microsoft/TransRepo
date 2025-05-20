@@ -68,7 +68,6 @@ class JavaSkeletonExtractor:
                             return True
         return False
 
-    # 辅助函数：根据 start_byte 获取当前行的缩进字符串
     def get_indentation(self, source_code_bytes, start_byte):
         line_start = source_code_bytes.rfind(b'\n', 0, start_byte) + 1
         indentation = b''
@@ -81,7 +80,6 @@ class JavaSkeletonExtractor:
                 break
         return indentation.decode('utf-8')
 
-    # 调试函数：打印所有节点类型及部分内容
     def debug_print_node(self, node, source_code, depth=0):
         indent = '  ' * depth
         node_text = source_code[node.start_byte:node.end_byte].decode('utf-8', errors='replace').strip()
@@ -89,16 +87,12 @@ class JavaSkeletonExtractor:
         for child in node.children:
             self.debug_print_node(child, source_code, depth + 1)
 
-    # 修改函数体和静态块
     def modify_function_and_static_blocks(self, tree, source_code_bytes):
         root_node = tree.root_node
 
-        # 调试：打印所有节点类型和部分内容
-        print("打印语法树中的所有节点类型和部分内容：")
         self.debug_print_node(root_node, source_code_bytes)
-        print("\n-----------------------------------\n")
 
-        relevant_nodes = self.find_relevant_nodes(root_node)  # 查找方法、构造函数和静态块
+        relevant_nodes = self.find_relevant_nodes(root_node)
 
         replacements = []
         for node in relevant_nodes:
@@ -107,7 +101,7 @@ class JavaSkeletonExtractor:
                 if node.type == 'method_declaration':
                     return_type_node = node.child_by_field_name('type')
                     if not return_type_node:
-                        continue  # 可能是构造函数，没有返回类型
+                        continue 
                     return_type_bytes = source_code_bytes[return_type_node.start_byte:return_type_node.end_byte]
                     return_type = return_type_bytes.decode('utf-8').strip()
                     return_statement = self.get_default_return_statement(return_type)
@@ -145,7 +139,7 @@ class JavaSkeletonExtractor:
                     end_byte = block_node.end_byte - 1
                     replacements.append((start_byte, end_byte, new_body.encode('utf-8')))
                 else:
-                    print("警告：未找到 static_initializer 的 block 子节点。\n")
+                    print("warning：not find static_initializer's block child node\n")
 
         replacements.sort(reverse=True, key=lambda x: x[0])
         modified_code = bytearray(source_code_bytes)
@@ -154,7 +148,6 @@ class JavaSkeletonExtractor:
 
         return modified_code.decode('utf-8')
 
-    # 处理单个 Java 文件
     def process_java_file(self, file_path):
         with open(file_path, 'rb') as f:
             source_code_bytes = f.read()
@@ -170,7 +163,6 @@ class JavaSkeletonExtractor:
             f.write(modified_code)
         print(f"Processed Java file: {relative_path}\n")
 
-    # 处理非 Java 文件
     def copy_non_java_file(self, file_path):
         relative_path = os.path.relpath(file_path, start=self.input_dir)
         output_file_path = os.path.join(self.output_dir, relative_path)
@@ -179,7 +171,6 @@ class JavaSkeletonExtractor:
         shutil.copy2(file_path, output_file_path)
         print(f"Copied non-Java file: {relative_path}\n")
 
-    # 递归处理目录中的所有 Java 文件并复制其他文件
     def process_java_directory(self):
         if os.path.exists(self.output_dir):
             shutil.rmtree(self.output_dir)
