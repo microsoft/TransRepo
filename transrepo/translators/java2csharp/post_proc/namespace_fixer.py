@@ -81,13 +81,11 @@ class NamespaceFixer:
                 continue
             using_namespace = self._get_node_text(name_node, source_code_bytes)
             
-            # 处理系统命名空间
             if using_namespace.startswith(("System", "NUnit")):
                 self.successful_usings.append(using_namespace)
                 continue
 
             fixed = False
-            # 检查和修复命名空间
             for defined_ns in defined_namespaces.union(defined_types):
                 if self._should_fix_namespace(using_namespace, defined_ns):
                     self.fixed_usings.append((using_namespace, defined_ns))
@@ -98,7 +96,6 @@ class NamespaceFixer:
             if not fixed:
                 self.failed_usings.append(using_namespace)
         
-        # 应用修改
         if replacements:
             modified_code = bytearray(source_code_bytes)
             for start, end, new_text in sorted(replacements, reverse=True):
@@ -106,7 +103,6 @@ class NamespaceFixer:
         else:
             modified_code = source_code_bytes
         
-        # 写入修改后的文件
         relative_path = os.path.relpath(file_path, start=input_dir)
         output_file_path = os.path.join(output_dir, relative_path)
         os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
@@ -140,12 +136,10 @@ class NamespaceFixer:
         defined_namespaces, defined_types = self.collect_namespaces_and_types(input_dir)
         print(f"Collected {len(defined_namespaces)} namespaces and {len(defined_types)} types.\n")
         
-        # 清理并创建输出目录
         if os.path.exists(output_dir):
             shutil.rmtree(output_dir)
         os.makedirs(output_dir, exist_ok=True)
         
-        # 处理所有文件
         for root, dirs, files in os.walk(input_dir):
             for file in files:
                 file_path = os.path.join(root, file)
@@ -154,7 +148,6 @@ class NamespaceFixer:
                 else:
                     self._copy_non_csharp_file(file_path, input_dir, output_dir)
         
-        # 输出处理结果
         self._print_summary()
 
     def _print_summary(self):
