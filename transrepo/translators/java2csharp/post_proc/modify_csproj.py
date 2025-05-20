@@ -77,10 +77,8 @@ class CsprojModifier:
             )
             response_content = response.choices[0].message.content
             
-            # 记录修改后的内容以便调试
             logging.info(f"Modified content for {instance_id}:\n{response_content}")
 
-            # 解析JSON响应
             start = response_content.find('{')
             end = response_content.rfind('}') + 1
             if start == -1 or end <= start:
@@ -99,7 +97,6 @@ class CsprojModifier:
                 logging.error(f"Number of files in response ({len(files)}) doesn't match input ({len(csproj_files)})")
                 return None
 
-            # 验证每个文件内容是否是有效的XML
             for i, file in enumerate(files):
                 content = file.get('content', '')
                 if not ("<Project" in content and "</Project>" in content):
@@ -122,10 +119,8 @@ class CsprojModifier:
                 logging.warning(f"Mapping file not found in {repo_dir}: {mapping_path}")
                 return
 
-            # 读取mapping内容
             mapping_content = FileUtils.read_json_file(mapping_path)
 
-            # 收集所有csproj文件
             csproj_files = []
             for root, _, files in os.walk(repo_dir):
                 for file in files:
@@ -138,11 +133,9 @@ class CsprojModifier:
                 logging.info(f"No .csproj files found in {repo_dir}")
                 return
 
-            # 一次性处理所有csproj文件
             modified_files = self.run_llm_for_modification(csproj_files, mapping_content, instance_id)
 
             if modified_files:
-                # 将修改后的内容写回文件
                 for (file_path, _), modified_file in zip(csproj_files, modified_files):
                     modified_content = modified_file['content']
                     FileUtils.write_text_file(Path(file_path), modified_content)
