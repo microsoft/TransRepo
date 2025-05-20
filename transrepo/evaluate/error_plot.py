@@ -5,7 +5,6 @@ import pandas as pd
 import numpy as np
 import argparse
 
-# Error descriptions - 移除 'unknown' 项
 ERROR_DESCRIPTIONS = {
     'CS0103': 'Name does not exist in current context',
     'CS0117': 'Type does not contain definition',
@@ -77,7 +76,7 @@ def create_plot(all_data, output_path):
             if error == 'Others':
                 labels.append('Others')
             elif error == 'unknown':
-                labels.append('Runtime Error')  # 直接显示 Runtime Error
+                labels.append('Runtime Error')
             else:
                 desc = ERROR_DESCRIPTIONS.get(error, '')
                 if desc:
